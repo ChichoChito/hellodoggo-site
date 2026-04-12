@@ -387,6 +387,12 @@ h1, h2, h3 { line-height: 1.1; }
 }
 .zip-btn:hover { background: var(--blue-bright); }
 
+.hero-cta-btn {
+  margin-bottom: 28px;
+  font-size: 17px;
+  padding: 16px 40px;
+}
+
 /* Trust pills */
 .trust-pills {
   display: flex;
@@ -1414,13 +1420,7 @@ h1, h2, h3 { line-height: 1.1; }
           <span class="hero-line-3">the good life.</span>
         </h1>
         <p class="hero-body">Premium in-home dog walking and boarding from someone who genuinely loves your dog. No apps skimming 40%. No random strangers. Just real care from your neighbor.</p>
-        <div class="zip-card">
-          <div class="zip-label">Check if we serve your neighborhood</div>
-          <div class="zip-row">
-            <input type="text" class="zip-input" placeholder="Enter your ZIP code" maxlength="5" inputmode="numeric">
-            <button class="zip-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Check →</button>
-          </div>
-        </div>
+        <a href="#booking" class="btn btn-blue hero-cta-btn">Book a Walk →</a>
         <div class="trust-pills">
           <span class="trust-pill"><span class="pill-dot"></span> Fully insured</span>
           <span class="trust-pill"><span class="pill-dot"></span> Photo updates every walk</span>
