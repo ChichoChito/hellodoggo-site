@@ -1096,6 +1096,33 @@ h1, h2, h3 { line-height: 1.1; }
   background: #2D9B6F;
 }
 
+/* ZIP rejected message */
+.zip-rejected {
+  margin-top: 20px;
+}
+
+.zip-rejected-inner {
+  text-align: center;
+  padding: 28px 24px;
+  background: var(--terra-pale);
+  border-radius: var(--radius);
+  border: 1px solid rgba(196,103,74,0.15);
+}
+
+.zip-rejected-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.zip-rejected-text {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
 /* Coupon code row */
 .coupon-row {
   margin-top: 20px;
@@ -1390,8 +1417,8 @@ h1, h2, h3 { line-height: 1.1; }
         <div class="zip-card">
           <div class="zip-label">Check if we serve your neighborhood</div>
           <div class="zip-row">
-            <input type="text" class="zip-input" placeholder="Enter your address or ZIP">
-            <button class="zip-btn">Check →</button>
+            <input type="text" class="zip-input" placeholder="Enter your ZIP code" maxlength="5" inputmode="numeric">
+            <button class="zip-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Check →</button>
           </div>
         </div>
         <div class="trust-pills">
@@ -1553,10 +1580,18 @@ h1, h2, h3 { line-height: 1.1; }
 
       <!-- STEP 1: ZIP check gate -->
       <div class="booking-form fade-in" id="booking-zip-step">
-        <div class="zip-gate-label">Enter your address or ZIP to see pricing and book</div>
+        <div class="zip-gate-label">Enter your ZIP code to see pricing and book</div>
         <div class="zip-row" style="max-width: 100%;">
-          <input type="text" class="zip-input" id="booking-zip-input" placeholder="Enter your address or ZIP">
+          <input type="text" class="zip-input" id="booking-zip-input" placeholder="ZIP code (e.g. 90065)" maxlength="5" inputmode="numeric" pattern="[0-9]*">
           <button class="zip-btn" onclick="checkServiceArea()">Check →</button>
+        </div>
+        <!-- Rejection message -->
+        <div class="zip-rejected" id="booking-rejected" style="display: none;">
+          <div class="zip-rejected-inner">
+            <div class="zip-rejected-title">We're not in your neighborhood yet.</div>
+            <p class="zip-rejected-text">We're expanding fast — follow us on Instagram to be the first to know when we launch in your area.</p>
+            <a href="https://instagram.com/hellodoggo.co" target="_blank" class="btn btn-outline" style="margin-top: 12px;">Follow @hellodoggo.co →</a>
+          </div>
         </div>
       </div>
 
@@ -1700,15 +1735,48 @@ h1, h2, h3 { line-height: 1.1; }
      SCRIPTS
      ============================================ -->
 <script>
-// ZIP check gate — reveals booking form
+// Approved ZIP codes — within 5 miles of home base (90065)
+// Update this list as you expand
+const APPROVED_ZIPS = [
+  '90065', // Glassell Park, Cypress Park, Mt Washington (home base)
+  '90042', // Highland Park, Eagle Rock
+  '90041', // Eagle Rock
+  '90031', // Lincoln Heights, Chinatown
+  '90032', // El Sereno
+  '90039', // Silver Lake, Atwater Village
+  '90026', // Echo Park, Silver Lake
+  '90027', // Los Feliz, East Hollywood
+  '90029', // East Hollywood
+  '90012', // Downtown LA, Chinatown
+  '90033', // Boyle Heights (west)
+  '90028', // Hollywood
+  '90004', // Koreatown (north), Larchmont
+  '90038', // Hollywood
+  '90068', // Hollywood Hills
+  '91205', // Glendale
+  '91204', // Glendale
+  '91206', // Glendale
+  '91210', // Glendale
+  '91203', // Glendale
+  '90046', // West Hollywood (east)
+  '90036', // Mid-Wilshire, Miracle Mile
+];
+
+// ZIP check gate — reveals booking form or shows rejection
 function checkServiceArea() {
   const zip = document.getElementById('booking-zip-input').value.trim();
-  if (zip.length < 3) return;
+  if (zip.length < 5) return;
   
-  // For now, accept all — later connect to real service area check
-  document.getElementById('booking-zip-step').style.display = 'none';
-  document.getElementById('booking-main-step').style.display = 'block';
-  document.getElementById('booking-main-step').classList.add('visible');
+  const cleanZip = zip.replace(/\D/g, '').substring(0, 5);
+  
+  if (APPROVED_ZIPS.includes(cleanZip)) {
+    document.getElementById('booking-zip-step').style.display = 'none';
+    document.getElementById('booking-rejected').style.display = 'none';
+    document.getElementById('booking-main-step').style.display = 'block';
+    document.getElementById('booking-main-step').classList.add('visible');
+  } else {
+    document.getElementById('booking-rejected').style.display = 'block';
+  }
 }
 
 // Allow Enter key on ZIP input
@@ -1726,7 +1794,6 @@ function selectService(el, name, price) {
 function applyCoupon() {
   const code = document.getElementById('coupon-input').value.trim();
   if (!code) return;
-  // Placeholder — connect to real coupon validation later
   document.getElementById('coupon-input').style.borderColor = '#2D9B6F';
 }
 
