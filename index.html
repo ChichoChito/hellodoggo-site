@@ -228,6 +228,23 @@ h1, h2, h3 { line-height: 1.1; }
   transition: 0.3s;
 }
 
+.nav-cta-mobile {
+  display: none;
+  padding: 10px 20px;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-cta-mobile:hover {
+  background: var(--blue-bright);
+}
+
 /* ============================================
    SECTION 2: MARQUEE
    ============================================ */
@@ -1404,7 +1421,8 @@ h1, h2, h3 { line-height: 1.1; }
 
 @media (max-width: 600px) {
   .nav-links { display: none; }
-  .nav-mobile-toggle { display: block; }
+  .nav-mobile-toggle { display: none; }
+  .nav-cta-mobile { display: block; }
 
   .hero { padding: 48px 0 60px; }
 
@@ -1453,9 +1471,7 @@ h1, h2, h3 { line-height: 1.1; }
       <li><a href="#instagram">Instagram</a></li>
       <li><a href="#booking" class="nav-cta">Book a Walk</a></li>
     </ul>
-    <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="#booking" class="nav-cta-mobile">Book a Walk</a>
   </div>
 </nav>
 
