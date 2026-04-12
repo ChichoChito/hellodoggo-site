@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hello Doggo — Premium Dog Walking & Boarding · Los Angeles</title>
+<title>Hello Doggo | Premium Dog Walking & Boarding · Los Angeles</title>
 <meta name="description" content="Premium dog walking and boarding in Los Angeles. Direct booking, no platform fees. 5% of every booking supports dogs in need.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1170,6 +1170,80 @@ h1, h2, h3 { line-height: 1.1; }
 }
 
 /* ============================================
+   SECTION: FAQ
+   ============================================ */
+.faq {
+  padding: 100px 0;
+  background: var(--cream);
+}
+
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.faq-item:hover {
+  background: rgba(31,95,166,0.02);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 4px;
+  gap: 16px;
+}
+
+.faq-question span:first-child {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.faq-icon {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  color: var(--blue);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  width: 24px;
+  text-align: center;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+}
+
+.faq-answer p {
+  padding: 0 4px 20px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ============================================
    SECTION 8: INSTAGRAM
    ============================================ */
 .instagram {
@@ -1375,6 +1449,7 @@ h1, h2, h3 { line-height: 1.1; }
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#giving">Giving Back</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#instagram">Instagram</a></li>
       <li><a href="#booking" class="nav-cta">Book a Walk</a></li>
     </ul>
@@ -1419,7 +1494,7 @@ h1, h2, h3 { line-height: 1.1; }
           <span class="hero-line-2">deserves</span>
           <span class="hero-line-3">the good life.</span>
         </h1>
-        <p class="hero-body">Premium in-home dog walking and boarding from someone who genuinely loves your dog. No apps skimming 40%. No random strangers. Just real care from your neighbor.</p>
+        <p class="hero-body">Premium in-home dog walking and boarding from someone who genuinely loves your dog. No random strangers. No corporate apps. Just real care from your neighbor.</p>
         <a href="#booking" class="btn btn-blue hero-cta-btn">Book a Walk →</a>
         <div class="trust-pills">
           <span class="trust-pill"><span class="pill-dot"></span> Fully insured</span>
@@ -1491,18 +1566,12 @@ h1, h2, h3 { line-height: 1.1; }
         </div>
         <div class="service-card-body">
           <h3>Overnight Boarding</h3>
-          <p>Your dog sleeps over in a real home — not a kennel. Evening walk, morning walk, and constant love.</p>
+          <p>Your dog sleeps over in a real home, not a kennel. Evening walk, morning walk, and constant love.</p>
           <a href="#booking" class="service-cta">Check availability →</a>
         </div>
       </div>
     </div>
 
-    <div class="addons-bar fade-in">
-      <span class="addon-item"><span class="addon-dot"></span> Poop scooping</span>
-      <span class="addon-item"><span class="addon-dot"></span> Pet taxi</span>
-      <span class="addon-item"><span class="addon-dot"></span> Photo session</span>
-      <span class="addon-item"><span class="addon-dot"></span> Bath time</span>
-      <span class="addon-item"><span class="addon-dot"></span> Nail trim</span>
     </div>
   </div>
 </section>
@@ -1521,9 +1590,9 @@ h1, h2, h3 { line-height: 1.1; }
       <div class="about-content fade-in" style="animation-delay: 0.1s">
         <div class="eyebrow">Who we are</div>
         <h2>A neighbor who <span class="accent">loves your dog</span> like their own.</h2>
-        <p class="about-body">Hello Doggo started because we were tired of handing our dog to strangers from an app. So we became the person we wished existed — a real neighbor who knows your dog's name, their favorite sniffing spots, and what makes them do the full-body wiggle at the door.</p>
-        <p class="about-body">We walk the same streets your dog loves, grab coffee at the same spots you do, and wave at the same neighbors. Hello Doggo grew out of our own neighborhood — because the best care comes from someone who's already part of the community.</p>
-        <p class="about-body">Every walk comes with real photos and a personal update — because you deserve to know your dog had an amazing time. Not a stock photo from a stranger. A real moment from someone who genuinely loves your dog.</p>
+        <p class="about-body">Hello Doggo started because we were tired of handing our dog to strangers from an app. So we became the person we wished existed. A real neighbor who knows your dog's name, their favorite sniffing spots, and what makes them do the full-body wiggle at the door.</p>
+        <p class="about-body">We walk the same streets your dog loves, grab coffee at the same spots you do, and wave at the same neighbors. Hello Doggo grew out of our own neighborhood because the best care comes from someone who's already part of the community.</p>
+        <p class="about-body">Every walk comes with real photos and a personal update because you deserve to know your dog had an amazing time. Not a stock photo from a stranger. A real moment from someone who genuinely loves your dog.</p>
 
         <div class="trust-grid">
           <div class="trust-card">
@@ -1556,7 +1625,7 @@ h1, h2, h3 { line-height: 1.1; }
     <div class="giving-inner fade-in">
       <div class="giving-pct">5%</div>
       <h2>OF EVERY BOOKING SUPPORTS DOGS IN NEED</h2>
-      <p>Every month we donate 5% of all revenue to a rotating LA dog rescue organization. We post the exact dollar amount publicly because transparency builds trust. Your booking doesn't just take care of your dog — it helps dogs who don't have a home yet.</p>
+      <p>Every month we donate 5% of all revenue to a rotating LA dog rescue organization. We post the exact dollar amount publicly because transparency builds trust. Your booking doesn't just take care of your dog. It helps dogs who don't have a home yet.</p>
       <div class="giving-orgs">
         <span class="giving-org">Wags and Walks LA</span>
         <span class="giving-org">Hope for Paws</span>
@@ -1589,8 +1658,8 @@ h1, h2, h3 { line-height: 1.1; }
         <div class="zip-rejected" id="booking-rejected" style="display: none;">
           <div class="zip-rejected-inner">
             <div class="zip-rejected-title">We're not in your neighborhood yet.</div>
-            <p class="zip-rejected-text">We're expanding fast — follow us on Instagram to be the first to know when we launch in your area.</p>
-            <a href="https://instagram.com/hellodoggo.co" target="_blank" class="btn btn-outline" style="margin-top: 12px;">Follow @hellodoggo.co →</a>
+            <p class="zip-rejected-text">We're expanding fast. Follow us on Instagram to be the first to know when we launch in your area.</p>
+            <a href="https://instagram.com/hellodoggo.co" target="_blank" class="btn btn-outline" style="margin-top: 12px;">Follow us on Instagram →</a>
           </div>
         </div>
       </div>
@@ -1652,6 +1721,150 @@ h1, h2, h3 { line-height: 1.1; }
 </section>
 
 <!-- ============================================
+     FAQ
+     ============================================ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Questions</div>
+      <h2>Everything you <span class="accent">need to know.</span></h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Is Hello Doggo insured?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. Every walk and boarding stay is fully covered.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>How do I know my dog is safe?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Every walker goes through a background check and vetting process before they're approved. You'll get real photo updates during every walk so you always know how things are going.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>How does booking work?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Enter your ZIP code, pick a service and date, and drop your phone number. We'll text you to confirm the details and get you set up.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>How do I pay?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Payments are handled securely through Stripe. Your card info is saved after your first booking so rebooking takes seconds.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>What if I need to cancel?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Just text us. We're flexible and we'll work it out.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>What areas do you serve?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>We currently serve neighborhoods across Los Angeles. Enter your ZIP code in the booking section to check if we're in your area.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>What does the 5% giving pledge mean?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Every month we donate 5% of all revenue to a rotating LA dog rescue. We post the exact amount publicly on our Instagram.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Can I request the same walker?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. After your first booking you can mark any walker as a preferred provider and they'll be your default for future walks.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>What happens during a walk?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Your walker picks up your dog, takes them on a 30-minute neighborhood walk, sends you real photos along the way, and writes a personal update when they're done.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>What if my dog has special needs?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Just let us know when you book. We'll match you with a walker experienced with your dog's specific needs.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Can I book same day?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. We offer on-demand walks when walkers are available in your area.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>I have multiple dogs. Can you walk them together?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely. Let us know how many dogs when you book and we'll price it accordingly.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span>Want to meet your walker first?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>No problem. Just let us know and we'll set up a free meet and greet before your first booking. Totally optional.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
      INSTAGRAM
      ============================================ -->
 <section class="instagram" id="instagram">
@@ -1676,12 +1889,12 @@ h1, h2, h3 { line-height: 1.1; }
       </div>
       <div class="ig-cell img-placeholder fade-in" style="animation-delay: 0.15s">
         <!-- SWAP: Replace src with images/ig-4.jpg -->
-        <img src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc8f9b?w=400&h=400&fit=crop" alt="Dog photo 4">
+        <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=400&h=400&fit=crop" alt="Dog photo 4">
       </div>
     </div>
 
     <div class="ig-cta fade-in">
-      <a href="https://instagram.com/hellodoggo.co" target="_blank" class="btn btn-blue">Follow @hellodoggo.co →</a>
+      <a href="https://instagram.com/hellodoggo.co" target="_blank" class="btn btn-blue">Follow us on Instagram →</a>
     </div>
   </div>
 </section>
@@ -1714,13 +1927,15 @@ h1, h2, h3 { line-height: 1.1; }
         <ul>
           <li><a href="https://instagram.com/hellodoggo.co" target="_blank">Instagram</a></li>
           <li><a href="#booking">Book a Walk</a></li>
-          <li><a href="mailto:hello@hellodoggo.co">Email Us</a></li>
+          <li><a href="mailto:hi@hellodoggo.co">Email Us</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>RETURNING?</h4>
-        <p class="footer-qr-note">Scan the QR on your fridge magnet to rebook in seconds — your payment info is already saved.</p>
+        <h4>AREAS WE SERVE</h4>
+        <ul>
+          <li><a href="#booking">Check your ZIP code</a></li>
+        </ul>
       </div>
     </div>
 
@@ -1761,6 +1976,13 @@ const APPROVED_ZIPS = [
   '90046', // West Hollywood (east)
   '90036', // Mid-Wilshire, Miracle Mile
 ];
+
+// FAQ accordion
+function toggleFaq(el) {
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
 
 // ZIP check gate — reveals booking form or shows rejection
 function checkServiceArea() {
