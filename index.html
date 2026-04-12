@@ -605,9 +605,9 @@ h1, h2, h3 { line-height: 1.1; }
   margin-left: 4px;
 }
 
-.service-card:nth-child(1) .service-price { color: var(--blue); }
-.service-card:nth-child(2) .service-price { color: var(--terra); }
-.service-card:nth-child(3) .service-price { color: var(--ink); }
+.service-card:nth-child(1) .service-cta { color: var(--blue); }
+.service-card:nth-child(2) .service-cta { color: var(--terra); }
+.service-card:nth-child(3) .service-cta { color: var(--ink); }
 
 /* Addons bar */
 .addons-bar {
@@ -985,6 +985,157 @@ h1, h2, h3 { line-height: 1.1; }
   color: var(--muted-light);
 }
 
+/* Service selector cards */
+.service-select-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.service-option {
+  padding: 20px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+  cursor: pointer;
+  background: var(--white);
+  transition: all 0.2s ease;
+}
+
+.service-option:hover {
+  border-color: var(--blue);
+}
+
+.service-option.active {
+  border-color: var(--blue);
+  background: var(--blue);
+}
+
+.service-option-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.service-option.active .service-option-name {
+  color: var(--white);
+}
+
+.service-option-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--blue);
+  line-height: 1;
+}
+
+.service-option.active .service-option-price {
+  color: var(--white);
+}
+
+.service-option-unit {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.booking-donation-note {
+  text-align: center;
+  padding: 14px;
+  margin: 20px 0;
+  background: var(--terra-pale);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.booking-donation-note .donation {
+  color: var(--terra);
+  font-weight: 500;
+}
+
+/* Service card CTA link */
+.service-cta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.service-cta:hover { color: var(--blue-bright); }
+
+/* ZIP gate step */
+.zip-gate-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ZIP confirmed badge */
+.zip-confirmed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(45,155,111,0.08);
+  border: 1px solid rgba(45,155,111,0.2);
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2D9B6F;
+}
+
+.zip-confirmed-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2D9B6F;
+}
+
+/* Coupon code row */
+.coupon-row {
+  margin-top: 20px;
+  margin-bottom: 4px;
+}
+
+.coupon-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.coupon-input-row .form-input {
+  flex: 1;
+}
+
+.coupon-apply-btn {
+  padding: 12px 20px;
+  background: var(--cream);
+  color: var(--ink);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.coupon-apply-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+@media (max-width: 600px) {
+  .service-select-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* ============================================
    SECTION 8: INSTAGRAM
    ============================================ */
@@ -1275,7 +1426,7 @@ h1, h2, h3 { line-height: 1.1; }
   <div class="container">
     <div class="section-header fade-in">
       <div class="eyebrow">What we offer</div>
-      <h2>Honest pricing. <span class="accent">Genuine care.</span></h2>
+      <h2>Everything your dog <span class="accent">deserves.</span></h2>
     </div>
 
     <div class="services-grid">
@@ -1288,7 +1439,7 @@ h1, h2, h3 { line-height: 1.1; }
         <div class="service-card-body">
           <h3>Dog Walking</h3>
           <p>30-minute neighborhood walks with real photo updates and a personal report after every outing.</p>
-          <span class="service-price">$32–$35<span class="service-price-unit"> / 30 min</span></span>
+          <a href="#booking" class="service-cta">Check availability →</a>
         </div>
       </div>
 
@@ -1301,7 +1452,7 @@ h1, h2, h3 { line-height: 1.1; }
         <div class="service-card-body">
           <h3>Drop-In Visit</h3>
           <p>30-minute in-home check-in. Feeding, potty break, playtime, and belly rubs included.</p>
-          <span class="service-price">$30–$34<span class="service-price-unit"> / visit</span></span>
+          <a href="#booking" class="service-cta">Check availability →</a>
         </div>
       </div>
 
@@ -1314,16 +1465,17 @@ h1, h2, h3 { line-height: 1.1; }
         <div class="service-card-body">
           <h3>Overnight Boarding</h3>
           <p>Your dog sleeps over in a real home — not a kennel. Evening walk, morning walk, and constant love.</p>
-          <span class="service-price">$75–$85<span class="service-price-unit"> / night</span></span>
+          <a href="#booking" class="service-cta">Check availability →</a>
         </div>
       </div>
     </div>
 
     <div class="addons-bar fade-in">
-      <span class="addon-item"><span class="addon-dot"></span> Poop scooping $25</span>
-      <span class="addon-item"><span class="addon-dot"></span> Pet taxi $35</span>
-      <span class="addon-item"><span class="addon-dot"></span> Photo session $20</span>
-      <span class="addon-item"><span class="addon-dot"></span> 10% resident discount</span>
+      <span class="addon-item"><span class="addon-dot"></span> Poop scooping</span>
+      <span class="addon-item"><span class="addon-dot"></span> Pet taxi</span>
+      <span class="addon-item"><span class="addon-dot"></span> Photo session</span>
+      <span class="addon-item"><span class="addon-dot"></span> Bath time</span>
+      <span class="addon-item"><span class="addon-dot"></span> Nail trim</span>
     </div>
   </div>
 </section>
@@ -1396,83 +1548,69 @@ h1, h2, h3 { line-height: 1.1; }
       <div class="booking-header fade-in">
         <div class="eyebrow">Book now</div>
         <h2>Let's get your dog <span class="accent">the good life.</span></h2>
-        <p>Fill out the details below and we'll confirm within the hour.</p>
+        <p>First, let's make sure we're in your neighborhood.</p>
       </div>
 
-      <div class="booking-form fade-in">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Service</label>
-            <select class="form-select">
-              <option>30-Min Walk — $32</option>
-              <option>60-Min Walk — $50</option>
-              <option>Drop-In Visit — $30</option>
-              <option>Overnight Boarding — $80</option>
-            </select>
+      <!-- STEP 1: ZIP check gate -->
+      <div class="booking-form fade-in" id="booking-zip-step">
+        <div class="zip-gate-label">Enter your address or ZIP to see pricing and book</div>
+        <div class="zip-row" style="max-width: 100%;">
+          <input type="text" class="zip-input" id="booking-zip-input" placeholder="Enter your address or ZIP">
+          <button class="zip-btn" onclick="checkServiceArea()">Check →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Service selection + booking (hidden until ZIP check) -->
+      <div class="booking-form fade-in" id="booking-main-step" style="display: none;">
+        <div class="zip-confirmed">
+          <span class="zip-confirmed-dot"></span>
+          <span>We serve your area!</span>
+        </div>
+
+        <div class="service-select-grid">
+          <div class="service-option active" onclick="selectService(this, '30-Min Walk', 32)">
+            <div class="service-option-name">30-Min Walk</div>
+            <div class="service-option-price">$32</div>
           </div>
+          <div class="service-option" onclick="selectService(this, '60-Min Walk', 50)">
+            <div class="service-option-name">60-Min Walk</div>
+            <div class="service-option-price">$50</div>
+          </div>
+          <div class="service-option" onclick="selectService(this, 'Drop-In Visit', 30)">
+            <div class="service-option-name">Drop-In</div>
+            <div class="service-option-price">$30</div>
+          </div>
+          <div class="service-option" onclick="selectService(this, 'Overnight Boarding', 80)">
+            <div class="service-option-name">Boarding</div>
+            <div class="service-option-price">$80<span class="service-option-unit">/night</span></div>
+          </div>
+        </div>
+
+        <div class="form-row" style="margin-top: 24px;">
           <div class="form-group">
-            <label class="form-label">Preferred Date</label>
+            <label class="form-label">When</label>
             <input type="date" class="form-input">
           </div>
-        </div>
-
-        <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Your Name</label>
-            <input type="text" class="form-input" placeholder="First and last">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Dog's Name</label>
-            <input type="text" class="form-input" placeholder="Who's the good dog?">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-input" placeholder="(555) 555-5555">
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="form-group full">
-            <label class="form-label">Address</label>
-            <input type="text" class="form-input" placeholder="Where should we pick up?">
+        <div class="coupon-row">
+          <label class="form-label">Have a code?</label>
+          <div class="coupon-input-row">
+            <input type="text" class="form-input" id="coupon-input" placeholder="Enter coupon code">
+            <button class="coupon-apply-btn" onclick="applyCoupon()">Apply</button>
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="form-group full">
-            <label class="form-label">Anything we should know?</label>
-            <input type="text" class="form-input" placeholder="Allergies, temperament, favorite treats...">
-          </div>
+        <div class="booking-donation-note">
+          <span class="donation">5% of this booking supports dogs in need ♥</span>
         </div>
 
-        <div class="tip-section">
-          <div class="tip-label">Add a tip (optional)</div>
-          <div class="tip-options">
-            <div class="tip-option" onclick="selectTip(this)">No tip</div>
-            <div class="tip-option active" onclick="selectTip(this)">15%</div>
-            <div class="tip-option" onclick="selectTip(this)">18%</div>
-            <div class="tip-option" onclick="selectTip(this)">20%</div>
-            <div class="tip-option" onclick="selectTip(this)">Custom</div>
-          </div>
-        </div>
-
-        <div class="order-summary">
-          <div class="order-line">
-            <span>30-Min Walk</span>
-            <span>$32.00</span>
-          </div>
-          <div class="order-line">
-            <span>Tip (15%)</span>
-            <span>$4.80</span>
-          </div>
-          <div class="order-line">
-            <span class="donation">5% to dogs in need</span>
-            <span class="donation">$1.60</span>
-          </div>
-          <div class="order-line total">
-            <span>Total</span>
-            <span>$36.80</span>
-          </div>
-        </div>
-
-        <button class="book-btn">Book & Pay with Stripe →</button>
-        <div class="stripe-note">🔒 Secured by Stripe · Payment info saved for easy rebooking</div>
+        <button class="book-btn">Book Now →</button>
+        <div class="stripe-note">We'll text you to confirm details and set up payment</div>
       </div>
     </div>
   </div>
@@ -1562,6 +1700,36 @@ h1, h2, h3 { line-height: 1.1; }
      SCRIPTS
      ============================================ -->
 <script>
+// ZIP check gate — reveals booking form
+function checkServiceArea() {
+  const zip = document.getElementById('booking-zip-input').value.trim();
+  if (zip.length < 3) return;
+  
+  // For now, accept all — later connect to real service area check
+  document.getElementById('booking-zip-step').style.display = 'none';
+  document.getElementById('booking-main-step').style.display = 'block';
+  document.getElementById('booking-main-step').classList.add('visible');
+}
+
+// Allow Enter key on ZIP input
+document.getElementById('booking-zip-input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') checkServiceArea();
+});
+
+// Service selector
+function selectService(el, name, price) {
+  document.querySelectorAll('.service-option').forEach(o => o.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// Coupon code
+function applyCoupon() {
+  const code = document.getElementById('coupon-input').value.trim();
+  if (!code) return;
+  // Placeholder — connect to real coupon validation later
+  document.getElementById('coupon-input').style.borderColor = '#2D9B6F';
+}
+
 // Tip selector
 function selectTip(el) {
   document.querySelectorAll('.tip-option').forEach(o => o.classList.remove('active'));
