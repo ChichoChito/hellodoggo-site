@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hello Doggo | Premium Dog Walking & Boarding · Los Angeles</title>
-<meta name="description" content="Premium dog walking and boarding in Los Angeles. Direct booking, no platform fees. 5% of every booking supports dogs in need.">
+<meta name="description" content="Premium dog walking and boarding in Los Angeles. Direct booking, no platform fees. Every booking feeds a rescue dog.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
@@ -1469,9 +1469,9 @@ h1, h2, h3 { line-height: 1.1; }
       <li><a href="#giving">Giving Back</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#instagram">Instagram</a></li>
-      <li><a href="#booking" class="nav-cta">Book a Walk</a></li>
+      <li><a href="#booking" class="nav-cta">Join the Waitlist</a></li>
     </ul>
-    <a href="#booking" class="nav-cta-mobile">Book a Walk</a>
+    <a href="#booking" class="nav-cta-mobile">Join the Waitlist</a>
   </div>
 </nav>
 
@@ -1486,14 +1486,14 @@ h1, h2, h3 { line-height: 1.1; }
     <span>DIRECT BOOKING</span><span class="dot">✦</span>
     <span>NO PLATFORM FEES</span><span class="dot">✦</span>
     <span>LOS ANGELES</span><span class="dot">✦</span>
-    <span>5% SUPPORTS DOGS IN NEED</span><span class="dot">✦</span>
+    <span>EVERY BOOKING FEEDS A RESCUE DOG</span><span class="dot">✦</span>
     <span>DOG WALKING</span><span class="dot">✦</span>
     <span>OVERNIGHT BOARDING</span><span class="dot">✦</span>
     <span>DROP-IN VISITS</span><span class="dot">✦</span>
     <span>DIRECT BOOKING</span><span class="dot">✦</span>
     <span>NO PLATFORM FEES</span><span class="dot">✦</span>
     <span>LOS ANGELES</span><span class="dot">✦</span>
-    <span>5% SUPPORTS DOGS IN NEED</span><span class="dot">✦</span>
+    <span>EVERY BOOKING FEEDS A RESCUE DOG</span><span class="dot">✦</span>
   </div>
 </div>
 
@@ -1511,7 +1511,7 @@ h1, h2, h3 { line-height: 1.1; }
           <span class="hero-line-3">the good life.</span>
         </h1>
         <p class="hero-body">Premium in-home dog walking and boarding from someone who genuinely loves your dog. No random strangers. No corporate apps. Just real care from your neighbor.</p>
-        <a href="#booking" class="btn btn-blue hero-cta-btn">Book a Walk →</a>
+        <a href="#booking" class="btn btn-blue hero-cta-btn">Join the Waitlist →</a>
         <div class="trust-pills">
           <span class="trust-pill"><span class="pill-dot"></span> Fully insured</span>
           <span class="trust-pill"><span class="pill-dot"></span> Photo updates every walk</span>
@@ -1577,8 +1577,8 @@ h1, h2, h3 { line-height: 1.1; }
       <div class="service-card fade-in" style="animation-delay: 0.2s">
         <div class="service-card-img img-placeholder">
           <span class="service-num">03</span>
-          <!-- SWAP: Replace src with images/service-boarding.jpg -->
-          <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=450&fit=crop" alt="Cozy dog resting">
+          <!-- Boarding image: French Bulldog in yellow sweater -->
+          <img src="images/service-boarding.png" alt="Cozy dog resting in bed">
         </div>
         <div class="service-card-body">
           <h3>Overnight Boarding</h3>
@@ -1639,9 +1639,9 @@ h1, h2, h3 { line-height: 1.1; }
 <section class="giving" id="giving">
   <div class="container">
     <div class="giving-inner fade-in">
-      <div class="giving-pct">5%</div>
-      <h2>OF EVERY BOOKING SUPPORTS DOGS IN NEED</h2>
-      <p>Every month we donate 5% of all revenue to a rotating LA dog rescue organization. We post the exact dollar amount publicly because transparency builds trust. Your booking doesn't just take care of your dog. It helps dogs who don't have a home yet.</p>
+      <div class="giving-pct">♥</div>
+      <h2>EVERY BOOKING FEEDS A RESCUE DOG</h2>
+      <p>For every booking on Hello Doggo, we donate to feed a rescue dog at a rotating LA shelter. We post the numbers publicly because transparency builds trust. Your booking doesn't just take care of your dog. It helps dogs who don't have a home yet.</p>
       <div class="giving-orgs">
         <span class="giving-org">Wags and Walks LA</span>
         <span class="giving-org">Hope for Paws</span>
@@ -1658,7 +1658,7 @@ h1, h2, h3 { line-height: 1.1; }
   <div class="container">
     <div class="booking-wrapper">
       <div class="booking-header fade-in">
-        <div class="eyebrow">Book now</div>
+        <div class="eyebrow">Coming soon</div>
         <h2>Let's get your dog <span class="accent">the good life.</span></h2>
         <p>First, let's make sure we're in your neighborhood.</p>
       </div>
@@ -1680,57 +1680,46 @@ h1, h2, h3 { line-height: 1.1; }
         </div>
       </div>
 
-      <!-- STEP 2: Service selection + booking (hidden until ZIP check) -->
+      <!-- STEP 2: Waitlist signup (hidden until ZIP check) -->
       <div class="booking-form fade-in" id="booking-main-step" style="display: none;">
         <div class="zip-confirmed">
           <span class="zip-confirmed-dot"></span>
           <span>We serve your area!</span>
         </div>
 
-        <div class="service-select-grid">
-          <div class="service-option active" onclick="selectService(this, '30-Min Walk', 32)">
-            <div class="service-option-name">30-Min Walk</div>
-            <div class="service-option-price">$32</div>
+        <div style="text-align:center;margin-bottom:24px;">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ink);letter-spacing:0.02em;">WE'RE LAUNCHING SOON</div>
+          <p style="font-size:14px;color:var(--muted);font-weight:300;margin-top:4px;">Drop your info and we'll text you the moment we go live.</p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-input" placeholder="First name">
           </div>
-          <div class="service-option" onclick="selectService(this, '60-Min Walk', 50)">
-            <div class="service-option-name">60-Min Walk</div>
-            <div class="service-option-price">$50</div>
-          </div>
-          <div class="service-option" onclick="selectService(this, 'Drop-In Visit', 30)">
-            <div class="service-option-name">Drop-In</div>
-            <div class="service-option-price">$30</div>
-          </div>
-          <div class="service-option" onclick="selectService(this, 'Overnight Boarding', 80)">
-            <div class="service-option-name">Boarding</div>
-            <div class="service-option-price">$80<span class="service-option-unit">/night</span></div>
+          <div class="form-group">
+            <label class="form-label">Dog's Name</label>
+            <input type="text" class="form-input" placeholder="Your dog's name">
           </div>
         </div>
 
-        <div class="form-row" style="margin-top: 24px;">
-          <div class="form-group">
-            <label class="form-label">When</label>
-            <input type="date" class="form-input">
-          </div>
+        <div class="form-row">
           <div class="form-group">
             <label class="form-label">Phone Number</label>
             <input type="tel" class="form-input" placeholder="(555) 555-5555">
           </div>
-        </div>
-
-        <div class="coupon-row">
-          <label class="form-label">Have a code?</label>
-          <div class="coupon-input-row">
-            <input type="text" class="form-input" id="coupon-input" placeholder="Enter coupon code">
-            <button class="coupon-apply-btn" onclick="applyCoupon()">Apply</button>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="you@email.com">
           </div>
         </div>
 
         <div class="booking-donation-note">
-          <span class="donation">5% of this booking supports dogs in need ♥</span>
+          <span class="donation">♥ Every booking feeds a rescue dog</span>
         </div>
 
-        <button class="book-btn">Book Now →</button>
-        <div class="stripe-note">We'll text you to confirm details and set up payment</div>
+        <button class="book-btn" onclick="this.textContent='You\'re on the list! 🎉'; this.style.background='#2D9B6F'; this.disabled=true;">Join the Waitlist →</button>
+        <div class="stripe-note">We'll text you on launch day. No spam, ever.</div>
       </div>
     </div>
   </div>
@@ -1809,11 +1798,11 @@ h1, h2, h3 { line-height: 1.1; }
 
       <div class="faq-item fade-in" onclick="toggleFaq(this)">
         <div class="faq-question">
-          <span>What does the 5% giving pledge mean?</span>
+          <span>How does "every booking feeds a rescue dog" work?</span>
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          <p>Every month we donate 5% of all revenue to a rotating LA dog rescue. We post the exact amount publicly on our Instagram.</p>
+          <p>For every booking on Hello Doggo, we donate to feed a rescue dog at a rotating LA shelter. We post the running total on our Instagram so you can see the impact.</p>
         </div>
       </div>
 
@@ -1934,7 +1923,7 @@ h1, h2, h3 { line-height: 1.1; }
           <li><a href="#services">Dog Walking</a></li>
           <li><a href="#services">Drop-In Visits</a></li>
           <li><a href="#services">Overnight Boarding</a></li>
-          <li><a href="#booking">Book Now</a></li>
+          <li><a href="#booking">Join the Waitlist</a></li>
         </ul>
       </div>
 
@@ -1942,8 +1931,8 @@ h1, h2, h3 { line-height: 1.1; }
         <h4>CONNECT</h4>
         <ul>
           <li><a href="https://instagram.com/hellodoggo.co" target="_blank">Instagram</a></li>
-          <li><a href="#booking">Book a Walk</a></li>
-          <li><a href="mailto:hi@hellodoggo.co">Email Us</a></li>
+          <li><a href="#booking">Join the Waitlist</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#bfd7d6ffd7dad3d3d0dbd0d8d8d091dcd0">Email Us</a></li>
         </ul>
       </div>
 
@@ -1965,7 +1954,7 @@ h1, h2, h3 { line-height: 1.1; }
 <!-- ============================================
      SCRIPTS
      ============================================ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Approved ZIP codes — within 5 miles of home base (90065)
 // Update this list as you expand
 const APPROVED_ZIPS = [
