@@ -1199,6 +1199,16 @@ h1, h2, h3 { line-height: 1.1; }
   margin: 0 auto;
 }
 
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.faq-col {}
+
 .faq-item {
   border-bottom: 1px solid var(--border);
   cursor: pointer;
@@ -1427,6 +1437,8 @@ h1, h2, h3 { line-height: 1.1; }
   .hero { padding: 48px 0 60px; }
 
   .trust-grid { grid-template-columns: 1fr; }
+
+  .faq-grid { grid-template-columns: 1fr; }
 
   .trust-pills { flex-direction: column; }
 
@@ -1735,134 +1747,88 @@ h1, h2, h3 { line-height: 1.1; }
       <h2>Everything you <span class="accent">need to know.</span></h2>
     </div>
 
-    <div class="faq-list">
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>Is Hello Doggo insured?</span>
-          <span class="faq-icon">+</span>
+    <div class="faq-grid">
+      <div class="faq-col">
+        <div class="faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Is Hello Doggo insured?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. Every walk and boarding stay is fully covered by the Hello Doggo Guarantee.</p>
+          </div>
         </div>
-        <div class="faq-answer">
-          <p>Yes. Every walk and boarding stay is fully covered.</p>
+
+        <div class="faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>How do I know my dog is safe?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Every walker is background checked and vetted. You get real-time GPS tracking and photo updates during every walk.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>How does booking work?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Pick a service, choose a walker or let us match you, and confirm. Payments are handled securely through Stripe.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>What if I need to cancel?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Just let us know. We're flexible and we'll work it out — no hidden fees or penalties.</p>
+          </div>
         </div>
       </div>
 
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>How do I know my dog is safe?</span>
-          <span class="faq-icon">+</span>
+      <div class="faq-col">
+        <div class="faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Can I request the same walker?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. Mark any walker as preferred and they'll be your default for future bookings.</p>
+          </div>
         </div>
-        <div class="faq-answer">
-          <p>Every walker goes through a background check and vetting process before they're approved. You'll get real photo updates during every walk so you always know how things are going.</p>
-        </div>
-      </div>
 
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>How does booking work?</span>
-          <span class="faq-icon">+</span>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>How does "every booking feeds a rescue dog" work?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>For every booking, we donate to feed a rescue dog at a rotating LA shelter. We post the running total on our Instagram.</p>
+          </div>
         </div>
-        <div class="faq-answer">
-          <p>Enter your ZIP code, pick a service and date, and drop your phone number. We'll text you to confirm the details and get you set up.</p>
-        </div>
-      </div>
 
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>How do I pay?</span>
-          <span class="faq-icon">+</span>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Can I meet my walker first?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Of course. We offer a free meet and greet before your first booking. Totally optional.</p>
+          </div>
         </div>
-        <div class="faq-answer">
-          <p>Payments are handled securely through Stripe. Your card info is saved after your first booking so rebooking takes seconds.</p>
-        </div>
-      </div>
 
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>What if I need to cancel?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Just text us. We're flexible and we'll work it out.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>What areas do you serve?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>We currently serve neighborhoods across Los Angeles. Enter your ZIP code in the booking section to check if we're in your area.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>How does "every booking feeds a rescue dog" work?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>For every booking on Hello Doggo, we donate to feed a rescue dog at a rotating LA shelter. We post the running total on our Instagram so you can see the impact.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>Can I request the same walker?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Yes. After your first booking you can mark any walker as a preferred provider and they'll be your default for future walks.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>What happens during a walk?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Your walker picks up your dog, takes them on a 30-minute neighborhood walk, sends you real photos along the way, and writes a personal update when they're done.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>What if my dog has special needs?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Just let us know when you book. We'll match you with a walker experienced with your dog's specific needs.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>Can I book same day?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Yes. We offer on-demand walks when walkers are available in your area.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>I have multiple dogs. Can you walk them together?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Absolutely. Let us know how many dogs when you book and we'll price it accordingly.</p>
-        </div>
-      </div>
-
-      <div class="faq-item fade-in" onclick="toggleFaq(this)">
-        <div class="faq-question">
-          <span>Want to meet your walker first?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>No problem. Just let us know and we'll set up a free meet and greet before your first booking. Totally optional.</p>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>What areas do you serve?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>We're launching in Northeast LA and expanding across Los Angeles. Enter your ZIP code above to check.</p>
+          </div>
         </div>
       </div>
     </div>
