@@ -36,7 +36,10 @@ body {
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
+html { overflow-x: hidden; }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
@@ -165,7 +168,7 @@ body {
 
 /* Walker card */
 .walker-card {
-  position: absolute; bottom: 32px; right: 28px; left: auto; z-index: 5;
+  position: absolute; bottom: 24px; right: 20px; left: auto; z-index: 5;
   background: var(--white); border-radius: var(--radius-lg); padding: 16px 20px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.12); width: 230px; border: 1px solid var(--border);
 }
@@ -181,7 +184,7 @@ body {
 .walker-stat-label { font-size: 11px; color: var(--muted); font-weight: 500; }
 .walker-stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--blue); }
 
-.live-badge { position: absolute; top: 24px; right: 24px; z-index: 5; background: var(--white); padding: 8px 14px; border-radius: 100px; display: flex; align-items: center; gap: 7px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.live-badge { position: absolute; top: 16px; right: 16px; z-index: 5; background: var(--white); padding: 7px 12px; border-radius: 100px; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); max-width: calc(100% - 32px); }
 .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22C55E; animation: pulse-dot 2s infinite; }
 @keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.4); } }
 .live-badge span { font-size: 12px; font-weight: 600; color: var(--ink); }
@@ -352,6 +355,23 @@ body {
   .trust-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  /* Hide walker card on small mobile - too cramped */
+  .walker-card { display: none; }
+  /* Ensure hero photo fills properly */
+  .hero-visual { height: 65vw; max-height: 380px; }
+  /* Trust pills wrap nicely */
+  .trust-pills { gap: 8px; }
+  .trust-pill { font-size: 11px; padding: 5px 10px; }
+  /* Widget fits screen */
+  .hero-widget { padding: 16px; }
+  .widget-service-icon { font-size: 16px; }
+  .widget-btn { font-size: 13px; padding: 12px 14px; }
+  /* No side scroll on any element */
+  .addons-bar { flex-direction: column; gap: 12px; align-items: flex-start; padding: 18px 20px; }
+  .giving-inner { grid-template-columns: 1fr; gap: 32px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .ig-grid { grid-template-columns: repeat(2,1fr); }
 }
 </style>
 </head>
@@ -757,26 +777,22 @@ body {
           <li><a href="#services">Dog Walking</a></li>
           <li><a href="#services">Drop-In Visits</a></li>
           <li><a href="#services">Overnight Boarding</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>GET STARTED</h4>
+        <ul>
           <li><a href="#booking">Join the Waitlist</a></li>
+          <li><a href="/walk">Become a Walker</a></li>
+          <li><a href="#booking">Check your ZIP</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>CONNECT</h4>
         <ul>
           <li><a href="https://instagram.com/hellodoggo" target="_blank">Instagram</a></li>
-          <li><a href="/walk">Become a Walker</a></li>
-          <li><a href="mailto:hi@hellodoggo.co">Email Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>AREAS WE SERVE</h4>
-        <ul>
-          <li><a href="#booking">Glassell Park</a></li>
-          <li><a href="#booking">Silver Lake</a></li>
-          <li><a href="#booking">Echo Park</a></li>
-          <li><a href="#booking">Highland Park</a></li>
-          <li><a href="#booking">Eagle Rock</a></li>
-          <li><a href="#booking">Check your ZIP</a></li>
+          <li><a href="https://tiktok.com/@hellodoggo" target="_blank">TikTok</a></li>
+          <li><a href="mailto:hi@hellodoggo.co">hi@hellodoggo.co</a></li>
         </ul>
       </div>
     </div>
