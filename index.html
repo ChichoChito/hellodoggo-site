@@ -147,7 +147,7 @@ body {
 }
 .widget-btn:hover { background: var(--blue-bright); transform: translateY(-1px); }
 .widget-result { display: none; margin-top: 12px; padding: 12px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; }
-.widget-result.success { background: rgba(45,155,111,0.08); border: 1px solid rgba(45,155,111,0.2); color: #1F7A52; display: flex; align-items: center; gap: 8px; }
+.widget-result.success { background: rgba(45,155,111,0.08); border: 1px solid rgba(45,155,111,0.2); color: #1F7A52; display: none; align-items: center; gap: 8px; }
 .widget-result.error { background: var(--terra-pale); border: 1px solid rgba(196,103,74,0.2); color: var(--terra); }
 
 .trust-pills { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -165,7 +165,7 @@ body {
 
 /* Walker card */
 .walker-card {
-  position: absolute; bottom: 32px; left: -28px; z-index: 5;
+  position: absolute; bottom: 32px; right: 28px; left: auto; z-index: 5;
   background: var(--white); border-radius: var(--radius-lg); padding: 16px 20px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.12); width: 230px; border: 1px solid var(--border);
 }
@@ -221,7 +221,7 @@ body {
 .walker-profile { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .walker-profile:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
 .walker-photo-wrap { position: relative; aspect-ratio: 3/2; overflow: hidden; }
-.walker-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.5s ease; }
+.walker-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; transition: transform 0.5s ease; }
 .walker-profile:hover .walker-photo-wrap img { transform: scale(1.04); }
 .walker-badge { position: absolute; top: 12px; right: 12px; background: var(--blue); color: var(--white); font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 100px; }
 .walker-info { padding: 18px 20px; }
@@ -450,8 +450,8 @@ body {
     </div>
     <div class="walker-card">
       <div class="walker-card-top">
-        <div class="walker-avatar">
-          <img src="nidia-walking.jpg" alt="Nidia">
+        <div class="walker-avatar" style="display:flex;align-items:center;justify-content:center;background:var(--blue);border:2px solid var(--blue);">
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:white;line-height:1;">N</span>
         </div>
         <div>
           <div class="walker-name">Nidia</div>
@@ -553,7 +553,7 @@ body {
     <div class="walker-strip">
       <div class="walker-profile fade-in">
         <div class="walker-photo-wrap">
-          <img src="nidia-walking.jpg" alt="Nidia walking a dog in Northeast LA">
+          <img src="nidia-walking.jpg" alt="Nidia walking a dog in Northeast LA" style="object-position:center 25%;">
           <span class="walker-badge">FOUNDING WALKER</span>
         </div>
         <div class="walker-info">
@@ -574,7 +574,7 @@ body {
       </div>
       <div class="walker-profile fade-in" style="animation-delay:0.1s">
         <div class="walker-photo-wrap">
-          <img src="dog-husky-walk.jpg" alt="Happy dog on a walk in NELA">
+          <img src="dog-husky-walk.jpg" alt="Happy dog on a walk in NELA" style="object-position:center center;">
           <span class="walker-badge" style="background:var(--terra);">YOUR SPOT</span>
         </div>
         <div class="walker-info">
@@ -592,7 +592,7 @@ body {
       </div>
       <div class="walker-profile fade-in" style="animation-delay:0.2s">
         <div class="walker-photo-wrap">
-          <img src="dog-jackrussel.jpg" alt="Cute dog at the park">
+          <img src="dog-jackrussel.jpg" alt="Cute dog at the park" style="object-position:center 40%;">
           <span class="walker-badge" style="background:var(--terra);">YOUR SPOT</span>
         </div>
         <div class="walker-info">
@@ -825,8 +825,7 @@ function checkHeroZip() {
   document.getElementById('widget-error').style.display = 'none';
   if (zip.length < 5) { document.getElementById('hero-zip').focus(); return; }
   if (APPROVED_ZIPS.includes(zip)) {
-    document.getElementById('widget-success').style.display = 'flex';
-    document.getElementById('booking-zip-step').style.display = 'none';
+    document.getElementById('widget-success').style.display = 'flex';    document.getElementById('booking-zip-step').style.display = 'none';
     document.getElementById('booking-main-step').style.display = 'block';
     setTimeout(() => document.getElementById('booking-main-step').classList.add('visible'), 10);
   } else {
