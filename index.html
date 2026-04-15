@@ -107,14 +107,14 @@ html { overflow-x: hidden; }
 
 .hero-content {
   display: flex; flex-direction: column; justify-content: center;
-  padding: 72px 48px 72px 48px; position: relative; z-index: 2;
+  padding: 72px 48px; position: relative; z-index: 2; overflow: hidden;
 }
 .hero-eyebrow { margin-bottom: 20px; }
 .hero h1 { margin-bottom: 24px; }
 .hero-line-1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px,12vw,76px); color: var(--ink); display: block; line-height: 0.95; }
 .hero-line-2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(32px,10vw,58px); color: var(--blue); display: block; line-height: 1.1; }
 .hero-line-3 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px,12vw,76px); color: var(--terra); display: block; line-height: 0.95; }
-.hero-body { font-size: 15px; color: var(--muted); max-width: 100%; margin-bottom: 28px; line-height: 1.7; font-weight: 300; overflow-wrap: break-word; word-wrap: break-word; }
+.hero-body { font-size: 15px; color: var(--muted); max-width: 100%; margin-bottom: 28px; line-height: 1.7; font-weight: 300; overflow-wrap: break-word; word-break: break-word; }
 
 /* Hero widget */
 .hero-widget {
@@ -153,7 +153,7 @@ html { overflow-x: hidden; }
 .widget-result.success { background: rgba(45,155,111,0.08); border: 1px solid rgba(45,155,111,0.2); color: #1F7A52; display: none; align-items: center; gap: 8px; }
 .widget-result.error { background: var(--terra-pale); border: 1px solid rgba(196,103,74,0.2); color: var(--terra); }
 
-.trust-pills { display: flex; gap: 8px; flex-wrap: wrap; width: 100%; box-sizing: border-box; }
+.trust-pills { display: flex; gap: 8px; row-gap: 10px; flex-wrap: wrap; width: 100%; box-sizing: border-box; }
 .trust-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: var(--white); border: 1px solid var(--border); border-radius: 100px; font-size: 12px; font-weight: 500; color: var(--muted); }
 .trust-pill .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
 
@@ -334,7 +334,7 @@ html { overflow-x: hidden; }
 @media (max-width: 960px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-visual { height: 60vw; min-height: 280px; max-height: 480px; order: -1; }
-  .hero-content { padding: 40px 20px 52px; box-sizing: border-box; width: 100%; max-width: 100%; }
+  .hero-content { padding: 40px 20px; width: 100%; max-width: 100%; overflow: hidden; }
   .walker-card { left: 16px; bottom: 20px; }
   .giving-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
