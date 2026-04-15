@@ -3,17 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hello Doggo | Premium Dog Walking & Boarding · Los Angeles</title>
-<meta name="description" content="Find trusted, independent dog walkers and pet sitters in Los Angeles. Every booking feeds a rescue dog. hellodoggo.co">
+<title>Hello Doggo | Trusted Dog Walking and Boarding · Los Angeles</title>
+<meta name="description" content="Find trusted, background-checked dog walkers in Northeast LA. GPS tracked. Every booking feeds a rescue dog. hellodoggo.co">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
-/* ============================================
-   HELLO DOGGO — PRODUCTION CSS
-   Colors, fonts, and spacing locked per brief
-   ============================================ */
-
 :root {
   --blue: #1F5FA6;
   --blue-bright: #2E74C0;
@@ -33,9 +28,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'DM Sans', sans-serif;
   color: var(--ink);
@@ -45,19 +38,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---- TYPOGRAPHY ---- */
-.font-display { font-family: 'Bebas Neue', sans-serif; }
-.font-accent { font-family: 'Playfair Display', serif; font-style: italic; }
-.font-body { font-family: 'DM Sans', sans-serif; }
-
-h1, h2, h3 { line-height: 1.1; }
-
-/* ---- UTILITIES ---- */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
 .eyebrow {
   font-family: 'DM Sans', sans-serif;
@@ -82,1414 +63,315 @@ h1, h2, h3 { line-height: 1.1; }
   cursor: pointer;
   transition: all 0.25s ease;
 }
+.btn-blue { background: var(--blue); color: var(--white); }
+.btn-blue:hover { background: var(--blue-bright); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(31,95,166,0.25); }
+.btn-outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+.btn-outline:hover { background: var(--blue); color: var(--white); }
 
-.btn-blue {
-  background: var(--blue);
-  color: var(--white);
-}
-.btn-blue:hover {
-  background: var(--blue-bright);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(31,95,166,0.25);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--blue);
-  border: 2px solid var(--blue);
-}
-.btn-outline:hover {
-  background: var(--blue);
-  color: var(--white);
-}
-
-/* ---- IMAGE PLACEHOLDERS ---- */
-.img-placeholder {
-  background: linear-gradient(135deg, var(--blue-wash) 0%, var(--terra-pale) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.img-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.img-placeholder .placeholder-label {
-  position: absolute;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-  text-align: center;
-  padding: 8px;
-  opacity: 0.7;
-}
-
-/* ============================================
-   SECTION 1: NAV
-   ============================================ */
+/* NAV */
 .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: rgba(248,244,236,0.92);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(248,244,236,0.94);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
-  height: 72px;
-  display: flex;
-  align-items: center;
+  height: 68px;
+  display: flex; align-items: center;
 }
-
 .nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px;
 }
-
-.nav-logo {
-  display: flex;
-  align-items: baseline;
-  gap: 2px;
-  text-decoration: none;
-}
-
-.nav-logo .hello {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 26px;
-  color: var(--blue);
-  font-weight: 500;
-}
-
-.nav-logo .doggo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 30px;
-  color: var(--blue);
-  letter-spacing: 0.02em;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 36px;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--muted);
-  transition: color 0.2s;
-}
+.nav-logo { display: flex; align-items: baseline; gap: 2px; text-decoration: none; }
+.nav-logo .hello { font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; color: var(--blue); }
+.nav-logo .doggo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--blue); letter-spacing: 0.02em; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
 .nav-links a:hover { color: var(--ink); }
+.nav-cta { background: var(--blue); color: var(--white) !important; padding: 10px 22px; border-radius: 8px; font-weight: 600 !important; }
+.nav-cta:hover { background: var(--blue-bright) !important; transform: translateY(-1px); }
+.nav-walker-link { font-size: 13px; font-weight: 500; color: var(--muted) !important; border: 1px solid var(--border) !important; padding: 8px 16px !important; border-radius: 6px !important; }
+.nav-cta-mobile { display: none; }
 
-.nav-cta {
-  background: var(--blue);
-  color: var(--white) !important;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: 600 !important;
-  transition: all 0.25s ease !important;
-}
-.nav-cta:hover {
-  background: var(--blue-bright) !important;
-  color: var(--white) !important;
-  transform: translateY(-1px);
-}
+/* MARQUEE */
+.marquee { margin-top: 68px; background: var(--blue); overflow: hidden; white-space: nowrap; padding: 11px 0; }
+.marquee-track { display: inline-flex; animation: marquee-scroll 30s linear infinite; }
+.marquee-track span { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 0.2em; color: rgba(255,255,255,0.9); padding: 0 22px; }
+.marquee-track .dot { color: var(--terra); font-size: 10px; }
+@keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-.nav-mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
+/* HERO */
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 68px - 36px); background: var(--cream); }
 
-.nav-mobile-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--ink);
-  margin: 5px 0;
-  transition: 0.3s;
+.hero-content {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 72px 64px 72px 40px; position: relative; z-index: 2;
 }
+.hero-eyebrow { margin-bottom: 20px; }
+.hero h1 { margin-bottom: 24px; }
+.hero-line-1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px,6vw,84px); color: var(--ink); display: block; line-height: 0.95; }
+.hero-line-2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(40px,4.5vw,66px); color: var(--blue); display: block; line-height: 1.1; }
+.hero-line-3 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px,6vw,84px); color: var(--terra); display: block; line-height: 0.95; }
+.hero-body { font-size: 16px; color: var(--muted); max-width: 420px; margin-bottom: 32px; line-height: 1.7; font-weight: 300; }
 
-.nav-cta-mobile {
-  display: none;
-  padding: 10px 20px;
-  background: var(--blue);
-  color: var(--white);
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-  transition: background 0.2s;
+/* Hero widget */
+.hero-widget {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 20px 22px; max-width: 440px;
+  margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
-
-.nav-cta-mobile:hover {
-  background: var(--blue-bright);
+.widget-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-light); margin-bottom: 10px; }
+.widget-services { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.widget-service {
+  flex: 1; min-width: 0; padding: 10px 8px;
+  border: 1.5px solid var(--border); border-radius: 8px;
+  background: var(--cream); text-align: center; cursor: pointer;
+  transition: all 0.18s ease; user-select: none;
 }
-
-/* ============================================
-   SECTION 2: MARQUEE
-   ============================================ */
-.marquee {
-  margin-top: 72px;
-  background: var(--blue);
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 12px 0;
+.widget-service:hover { border-color: var(--blue); }
+.widget-service.active { border-color: var(--blue); background: var(--blue); }
+.widget-service-icon { font-size: 18px; display: block; margin-bottom: 3px; }
+.widget-service-name { font-size: 11px; font-weight: 600; color: var(--ink); display: block; white-space: nowrap; }
+.widget-service.active .widget-service-name { color: var(--white); }
+.widget-zip-row { display: flex; gap: 8px; }
+.widget-zip-input {
+  flex: 1; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+  font-family: 'DM Sans', sans-serif; font-size: 15px; background: var(--cream);
+  color: var(--ink); outline: none; transition: border-color 0.2s;
 }
-
-.marquee-track {
-  display: inline-flex;
-  animation: marquee-scroll 30s linear infinite;
+.widget-zip-input:focus { border-color: var(--blue); }
+.widget-zip-input::placeholder { color: var(--muted-light); }
+.widget-btn {
+  padding: 12px 20px; background: var(--blue); color: var(--white); border: none;
+  border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 700;
+  font-size: 14px; cursor: pointer; white-space: nowrap; transition: all 0.2s;
 }
+.widget-btn:hover { background: var(--blue-bright); transform: translateY(-1px); }
+.widget-result { display: none; margin-top: 12px; padding: 12px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; }
+.widget-result.success { background: rgba(45,155,111,0.08); border: 1px solid rgba(45,155,111,0.2); color: #1F7A52; display: flex; align-items: center; gap: 8px; }
+.widget-result.error { background: var(--terra-pale); border: 1px solid rgba(196,103,74,0.2); color: var(--terra); }
 
-.marquee-track span {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.9);
-  padding: 0 24px;
+.trust-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+.trust-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: var(--white); border: 1px solid var(--border); border-radius: 100px; font-size: 12px; font-weight: 500; color: var(--muted); }
+.trust-pill .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+
+/* Hero visual */
+.hero-visual { position: relative; overflow: hidden; }
+.hero-visual::before {
+  content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(to right, rgba(248,244,236,0.2) 0%, transparent 20%, transparent 70%, rgba(248,244,236,0.1) 100%),
+              linear-gradient(to bottom, rgba(248,244,236,0.15) 0%, transparent 15%, transparent 75%, rgba(248,244,236,0.25) 100%);
 }
+.hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
 
-.marquee-track .dot {
-  color: var(--terra);
-  font-size: 10px;
+/* Walker card */
+.walker-card {
+  position: absolute; bottom: 32px; left: -28px; z-index: 5;
+  background: var(--white); border-radius: var(--radius-lg); padding: 16px 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12); width: 230px; border: 1px solid var(--border);
 }
+.walker-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.walker-avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid var(--blue); }
+.walker-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.walker-name { font-weight: 700; font-size: 14px; color: var(--ink); line-height: 1.2; }
+.walker-location { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.walker-stars { font-size: 12px; color: #F59E0B; }
+.walker-rating-row { display: flex; align-items: center; gap: 6px; }
+.walker-rating-num { font-size: 12px; font-weight: 600; color: var(--ink); }
+.walker-card-stat { background: var(--blue-wash); border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; justify-content: space-between; }
+.walker-stat-label { font-size: 11px; color: var(--muted); font-weight: 500; }
+.walker-stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--blue); }
 
-@keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+.live-badge { position: absolute; top: 24px; right: 24px; z-index: 5; background: var(--white); padding: 8px 14px; border-radius: 100px; display: flex; align-items: center; gap: 7px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22C55E; animation: pulse-dot 2s infinite; }
+@keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.4); } }
+.live-badge span { font-size: 12px; font-weight: 600; color: var(--ink); }
 
-/* ============================================
-   SECTION 3: HERO
-   ============================================ */
-.hero {
-  padding: 80px 0 100px;
-  background: var(--cream);
-  position: relative;
-  overflow: hidden;
-}
+/* STATS BAR */
+.stats-bar { background: var(--ink); }
+.stats-inner { display: grid; grid-template-columns: repeat(4,1fr); }
+.stat-item { padding: 36px 32px; border-right: 1px solid rgba(255,255,255,0.08); text-align: center; }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--white); line-height: 1; margin-bottom: 4px; display: block; }
+.stat-label { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -200px;
-  right: -200px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(31,95,166,0.04) 0%, transparent 70%);
-  pointer-events: none;
-}
+/* SERVICES */
+.services { padding: 100px 0; background: var(--white); }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px,4vw,52px); color: var(--ink); margin-top: 12px; }
+.section-header h2 .accent { font-family: 'Playfair Display', serif; font-style: italic; color: var(--blue); }
+.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 32px; }
+.service-card { background: var(--cream); border-radius: var(--radius-lg); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+.service-card-img { aspect-ratio: 4/3; position: relative; overflow: hidden; }
+.service-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.service-card:hover .service-card-img img { transform: scale(1.04); }
+.service-num { position: absolute; top: 14px; left: 14px; font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 0.1em; color: var(--white); background: rgba(0,0,0,0.3); padding: 3px 10px; border-radius: 6px; z-index: 2; backdrop-filter: blur(4px); }
+.service-card-body { padding: 24px 22px; }
+.service-card-body h3 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 6px; }
+.service-card-body p { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; margin-bottom: 14px; }
+.service-cta { font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none; transition: color 0.2s; }
+.service-cta:hover { color: var(--blue-bright); }
+.addons-bar { background: var(--blue); border-radius: var(--radius); padding: 18px 28px; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.addon-item { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.9); display: flex; align-items: center; gap: 8px; }
+.addon-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--terra); }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
+/* WALKERS */
+.walkers { padding: 90px 0; background: var(--sand); overflow: hidden; }
+.walker-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.walker-profile { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.walker-profile:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+.walker-photo-wrap { position: relative; aspect-ratio: 3/2; overflow: hidden; }
+.walker-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.5s ease; }
+.walker-profile:hover .walker-photo-wrap img { transform: scale(1.04); }
+.walker-badge { position: absolute; top: 12px; right: 12px; background: var(--blue); color: var(--white); font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 100px; }
+.walker-info { padding: 18px 20px; }
+.walker-info-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; }
+.walker-info-name { font-weight: 700; font-size: 16px; color: var(--ink); line-height: 1.2; }
+.walker-info-location { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.walker-info-stars { font-size: 13px; color: #F59E0B; }
+.walker-info-desc { font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.55; margin-bottom: 14px; }
+.walker-info-services { display: flex; gap: 6px; flex-wrap: wrap; }
+.service-tag { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 100px; background: var(--blue-wash); color: var(--blue); }
+.walkers-cta { text-align: center; margin-top: 40px; }
 
-.hero-content { position: relative; z-index: 2; }
+/* GIVING */
+.giving { padding: 80px 0; background: var(--terra); position: relative; overflow: hidden; }
+.giving::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%); pointer-events: none; }
+.giving-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 2; }
+.giving-copy-side h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px,3.5vw,48px); color: var(--white); letter-spacing: 0.02em; line-height: 1; margin-bottom: 16px; }
+.giving-copy-side h2 .soft { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.9em; }
+.giving-body { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.7; font-weight: 300; }
 
-.hero-eyebrow {
-  margin-bottom: 20px;
-}
+/* ABOUT */
+.about { padding: 100px 0; background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.about-img { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3/4; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+.about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-content h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px,3.5vw,48px); color: var(--ink); margin-top: 12px; margin-bottom: 16px; line-height: 1; }
+.about-content h2 .accent { font-family: 'Playfair Display', serif; font-style: italic; color: var(--blue); }
+.about-body { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; font-weight: 300; }
+.trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.trust-card { background: var(--cream); padding: 18px; border-radius: var(--radius); border: 1px solid var(--border); }
+.trust-card h4 { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 0.04em; color: var(--blue); margin-bottom: 4px; }
+.trust-card p { font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.5; }
 
-.hero h1 {
-  margin-bottom: 24px;
-}
-
-.hero-line-1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(52px, 6vw, 88px);
-  color: var(--ink);
-  display: block;
-  line-height: 0.95;
-}
-
-.hero-line-2 {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: clamp(40px, 4.5vw, 68px);
-  color: var(--blue);
-  display: block;
-  line-height: 1.1;
-}
-
-.hero-line-3 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(52px, 6vw, 88px);
-  color: var(--terra);
-  display: block;
-  line-height: 0.95;
-}
-
-.hero-body {
-  font-size: 16px;
-  color: var(--muted);
-  max-width: 440px;
-  margin-bottom: 32px;
-  line-height: 1.7;
-  font-weight: 300;
-}
-
-/* ZIP Qualifier */
-.zip-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 24px;
-  max-width: 420px;
-  margin-bottom: 28px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-}
-
-.zip-label {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--muted);
-  margin-bottom: 10px;
-}
-
-.zip-row {
-  display: flex;
-  gap: 10px;
-}
-
-.zip-input {
-  flex: 1;
-  padding: 12px 16px;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  background: var(--cream);
-  color: var(--ink);
-  outline: none;
-  transition: border-color 0.2s;
-}
+/* BOOKING */
+.booking { padding: 100px 0; background: var(--cream); }
+.booking-wrapper { max-width: 600px; margin: 0 auto; }
+.booking-header { text-align: center; margin-bottom: 36px; }
+.booking-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px,3.5vw,48px); color: var(--ink); margin-top: 12px; }
+.booking-header h2 .accent { font-family: 'Playfair Display', serif; font-style: italic; color: var(--blue); }
+.booking-header p { font-size: 14px; color: var(--muted); margin-top: 8px; font-weight: 300; }
+.booking-form { background: var(--white); border-radius: var(--radius-lg); padding: 36px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+.zip-gate-label { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 16px; text-align: center; }
+.zip-row { display: flex; gap: 10px; }
+.zip-input { flex: 1; padding: 12px 16px; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; background: var(--cream); color: var(--ink); outline: none; transition: border-color 0.2s; }
 .zip-input:focus { border-color: var(--blue); }
 .zip-input::placeholder { color: var(--muted-light); }
-
-.zip-btn {
-  padding: 12px 20px;
-  background: var(--blue);
-  color: var(--white);
-  border: none;
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.2s;
-}
+.zip-btn { padding: 12px 20px; background: var(--blue); color: var(--white); border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
 .zip-btn:hover { background: var(--blue-bright); }
-
-.hero-cta-btn {
-  margin-bottom: 28px;
-  font-size: 17px;
-  padding: 16px 40px;
-}
-
-/* Trust pills */
-.trust-pills {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.trust-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--muted);
-}
-
-.trust-pill .pill-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--blue);
-  flex-shrink: 0;
-}
-
-/* Hero image area */
-.hero-visual {
-  position: relative;
-}
-
-.hero-img-container {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  aspect-ratio: 4/5;
-  position: relative;
-  box-shadow: 0 20px 60px rgba(31,95,166,0.12);
-}
-
-.hero-img-container::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  background: linear-gradient(to top, rgba(196,103,74,0.15), transparent);
-  pointer-events: none;
-}
-
-/* Floating badges on hero image */
-.hero-badge-live {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: var(--white);
-  padding: 10px 16px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  z-index: 3;
-}
-
-.live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--terra);
-  animation: pulse-dot 2s infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.3); }
-}
-
-.hero-badge-live span {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.hero-badge-direct {
-  position: absolute;
-  bottom: 24px;
-  left: 20px;
-  background: var(--blue);
-  padding: 14px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(31,95,166,0.3);
-  z-index: 3;
-}
-
-.hero-badge-direct .badge-pct {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  color: var(--white);
-  line-height: 1;
-}
-
-.hero-badge-direct .badge-label {
-  font-size: 11px;
-  color: rgba(255,255,255,0.8);
-  font-weight: 500;
-}
-
-/* ============================================
-   SECTION 4: SERVICES
-   ============================================ */
-.services {
-  padding: 100px 0;
-  background: var(--white);
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-header h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(36px, 4vw, 52px);
-  color: var(--ink);
-  margin-top: 12px;
-}
-
-.section-header h2 .accent {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  color: var(--blue);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-bottom: 40px;
-}
-
-.service-card {
-  background: var(--cream);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-}
-
-.service-card-img {
-  aspect-ratio: 4/3;
-  position: relative;
-}
-
-.service-card-img .service-num {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  color: var(--white);
-  background: rgba(0,0,0,0.3);
-  padding: 4px 10px;
-  border-radius: 6px;
-  z-index: 2;
-}
-
-.service-card:nth-child(1) .service-card-img {
-  background: linear-gradient(135deg, var(--blue-wash), rgba(31,95,166,0.15));
-}
-.service-card:nth-child(2) .service-card-img {
-  background: linear-gradient(135deg, var(--terra-pale), rgba(196,103,74,0.15));
-}
-.service-card:nth-child(3) .service-card-img {
-  background: linear-gradient(135deg, var(--sand), rgba(26,26,46,0.08));
-}
-
-.service-card-body {
-  padding: 28px 24px;
-}
-
-.service-card-body h3 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
-  letter-spacing: 0.02em;
-  color: var(--ink);
-  margin-bottom: 8px;
-}
-
-.service-card-body p {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-  font-weight: 300;
-  margin-bottom: 16px;
-}
-
-.service-price {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 32px;
-  line-height: 1;
-}
-
-.service-price-unit {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 400;
-  margin-left: 4px;
-}
-
-.service-card:nth-child(1) .service-cta { color: var(--blue); }
-.service-card:nth-child(2) .service-cta { color: var(--terra); }
-.service-card:nth-child(3) .service-cta { color: var(--ink); }
-
-/* Addons bar */
-.addons-bar {
-  background: var(--blue);
-  border-radius: var(--radius);
-  padding: 18px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  flex-wrap: wrap;
-}
-
-.addon-item {
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.9);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.addon-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--terra);
-}
-
-/* ============================================
-   SECTION 5: ABOUT
-   ============================================ */
-.about {
-  padding: 100px 0;
-  background: var(--sand);
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.about-img {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  aspect-ratio: 3/4;
-  position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-}
-
-.about-img::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 30%;
-  background: linear-gradient(to top, rgba(196,103,74,0.1), transparent);
-  pointer-events: none;
-}
-
-.about-content h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(32px, 3.5vw, 48px);
-  color: var(--ink);
-  margin-top: 12px;
-  margin-bottom: 20px;
-}
-
-.about-content h2 .accent {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  color: var(--blue);
-}
-
-.about-body {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 36px;
-  font-weight: 300;
-}
-
-.trust-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.trust-card {
-  background: var(--white);
-  padding: 20px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-}
-
-.trust-card h4 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 16px;
-  letter-spacing: 0.04em;
-  color: var(--blue);
-  margin-bottom: 4px;
-}
-
-.trust-card p {
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 300;
-  line-height: 1.5;
-}
-
-/* ============================================
-   SECTION 6: GIVING
-   ============================================ */
-.giving {
-  padding: 80px 0;
-  background: var(--terra);
-  position: relative;
-  overflow: hidden;
-}
-
-.giving::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.giving-inner {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.giving-pct {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 72px;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 12px;
-}
-
-.giving h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 32px;
-  color: var(--white);
-  letter-spacing: 0.04em;
-  margin-bottom: 16px;
-}
-
-.giving p {
-  font-size: 15px;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.7;
-  font-weight: 300;
-}
-
-.giving-orgs {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 28px;
-  flex-wrap: wrap;
-}
-
-.giving-org {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--white);
-  background: rgba(255,255,255,0.15);
-  padding: 8px 16px;
-  border-radius: 100px;
-  letter-spacing: 0.02em;
-}
-
-/* ============================================
-   SECTION 7: BOOKING
-   ============================================ */
-.booking {
-  padding: 100px 0;
-  background: var(--white);
-}
-
-.booking-wrapper {
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.booking-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.booking-header h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(32px, 3.5vw, 48px);
-  color: var(--ink);
-  margin-top: 12px;
-}
-
-.booking-header h2 .accent {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  color: var(--blue);
-}
-
-.booking-header p {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 8px;
-  font-weight: 300;
-}
-
-.booking-form {
-  background: var(--cream);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  border: 1px solid var(--border);
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group.full {
-  grid-column: 1 / -1;
-}
-
-.form-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 6px;
-  letter-spacing: 0.02em;
-}
-
-.form-input, .form-select {
-  padding: 12px 16px;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  background: var(--white);
-  color: var(--ink);
-  outline: none;
-  transition: border-color 0.2s;
-  appearance: none;
-}
-
-.form-input:focus, .form-select:focus {
-  border-color: var(--blue);
-}
-
-.form-select {
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%237A7A8E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 36px;
-}
-
-/* Tip selector */
-.tip-section {
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
-
-.tip-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 10px;
-}
-
-.tip-options {
-  display: flex;
-  gap: 10px;
-}
-
-.tip-option {
-  flex: 1;
-  padding: 12px;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--muted);
-  background: var(--white);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.tip-option:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-.tip-option.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: var(--white);
-}
-
-/* Order summary */
-.order-summary {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid var(--border);
-}
-
-.order-line {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  color: var(--muted);
-  padding: 6px 0;
-}
-
-.order-line.total {
-  border-top: 1px solid var(--border);
-  margin-top: 8px;
-  padding-top: 12px;
-  font-weight: 600;
-  color: var(--ink);
-  font-size: 16px;
-}
-
-.order-line .donation {
-  color: var(--terra);
-  font-weight: 500;
-}
-
-.book-btn {
-  width: 100%;
-  padding: 16px;
-  background: var(--blue);
-  color: var(--white);
-  border: none;
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.book-btn:hover {
-  background: var(--blue-bright);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(31,95,166,0.25);
-}
-
-.stripe-note {
-  text-align: center;
-  margin-top: 12px;
-  font-size: 12px;
-  color: var(--muted-light);
-}
-
-/* Service selector cards */
-.service-select-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.service-option {
-  padding: 20px 16px;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  text-align: center;
-  cursor: pointer;
-  background: var(--white);
-  transition: all 0.2s ease;
-}
-
-.service-option:hover {
-  border-color: var(--blue);
-}
-
-.service-option.active {
-  border-color: var(--blue);
-  background: var(--blue);
-}
-
-.service-option-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-
-.service-option.active .service-option-name {
-  color: var(--white);
-}
-
-.service-option-price {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  color: var(--blue);
-  line-height: 1;
-}
-
-.service-option.active .service-option-price {
-  color: var(--white);
-}
-
-.service-option-unit {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  opacity: 0.7;
-}
-
-.booking-donation-note {
-  text-align: center;
-  padding: 14px;
-  margin: 20px 0;
-  background: var(--terra-pale);
-  border-radius: 8px;
-  font-size: 13px;
-}
-
-.booking-donation-note .donation {
-  color: var(--terra);
-  font-weight: 500;
-}
-
-/* Service card CTA link */
-.service-cta {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--blue);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.service-cta:hover { color: var(--blue-bright); }
-
-/* ZIP gate step */
-.zip-gate-label {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-/* ZIP confirmed badge */
-.zip-confirmed {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px;
-  background: rgba(45,155,111,0.08);
-  border: 1px solid rgba(45,155,111,0.2);
-  border-radius: 8px;
-  margin-bottom: 24px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #2D9B6F;
-}
-
-.zip-confirmed-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #2D9B6F;
-}
-
-/* ZIP rejected message */
-.zip-rejected {
-  margin-top: 20px;
-}
-
-.zip-rejected-inner {
-  text-align: center;
-  padding: 28px 24px;
-  background: var(--terra-pale);
-  border-radius: var(--radius);
-  border: 1px solid rgba(196,103,74,0.15);
-}
-
-.zip-rejected-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  color: var(--ink);
-  margin-bottom: 8px;
-}
-
-.zip-rejected-text {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-  font-weight: 300;
-}
-
-/* Coupon code row */
-.coupon-row {
-  margin-top: 20px;
-  margin-bottom: 4px;
-}
-
-.coupon-input-row {
-  display: flex;
-  gap: 10px;
-}
-
-.coupon-input-row .form-input {
-  flex: 1;
-}
-
-.coupon-apply-btn {
-  padding: 12px 20px;
-  background: var(--cream);
-  color: var(--ink);
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s;
-}
-
-.coupon-apply-btn:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-@media (max-width: 600px) {
-  .service-select-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ============================================
-   SECTION: FAQ
-   ============================================ */
-.faq {
-  padding: 100px 0;
-  background: var(--cream);
-}
-
-.faq-list {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 40px;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.faq-col {}
-
-.faq-item {
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.faq-item:first-child {
-  border-top: 1px solid var(--border);
-}
-
-.faq-item:hover {
-  background: rgba(31,95,166,0.02);
-}
-
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 4px;
-  gap: 16px;
-}
-
-.faq-question span:first-child {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--ink);
-  line-height: 1.4;
-}
-
-.faq-icon {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
-  color: var(--blue);
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-  width: 24px;
-  text-align: center;
-}
-
-.faq-item.open .faq-icon {
-  transform: rotate(45deg);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.faq-item.open .faq-answer {
-  max-height: 200px;
-}
-
-.faq-answer p {
-  padding: 0 4px 20px;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.7;
-  font-weight: 300;
-}
-
-/* ============================================
-   SECTION 8: INSTAGRAM
-   ============================================ */
-.instagram {
-  padding: 100px 0;
-  background: var(--blue-wash);
-}
-
-.instagram .section-header {
-  margin-bottom: 48px;
-}
-
-.ig-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 36px;
-}
-
-.ig-cell {
-  aspect-ratio: 1;
-  border-radius: var(--radius);
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.ig-cell:hover {
-  transform: scale(1.03);
-}
-
-.ig-cell:nth-child(2),
-.ig-cell:nth-child(4) {
-  background: linear-gradient(135deg, var(--terra-pale), rgba(196,103,74,0.2)) !important;
-}
-
-.ig-cta {
-  text-align: center;
-}
-
-/* ============================================
-   SECTION 9: FOOTER
-   ============================================ */
-.footer {
-  background: var(--ink);
-  padding: 60px 0 0;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.footer-brand .nav-logo .hello,
-.footer-brand .nav-logo .doggo {
-  color: var(--white);
-}
-
-.footer-brand .tagline {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  margin-top: 12px;
-  font-weight: 300;
-  line-height: 1.6;
-}
-
-.footer-col h4 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 15px;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 16px;
-}
-
-.footer-col ul {
-  list-style: none;
-}
-
+.zip-confirmed { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; background: rgba(45,155,111,0.08); border: 1px solid rgba(45,155,111,0.2); border-radius: 8px; margin-bottom: 24px; font-size: 14px; font-weight: 600; color: #2D9B6F; }
+.zip-confirmed-dot { width: 8px; height: 8px; border-radius: 50%; background: #2D9B6F; }
+.zip-rejected { margin-top: 20px; }
+.zip-rejected-inner { text-align: center; padding: 28px 24px; background: var(--terra-pale); border-radius: var(--radius); border: 1px solid rgba(196,103,74,0.15); }
+.zip-rejected-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--ink); margin-bottom: 8px; }
+.zip-rejected-text { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.form-group { display: flex; flex-direction: column; }
+.form-label { font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 6px; letter-spacing: 0.02em; }
+.form-input { padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; background: var(--cream); color: var(--ink); outline: none; transition: border-color 0.2s; }
+.form-input:focus { border-color: var(--blue); }
+.booking-donation-note { text-align: center; padding: 12px; margin: 18px 0; background: var(--terra-pale); border-radius: 8px; font-size: 13px; }
+.booking-donation-note .donation { color: var(--terra); font-weight: 500; }
+.book-btn { width: 100%; padding: 16px; background: var(--blue); color: var(--white); border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer; transition: all 0.25s ease; }
+.book-btn:hover { background: var(--blue-bright); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(31,95,166,0.25); }
+.stripe-note { text-align: center; margin-top: 12px; font-size: 12px; color: var(--muted-light); }
+
+/* FAQ */
+.faq { padding: 100px 0; background: var(--sand); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; max-width: 960px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s; }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-item:hover { background: rgba(31,95,166,0.02); }
+.faq-question { display: flex; justify-content: space-between; align-items: center; padding: 20px 4px; gap: 16px; }
+.faq-question span:first-child { font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+.faq-icon { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--blue); flex-shrink: 0; transition: transform 0.3s ease; width: 24px; text-align: center; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-item.open .faq-answer { max-height: 200px; }
+.faq-answer p { padding: 0 4px 20px; font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+/* INSTAGRAM */
+.instagram { padding: 100px 0; background: var(--blue-wash); }
+.ig-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 36px; }
+.ig-cell { aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: transform 0.3s ease; }
+.ig-cell:hover { transform: scale(1.03); }
+.ig-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ig-cta { text-align: center; }
+
+/* FOOTER */
+.footer { background: var(--ink); padding: 60px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-brand .nav-logo .hello, .footer-brand .nav-logo .doggo { color: var(--white); }
+.footer-brand .tagline { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 12px; font-weight: 300; line-height: 1.6; }
+.footer-col h4 { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 10px; }
-
-.footer-col ul a {
-  text-decoration: none;
-  font-size: 14px;
-  color: rgba(255,255,255,0.65);
-  transition: color 0.2s;
-  font-weight: 300;
-}
-
+.footer-col ul a { text-decoration: none; font-size: 14px; color: rgba(255,255,255,0.65); transition: color 0.2s; font-weight: 300; }
 .footer-col ul a:hover { color: var(--white); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; }
+.footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); font-weight: 300; }
+.footer-handle { font-size: 13px; color: var(--blue-light); text-decoration: none; font-weight: 500; }
 
-.footer-qr-note {
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-  margin-top: 12px;
-  font-weight: 300;
+/* ANIMATIONS */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-visual { height: 55vw; max-height: 440px; order: -1; }
+  .hero-content { padding: 48px 24px 56px; }
+  .walker-card { left: 16px; bottom: 20px; }
+  .giving-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-img { aspect-ratio: 4/3; }
+  .stats-inner { grid-template-columns: repeat(2,1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .services-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto 32px; }
+  .walker-strip { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .ig-grid { grid-template-columns: repeat(2,1fr); }
+  .faq-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .form-row { grid-template-columns: 1fr; }
 }
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 0;
-}
-
-.footer-copy {
-  font-size: 13px;
-  color: rgba(255,255,255,0.35);
-  font-weight: 300;
-}
-
-.footer-handle {
-  font-size: 13px;
-  color: var(--blue-light);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-@media (max-width: 900px) {
-  .hero-grid,
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .hero-visual { order: -1; }
-
-  .hero-img-container { aspect-ratio: 16/10; }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-    max-width: 420px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .ig-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-
-  .addons-bar {
-    gap: 16px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 600px) {
   .nav-links { display: none; }
-  .nav-mobile-toggle { display: none; }
-  .nav-cta-mobile { display: block; }
-
-  .hero { padding: 48px 0 60px; }
-
+  .nav-cta-mobile { display: block; background: var(--blue); color: var(--white); padding: 10px 18px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px; text-decoration: none; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
   .trust-grid { grid-template-columns: 1fr; }
-
-  .faq-grid { grid-template-columns: 1fr; }
-
-  .trust-pills { flex-direction: column; }
-
   .footer-grid { grid-template-columns: 1fr; }
-
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-
-  .tip-options { flex-wrap: wrap; }
-  .tip-option { flex: unset; width: calc(50% - 5px); }
-
-  .giving-pct { font-size: 56px; }
-}
-
-/* ---- FADE-IN ANIMATIONS ---- */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 </style>
 </head>
 <body>
 
-<!-- ============================================
-     NAV
-     ============================================ -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <span class="hello">Hello</span><span class="doggo">DOGGO</span>
-    </a>
+    <a href="#" class="nav-logo"><span class="hello">Hello</span><span class="doggo">DOGGO</span></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#walkers">Walkers</a></li>
       <li><a href="#giving">Giving Back</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="/walk" class="nav-walker-link">Become a Walker</a></li>
       <li><a href="#booking" class="nav-cta">Join the Waitlist</a></li>
     </ul>
-    <a href="#booking" class="nav-cta-mobile">Join the Waitlist</a>
+    <a href="#booking" class="nav-cta-mobile">Join Waitlist</a>
   </div>
 </nav>
 
-<!-- ============================================
-     MARQUEE
-     ============================================ -->
 <div class="marquee">
   <div class="marquee-track">
     <span>DOG WALKING</span><span class="dot">✦</span>
@@ -1497,175 +379,282 @@ h1, h2, h3 { line-height: 1.1; }
     <span>BOARDING</span><span class="dot">✦</span>
     <span>DROP-IN VISITS</span><span class="dot">✦</span>
     <span>WALK A DOG, FEED A DOG</span><span class="dot">✦</span>
-    <span>LOS ANGELES</span><span class="dot">✦</span>
+    <span>NORTHEAST LOS ANGELES</span><span class="dot">✦</span>
     <span>EVERY BOOKING FEEDS A RESCUE DOG</span><span class="dot">✦</span>
     <span>DOG WALKING</span><span class="dot">✦</span>
     <span>SITTING</span><span class="dot">✦</span>
     <span>BOARDING</span><span class="dot">✦</span>
     <span>DROP-IN VISITS</span><span class="dot">✦</span>
     <span>WALK A DOG, FEED A DOG</span><span class="dot">✦</span>
-    <span>LOS ANGELES</span><span class="dot">✦</span>
+    <span>NORTHEAST LOS ANGELES</span><span class="dot">✦</span>
     <span>EVERY BOOKING FEEDS A RESCUE DOG</span><span class="dot">✦</span>
   </div>
 </div>
 
-<!-- ============================================
-     HERO
-     ============================================ -->
+<!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content fade-in">
-        <div class="eyebrow hero-eyebrow">Walk a dog, feed a dog. ♥ · Los Angeles</div>
-        <h1>
-          <span class="hero-line-1">Your dog</span>
-          <span class="hero-line-2">deserves</span>
-          <span class="hero-line-3">the good life.</span>
-        </h1>
-        <p class="hero-body">We're dog people who happen to walk dogs. GPS tracked, background checked, and every booking feeds a rescue dog. That's it. That's the app.</p>
-        <a href="#booking" class="btn btn-blue hero-cta-btn">Join the Waitlist →</a>
-        <div class="trust-pills">
-          <span class="trust-pill"><span class="pill-dot"></span> Fully insured</span>
-          <span class="trust-pill"><span class="pill-dot"></span> Photo updates every walk</span>
-          <span class="trust-pill"><span class="pill-dot"></span> Direct booking only</span>
+  <div class="hero-content fade-in">
+    <div class="eyebrow hero-eyebrow">Walk a dog, feed a dog. ♥ · Los Angeles</div>
+    <h1>
+      <span class="hero-line-1">Your dog</span>
+      <span class="hero-line-2">deserves</span>
+      <span class="hero-line-3">the good life.</span>
+    </h1>
+    <p class="hero-body">GPS tracked, background checked, and every booking feeds a rescue dog. Real neighbors walking dogs on the streets you both love.</p>
+
+    <div class="hero-widget">
+      <div class="widget-label">What do you need?</div>
+      <div class="widget-services">
+        <div class="widget-service active" onclick="selectWidgetService(this,'walking')">
+          <span class="widget-service-icon">🦮</span>
+          <span class="widget-service-name">Walking</span>
+        </div>
+        <div class="widget-service" onclick="selectWidgetService(this,'dropin')">
+          <span class="widget-service-icon">🏠</span>
+          <span class="widget-service-name">Drop-In</span>
+        </div>
+        <div class="widget-service" onclick="selectWidgetService(this,'boarding')">
+          <span class="widget-service-icon">🌙</span>
+          <span class="widget-service-name">Boarding</span>
+        </div>
+        <div class="widget-service" onclick="selectWidgetService(this,'sitting')">
+          <span class="widget-service-icon">🛋️</span>
+          <span class="widget-service-name">Sitting</span>
         </div>
       </div>
+      <div class="widget-zip-row">
+        <input class="widget-zip-input" type="text" id="hero-zip" placeholder="e.g. 90065" maxlength="5" inputmode="numeric">
+        <button class="widget-btn" onclick="checkHeroZip()">Check availability</button>
+      </div>
+      <div class="widget-result success" id="widget-success">
+        ✓ &nbsp;Great news — we're in your neighborhood. <a href="#booking" style="color:var(--blue);font-weight:700;margin-left:4px;">Join the waitlist</a>
+      </div>
+      <div class="widget-result error" id="widget-error">
+        Not in your area yet. <a href="#booking" style="color:var(--terra);font-weight:700;margin-left:4px;">Get notified when we expand</a>
+      </div>
+    </div>
 
-      <div class="hero-visual fade-in" style="animation-delay: 0.15s">
-        <div class="hero-img-container img-placeholder">
-          <!-- SWAP: Replace src with images/hero.jpg -->
-          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&h=1000&fit=crop" alt="Dog on a walk in Los Angeles">
-          <div class="hero-badge-live">
-            <span class="live-dot"></span>
-            <span>Available for bookings</span>
-          </div>
-          <div class="hero-badge-direct">
-            <div class="badge-pct">✓</div>
-            <div class="badge-label">Trusted · Local · Insured</div>
+    <div class="trust-pills">
+      <span class="trust-pill"><span class="pill-dot"></span>Background checked</span>
+      <span class="trust-pill"><span class="pill-dot"></span>GPS tracked every walk</span>
+      <span class="trust-pill"><span class="pill-dot"></span>Photo updates</span>
+      <span class="trust-pill"><span class="pill-dot"></span>Fully insured</span>
+    </div>
+  </div>
+
+  <div class="hero-visual fade-in" style="animation-delay:0.15s">
+    <img class="hero-photo" src="images/hero.jpeg" alt="Walker and goldendoodle in LA apartment doorway">
+    <div class="live-badge">
+      <span class="live-dot"></span>
+      <span>Accepting bookings</span>
+    </div>
+    <div class="walker-card">
+      <div class="walker-card-top">
+        <div class="walker-avatar">
+          <img src="images/nidia-walking.jpeg" alt="Nidia">
+        </div>
+        <div>
+          <div class="walker-name">Nidia</div>
+          <div class="walker-location">Northeast LA</div>
+          <div class="walker-rating-row">
+            <span class="walker-stars">★★★★★</span>
+            <span class="walker-rating-num">5.0</span>
           </div>
         </div>
+      </div>
+      <div class="walker-card-stat">
+        <span class="walker-stat-label">First 10 days</span>
+        <span class="walker-stat-val">$898 earned</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     SERVICES
-     ============================================ -->
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Goes to your walker</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">♥</span>
+      <span class="stat-label">Every booking feeds a rescue dog</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">5mi</span>
+      <span class="stat-label">Hyperlocal, NELA</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">✓</span>
+      <span class="stat-label">Every walker vetted</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
     <div class="section-header fade-in">
       <div class="eyebrow">What we offer</div>
       <h2>Everything your dog <span class="accent">deserves.</span></h2>
     </div>
-
     <div class="services-grid">
       <div class="service-card fade-in">
-        <div class="service-card-img img-placeholder">
+        <div class="service-card-img">
           <span class="service-num">01</span>
-          <!-- SWAP: Replace src with images/service-walk.jpg -->
-          <img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600&h=450&fit=crop" alt="Dog walking">
+          <img src="images/walk-glassell.jpeg" alt="Walker with dog in Glassell Park">
         </div>
         <div class="service-card-body">
           <h3>Dog Walking</h3>
-          <p>30-minute neighborhood walks with real photo updates and a personal report after every outing.</p>
-          <a href="#booking" class="service-cta">Check availability →</a>
+          <p>30 or 60-minute neighborhood walks with real-time GPS, photo updates, and a walk report after every outing.</p>
+          <a href="#booking" class="service-cta">Check availability</a>
         </div>
       </div>
-
-      <div class="service-card fade-in" style="animation-delay: 0.1s">
-        <div class="service-card-img img-placeholder">
+      <div class="service-card fade-in" style="animation-delay:0.1s">
+        <div class="service-card-img">
           <span class="service-num">02</span>
-          <!-- SWAP: Replace src with images/service-dropin.jpg -->
-          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=450&fit=crop" alt="Happy dog portrait">
+          <img src="images/dog-fluffy-two.jpeg" alt="Two happy dogs meeting on a walk">
         </div>
         <div class="service-card-body">
           <h3>Drop-In Visit</h3>
-          <p>30-minute in-home check-in. Feeding, potty break, playtime, and belly rubs included.</p>
-          <a href="#booking" class="service-cta">Check availability →</a>
+          <p>20 or 30-minute in-home check-in. Feeding, potty break, playtime, and photo proof they're having the time of their life.</p>
+          <a href="#booking" class="service-cta">Check availability</a>
         </div>
       </div>
-
-      <div class="service-card fade-in" style="animation-delay: 0.2s">
-        <div class="service-card-img img-placeholder">
+      <div class="service-card fade-in" style="animation-delay:0.2s">
+        <div class="service-card-img">
           <span class="service-num">03</span>
-          <!-- Boarding image: French Bulldog in yellow sweater -->
-          <img src="images/service-boarding.png" alt="Cozy dog resting in bed">
+          <img src="images/dog-husky-red.jpeg" alt="Happy dog at home">
         </div>
         <div class="service-card-body">
           <h3>Overnight Boarding</h3>
-          <p>Your dog sleeps over in a real home, not a kennel. Evening walk, morning walk, and constant love.</p>
-          <a href="#booking" class="service-cta">Check availability →</a>
+          <p>Your dog sleeps in a real home, not a kennel. Evening walk, morning walk, and constant attention included.</p>
+          <a href="#booking" class="service-cta">Check availability</a>
         </div>
       </div>
     </div>
-
+    <div class="addons-bar">
+      <span class="addon-item"><span class="addon-dot"></span>Pick-up and drop-off available</span>
+      <span class="addon-item"><span class="addon-dot"></span>Meet and greet before first booking</span>
+      <span class="addon-item"><span class="addon-dot"></span>Recurring weekly bookings</span>
+      <span class="addon-item"><span class="addon-dot"></span>Secure home entry</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     ABOUT
-     ============================================ -->
-<section class="about" id="about">
+<!-- WALKERS -->
+<section class="walkers" id="walkers">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-img img-placeholder fade-in">
-        <!-- SWAP: Replace src with images/about.jpg -->
-        <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?w=600&h=800&fit=crop" alt="Person with dog">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Who's walking your dog</div>
+      <h2>Vetted. Local. <span class="accent">Actually a neighbor.</span></h2>
+    </div>
+    <div class="walker-strip">
+      <div class="walker-profile fade-in">
+        <div class="walker-photo-wrap">
+          <img src="images/nidia-walking.jpeg" alt="Nidia walking a dog in Northeast LA">
+          <span class="walker-badge">FOUNDING WALKER</span>
+        </div>
+        <div class="walker-info">
+          <div class="walker-info-top">
+            <div>
+              <div class="walker-info-name">Nidia</div>
+              <div class="walker-info-location">Northeast LA</div>
+            </div>
+            <div class="walker-info-stars">★★★★★</div>
+          </div>
+          <p class="walker-info-desc">Dog lover who has been caring for pups in the neighborhood for years. Knows every good sniffing spot from Glassell Park to Atwater Village.</p>
+          <div class="walker-info-services">
+            <span class="service-tag">Walking</span>
+            <span class="service-tag">Boarding</span>
+            <span class="service-tag">Drop-In</span>
+          </div>
+        </div>
       </div>
-
-      <div class="about-content fade-in" style="animation-delay: 0.1s">
-        <div class="eyebrow">Who we are</div>
-        <h2>A neighbor who <span class="accent">loves your dog</span> like their own.</h2>
-        <p class="about-body">Hello Doggo started because we were tired of handing our dog to strangers from an app. So we became the person we wished existed. A real neighbor who knows your dog's name, their favorite sniffing spots, and what makes them do the full-body wiggle at the door.</p>
-        <p class="about-body">We walk the same streets your dog loves, grab coffee at the same spots you do, and wave at the same neighbors. Hello Doggo grew out of our own neighborhood because the best care comes from someone who's already part of the community.</p>
-        <p class="about-body">Every walk comes with real photos and a personal update because you deserve to know your dog had an amazing time. Not a stock photo from a stranger. A real moment from someone who genuinely loves your dog.</p>
-
-        <div class="trust-grid">
-          <div class="trust-card">
-            <h4>LOCALLY ROOTED</h4>
-            <p>Rooted in the neighborhood, serving your community personally.</p>
+      <div class="walker-profile fade-in" style="animation-delay:0.1s">
+        <div class="walker-photo-wrap">
+          <img src="images/dog-husky-walk.jpeg" alt="Happy dog on a walk in NELA">
+          <span class="walker-badge" style="background:var(--terra);">YOUR SPOT</span>
+        </div>
+        <div class="walker-info">
+          <div class="walker-info-top">
+            <div>
+              <div class="walker-info-name">Could be you</div>
+              <div class="walker-info-location">Northeast LA</div>
+            </div>
           </div>
-          <div class="trust-card">
-            <h4>PHOTO UPDATES</h4>
-            <p>Real photos from every single walk, not stock images.</p>
+          <p class="walker-info-desc">We're vetting founding walkers across NELA right now. Set your own rates. Walk dogs in your neighborhood. Keep every dollar you earn.</p>
+          <div class="walker-info-services">
+            <a href="/walk" class="service-tag" style="text-decoration:none;color:var(--blue);cursor:pointer;">Apply to walk</a>
           </div>
-          <div class="trust-card">
-            <h4>DIRECT PAYMENT</h4>
-            <p>You pay directly. Simple, secure, and transparent.</p>
+        </div>
+      </div>
+      <div class="walker-profile fade-in" style="animation-delay:0.2s">
+        <div class="walker-photo-wrap">
+          <img src="images/dog-jackrussel.jpeg" alt="Cute dog at the park">
+          <span class="walker-badge" style="background:var(--terra);">YOUR SPOT</span>
+        </div>
+        <div class="walker-info">
+          <div class="walker-info-top">
+            <div>
+              <div class="walker-info-name">Or you</div>
+              <div class="walker-info-location">Northeast LA</div>
+            </div>
           </div>
-          <div class="trust-card">
-            <h4>EASY REBOOKING</h4>
-            <p>One tap to book again. Stripe saves your payment method.</p>
+          <p class="walker-info-desc">Founding walkers get first pick of clients. We're a small, trusted team and we want to keep it that way.</p>
+          <div class="walker-info-services">
+            <a href="/walk" class="service-tag" style="text-decoration:none;color:var(--blue);cursor:pointer;">Join as a founder</a>
           </div>
         </div>
       </div>
     </div>
+    <div class="walkers-cta fade-in">
+      <a href="/walk" class="btn btn-outline">Are you a dog lover in NELA? We want to meet you.</a>
+    </div>
   </div>
 </section>
 
-<!-- ============================================
-     GIVING BACK
-     ============================================ -->
+<!-- GIVING -->
 <section class="giving" id="giving">
   <div class="container">
     <div class="giving-inner fade-in">
-      <div class="giving-pct">♥</div>
-      <h2>EVERY BOOKING FEEDS A RESCUE DOG</h2>
-      <p>For every booking on Hello Doggo, we donate to feed a rescue dog at a rotating LA shelter. We post the numbers publicly because transparency builds trust. Your booking doesn't just take care of your dog. It helps dogs who don't have a home yet.</p>
-      <div class="giving-orgs">
-        <span class="giving-org">Wags and Walks LA</span>
-        <span class="giving-org">Hope for Paws</span>
-        <span class="giving-org">East Valley Animal Shelter</span>
+      <div style="text-align:center;">
+        <img src="images/chico.png" alt="Chico" style="width:160px;height:auto;display:block;margin:0 auto 20px;filter:drop-shadow(0 4px 20px rgba(0,0,0,0.2));">
+        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(22px,3vw,34px);color:var(--white);line-height:1.3;">Walk a dog,<br>feed a dog. <span style="color:var(--white);opacity:0.85;">♥</span></div>
+      </div>
+      <div class="giving-copy-side">
+        <h2>EVERY BOOKING<br><span class="soft">feeds a rescue dog.</span></h2>
+        <p class="giving-body">When you book a walk, a sitting, or a boarding stay through Hello Doggo, a dog at an LA rescue shelter gets fed. No extra steps, no opt-ins. It just happens. Your dog gets the good life. Another dog gets a little closer to finding their own.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     BOOKING
-     ============================================ -->
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img fade-in">
+        <img src="images/dog-husky-sit.jpeg" alt="Happy dog sitting on a NELA sidewalk">
+      </div>
+      <div class="about-content fade-in" style="animation-delay:0.1s">
+        <div class="eyebrow">Who we are</div>
+        <h2>A neighbor who <span class="accent">loves your dog</span> like their own.</h2>
+        <p class="about-body">Hello Doggo started because we were tired of handing our dog to strangers from an app. So we became the person we wished existed. A real neighbor who knows your dog's name, their favorite sniffing spots, and what makes them do the full-body wiggle at the door.</p>
+        <p class="about-body">We walk the same streets your dog loves. We grab coffee at the same spots you do. Hello Doggo grew out of Northeast LA because the best care comes from someone who is already part of the community.</p>
+        <div class="trust-grid">
+          <div class="trust-card"><h4>LOCALLY ROOTED</h4><p>Serving Northeast LA personally, not through a call center.</p></div>
+          <div class="trust-card"><h4>REAL PHOTOS</h4><p>Photos from every single walk. Not stock images. Your dog.</p></div>
+          <div class="trust-card"><h4>DIRECT PAYMENT</h4><p>Simple, secure Stripe payments. No hidden platform fees.</p></div>
+          <div class="trust-card"><h4>EASY REBOOKING</h4><p>One tap to book the same walker again. They already know your dog.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
 <section class="booking" id="booking">
   <div class="container">
     <div class="booking-wrapper">
@@ -1674,217 +663,94 @@ h1, h2, h3 { line-height: 1.1; }
         <h2>Let's get your dog <span class="accent">the good life.</span></h2>
         <p>First, let's make sure we're in your neighborhood.</p>
       </div>
-
-      <!-- STEP 1: ZIP check gate -->
       <div class="booking-form fade-in" id="booking-zip-step">
-        <div class="zip-gate-label">Enter your ZIP code to see pricing and book</div>
-        <div class="zip-row" style="max-width: 100%;">
-          <input type="text" class="zip-input" id="booking-zip-input" placeholder="ZIP code (e.g. 90065)" maxlength="5" inputmode="numeric" pattern="[0-9]*">
-          <button class="zip-btn" onclick="checkServiceArea()">Check →</button>
+        <div class="zip-gate-label">Enter your ZIP code to join the waitlist</div>
+        <div class="zip-row">
+          <input type="text" class="zip-input" id="booking-zip-input" placeholder="e.g. 90065" maxlength="5" inputmode="numeric">
+          <button class="zip-btn" onclick="checkServiceArea()">Check</button>
         </div>
-        <!-- Rejection message -->
-        <div class="zip-rejected" id="booking-rejected" style="display: none;">
+        <div class="zip-rejected" id="booking-rejected" style="display:none;">
           <div class="zip-rejected-inner">
-            <div class="zip-rejected-title">We're not in your neighborhood yet.</div>
-            <p class="zip-rejected-text">We're expanding fast. Follow us on Instagram to be the first to know when we launch in your area.</p>
-            <a href="https://instagram.com/hellodoggo.co" target="_blank" class="btn btn-outline" style="margin-top: 12px;">Follow us on Instagram →</a>
+            <div class="zip-rejected-title">Not in your neighborhood yet.</div>
+            <p class="zip-rejected-text">We're expanding fast across LA. Follow us on Instagram and we'll let you know the moment we launch near you.</p>
+            <a href="https://instagram.com/hellodoggo" target="_blank" class="btn btn-outline" style="margin-top:14px;">Follow on Instagram</a>
           </div>
         </div>
       </div>
-
-      <!-- STEP 2: Waitlist signup (hidden until ZIP check) -->
-      <div class="booking-form fade-in" id="booking-main-step" style="display: none;">
-        <div class="zip-confirmed">
-          <span class="zip-confirmed-dot"></span>
-          <span>We serve your area!</span>
-        </div>
-
+      <div class="booking-form fade-in" id="booking-main-step" style="display:none;">
+        <div class="zip-confirmed"><span class="zip-confirmed-dot"></span><span>We serve your area. You're in.</span></div>
         <div style="text-align:center;margin-bottom:24px;">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ink);letter-spacing:0.02em;">WE'RE LAUNCHING SOON</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--ink);letter-spacing:0.02em;">LAUNCHING SOON IN YOUR NEIGHBORHOOD</div>
           <p style="font-size:14px;color:var(--muted);font-weight:300;margin-top:4px;">Drop your info and we'll text you the moment we go live.</p>
         </div>
-
         <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Your Name</label>
-            <input type="text" class="form-input" placeholder="First name">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Dog's Name</label>
-            <input type="text" class="form-input" placeholder="Your dog's name">
-          </div>
+          <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" placeholder="First name"></div>
+          <div class="form-group"><label class="form-label">Dog's Name</label><input type="text" class="form-input" placeholder="Your dog's name"></div>
         </div>
-
         <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Phone Number</label>
-            <input type="tel" class="form-input" placeholder="(555) 555-5555">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-input" placeholder="you@email.com">
-          </div>
+          <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" placeholder="(323) 555-0100"></div>
+          <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="you@email.com"></div>
         </div>
-
-        <div class="booking-donation-note">
-          <span class="donation">♥ Every booking feeds a rescue dog</span>
-        </div>
-
-        <button class="book-btn" onclick="this.textContent='You\'re on the list! 🎉'; this.style.background='#2D9B6F'; this.disabled=true;">Join the Waitlist →</button>
+        <div class="booking-donation-note"><span class="donation">♥ Every booking feeds a rescue dog</span></div>
+        <button class="book-btn" onclick="this.textContent='You\'re on the list! 🐾'; this.style.background='#2D9B6F'; this.disabled=true;">Join the Waitlist</button>
         <div class="stripe-note">We'll text you on launch day. No spam, ever.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     FAQ
-     ============================================ -->
+<!-- FAQ -->
 <section class="faq" id="faq">
   <div class="container">
     <div class="section-header fade-in">
       <div class="eyebrow">Questions</div>
       <h2>Everything you <span class="accent">need to know.</span></h2>
     </div>
-
     <div class="faq-grid">
       <div class="faq-col">
-        <div class="faq-item fade-in" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>Is Hello Doggo insured?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Yes. Every walk and boarding stay is fully covered by the Hello Doggo Guarantee.</p>
-          </div>
-        </div>
-
-        <div class="faq-item fade-in" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>How do I know my dog is safe?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Every walker is background checked and vetted. You get real-time GPS tracking and photo updates during every walk.</p>
-          </div>
-        </div>
-
-        <div class="faq-item fade-in" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>How does booking work?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Pick a service, choose a walker or let us match you, and confirm. Payments are handled securely through Stripe.</p>
-          </div>
-        </div>
-
-        <div class="faq-item fade-in" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>What if I need to cancel?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Just let us know. We're flexible and we'll work it out — no hidden fees or penalties.</p>
-          </div>
-        </div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>Is Hello Doggo insured?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Yes. Every walk and boarding stay is covered by Hello Doggo Booking Protection, which includes vet costs and property damage during active bookings.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>How do I know my dog is safe?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Every walker is background checked and personally vetted. You get real-time GPS tracking and photo updates during every walk.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>How does booking work?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Pick a service, choose a walker or let us match you, and confirm. Payments are handled securely through Stripe.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>What if I need to cancel?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Just let us know. We're flexible and we'll work it out. No hidden fees or penalties.</p></div></div>
       </div>
-
       <div class="faq-col">
-        <div class="faq-item fade-in" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>Can I request the same walker?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Yes. Mark any walker as preferred and they'll be your default for future bookings.</p>
-          </div>
-        </div>
-
-        <div class="faq-item fade-in" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>How does "every booking feeds a rescue dog" work?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>For every booking, we donate to feed a rescue dog at a rotating LA shelter. We post the running total on our Instagram.</p>
-          </div>
-        </div>
-
-        <div class="faq-item fade-in" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>Can I meet my walker first?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Of course. We offer a free meet and greet before your first booking. Totally optional.</p>
-          </div>
-        </div>
-
-        <div class="faq-item fade-in" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>What areas do you serve?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>We're launching in Northeast LA and expanding across Los Angeles. Enter your ZIP code above to check.</p>
-          </div>
-        </div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>Can I request the same walker every time?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Yes. Mark any walker as preferred and they'll be your default for future bookings. Your dog will know them by name.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>How does "every booking feeds a rescue dog" work?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Every completed booking triggers a donation to feed a rescue dog at an LA shelter. We post updates on our Instagram.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>Can I meet my walker first?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Of course. We offer a free meet and greet before your first booking. Totally optional but highly recommended for boarding.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>What areas do you serve?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>We're launching in Northeast LA covering Silver Lake, Echo Park, Highland Park, Eagle Rock, Glassell Park, and surrounding neighborhoods. Enter your ZIP above to check.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     INSTAGRAM
-     ============================================ -->
+<!-- INSTAGRAM -->
 <section class="instagram" id="instagram">
   <div class="container">
     <div class="section-header fade-in">
       <div class="eyebrow">Follow along</div>
       <h2>Life at <span class="accent">Hello Doggo.</span></h2>
     </div>
-
     <div class="ig-grid">
-      <div class="ig-cell img-placeholder fade-in">
-        <!-- SWAP: Replace src with images/ig-1.jpg -->
-        <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400&h=400&fit=crop" alt="Dog photo 1">
-      </div>
-      <div class="ig-cell img-placeholder fade-in" style="animation-delay: 0.05s">
-        <!-- SWAP: Replace src with images/ig-2.jpg -->
-        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400&h=400&fit=crop" alt="Dog photo 2">
-      </div>
-      <div class="ig-cell img-placeholder fade-in" style="animation-delay: 0.1s">
-        <!-- SWAP: Replace src with images/ig-3.jpg -->
-        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=400&h=400&fit=crop" alt="Dog photo 3">
-      </div>
-      <div class="ig-cell img-placeholder fade-in" style="animation-delay: 0.15s">
-        <!-- SWAP: Replace src with images/ig-4.jpg -->
-        <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=400&h=400&fit=crop" alt="Dog photo 4">
-      </div>
+      <div class="ig-cell fade-in"><img src="images/nidia-walking.jpeg" alt="Nidia walking a dog"></div>
+      <div class="ig-cell fade-in" style="animation-delay:0.05s"><img src="images/dog-husky-red.jpeg" alt="Happy red husky"></div>
+      <div class="ig-cell fade-in" style="animation-delay:0.1s"><img src="images/dog-aussie.jpeg" alt="Beautiful Australian shepherd"></div>
+      <div class="ig-cell fade-in" style="animation-delay:0.15s"><img src="images/dog-pom.jpeg" alt="Pomeranian on a walk"></div>
     </div>
-
     <div class="ig-cta fade-in">
-      <a href="https://instagram.com/hellodoggo.co" target="_blank" class="btn btn-blue">Follow us on Instagram →</a>
+      <a href="https://instagram.com/hellodoggo" target="_blank" class="btn btn-blue">Follow us on Instagram</a>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     FOOTER
-     ============================================ -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="nav-logo">
-          <span class="hello">Hello</span><span class="doggo">DOGGO</span>
-        </a>
-        <p class="tagline">Find trusted, independent dog care professionals in Los Angeles. Finally, someone you actually trust with your dog.</p>
-        <p class="tagline" style="margin-top:20px;color:var(--terra);font-weight:500;font-size:14px;line-height:1.3;">Walk a dog, feed a dog. ♥</p>
-        <p class="tagline" style="margin-top:6px;">For every service you book, we donate to feed a rescue dog in the local community.</p>
+        <a href="#" class="nav-logo"><span class="hello">Hello</span><span class="doggo">DOGGO</span></a>
+        <p class="tagline">Find trusted, independent dog care professionals in Northeast Los Angeles. Finally, someone you actually trust with your dog.</p>
+        <p class="tagline" style="margin-top:16px;color:var(--terra);font-weight:500;font-size:14px;">Walk a dog, feed a dog. ♥</p>
       </div>
-
       <div class="footer-col">
         <h4>SERVICES</h4>
         <ul>
@@ -1894,121 +760,86 @@ h1, h2, h3 { line-height: 1.1; }
           <li><a href="#booking">Join the Waitlist</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>CONNECT</h4>
         <ul>
-          <li><a href="https://instagram.com/hellodoggo.co" target="_blank">Instagram</a></li>
-          <li><a href="#booking">Join the Waitlist</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#bfd7d6ffd7dad3d3d0dbd0d8d8d091dcd0">Email Us</a></li>
+          <li><a href="https://instagram.com/hellodoggo" target="_blank">Instagram</a></li>
+          <li><a href="/walk">Become a Walker</a></li>
+          <li><a href="mailto:hi@hellodoggo.co">Email Us</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>AREAS WE SERVE</h4>
         <ul>
-          <li><a href="#booking">Check your ZIP code</a></li>
+          <li><a href="#booking">Glassell Park</a></li>
+          <li><a href="#booking">Silver Lake</a></li>
+          <li><a href="#booking">Echo Park</a></li>
+          <li><a href="#booking">Highland Park</a></li>
+          <li><a href="#booking">Eagle Rock</a></li>
+          <li><a href="#booking">Check your ZIP</a></li>
         </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Hello Doggo · Los Angeles</span>
+      <span class="footer-copy">2026 Hello Doggo · Los Angeles</span>
       <a href="https://hellodoggo.co" class="footer-handle">hellodoggo.co</a>
     </div>
   </div>
 </footer>
 
-<!-- ============================================
-     SCRIPTS
-     ============================================ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Approved ZIP codes — within 5 miles of home base (90065)
-// Update this list as you expand
-const APPROVED_ZIPS = [
-  '90065', // Glassell Park, Cypress Park, Mt Washington (home base)
-  '90042', // Highland Park, Eagle Rock
-  '90041', // Eagle Rock
-  '90031', // Lincoln Heights, Chinatown
-  '90032', // El Sereno
-  '90039', // Silver Lake, Atwater Village
-  '90026', // Echo Park, Silver Lake
-  '90027', // Los Feliz, East Hollywood
-  '90029', // East Hollywood
-  '90012', // Downtown LA, Chinatown
-  '90033', // Boyle Heights (west)
-  '90028', // Hollywood
-  '90004', // Koreatown (north), Larchmont
-  '90038', // Hollywood
-  '90068', // Hollywood Hills
-  '91205', // Glendale
-  '91204', // Glendale
-  '91206', // Glendale
-  '91210', // Glendale
-  '91203', // Glendale
-  '90046', // West Hollywood (east)
-  '90036', // Mid-Wilshire, Miracle Mile
-];
+<script>
+const APPROVED_ZIPS = ['90065','90042','90041','90031','90032','90039','90026','90027','90029','90012','90033','90028','90004','90038','90068','91205','91204','91206','91210','91203','90046','90036'];
 
-// FAQ accordion
 function toggleFaq(el) {
   const wasOpen = el.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
   if (!wasOpen) el.classList.add('open');
 }
 
-// ZIP check gate — reveals booking form or shows rejection
 function checkServiceArea() {
-  const zip = document.getElementById('booking-zip-input').value.trim();
+  const zip = document.getElementById('booking-zip-input').value.trim().replace(/\D/g,'').substring(0,5);
   if (zip.length < 5) return;
-  
-  const cleanZip = zip.replace(/\D/g, '').substring(0, 5);
-  
-  if (APPROVED_ZIPS.includes(cleanZip)) {
+  if (APPROVED_ZIPS.includes(zip)) {
     document.getElementById('booking-zip-step').style.display = 'none';
     document.getElementById('booking-rejected').style.display = 'none';
     document.getElementById('booking-main-step').style.display = 'block';
-    document.getElementById('booking-main-step').classList.add('visible');
+    setTimeout(() => document.getElementById('booking-main-step').classList.add('visible'), 10);
   } else {
     document.getElementById('booking-rejected').style.display = 'block';
   }
 }
+document.getElementById('booking-zip-input').addEventListener('keypress', e => { if (e.key === 'Enter') checkServiceArea(); });
 
-// Allow Enter key on ZIP input
-document.getElementById('booking-zip-input').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') checkServiceArea();
-});
-
-// Service selector
-function selectService(el, name, price) {
-  document.querySelectorAll('.service-option').forEach(o => o.classList.remove('active'));
+let selectedService = 'walking';
+function selectWidgetService(el, service) {
+  document.querySelectorAll('.widget-service').forEach(s => s.classList.remove('active'));
   el.classList.add('active');
+  selectedService = service;
+  document.getElementById('widget-success').style.display = 'none';
+  document.getElementById('widget-error').style.display = 'none';
 }
 
-// Coupon code
-function applyCoupon() {
-  const code = document.getElementById('coupon-input').value.trim();
-  if (!code) return;
-  document.getElementById('coupon-input').style.borderColor = '#2D9B6F';
+function checkHeroZip() {
+  const zip = document.getElementById('hero-zip').value.trim().replace(/\D/g,'').substring(0,5);
+  document.getElementById('widget-success').style.display = 'none';
+  document.getElementById('widget-error').style.display = 'none';
+  if (zip.length < 5) { document.getElementById('hero-zip').focus(); return; }
+  if (APPROVED_ZIPS.includes(zip)) {
+    document.getElementById('widget-success').style.display = 'flex';
+    document.getElementById('booking-zip-step').style.display = 'none';
+    document.getElementById('booking-main-step').style.display = 'block';
+    setTimeout(() => document.getElementById('booking-main-step').classList.add('visible'), 10);
+  } else {
+    document.getElementById('widget-error').style.display = 'block';
+    document.getElementById('booking-rejected').style.display = 'block';
+  }
 }
+document.getElementById('hero-zip').addEventListener('keypress', e => { if (e.key === 'Enter') checkHeroZip(); });
 
-// Tip selector
-function selectTip(el) {
-  document.querySelectorAll('.tip-option').forEach(o => o.classList.remove('active'));
-  el.classList.add('active');
-}
-
-// Scroll-triggered fade-in
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
 }, { threshold: 0.1 });
-
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
