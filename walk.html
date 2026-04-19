@@ -374,7 +374,7 @@ nav {
 
 .contrast-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .contrast-item {
@@ -603,6 +603,232 @@ nav {
 }
 
 /* ============================================
+   EARNINGS CALCULATOR
+============================================ */
+.calculator {
+  padding: 90px 0;
+  background: var(--blue-dark);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.calc-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.calc-left .section-sub { margin-bottom: 24px; }
+
+.market-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.market-line strong { color: var(--white); font-weight: 600; margin-left: 6px; }
+.market-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.calc-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.calc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green) 0%, transparent 70%);
+}
+
+.calc-service-toggle {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+
+.calc-tab {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+.calc-tab:hover { color: rgba(255,255,255,0.85); }
+.calc-tab.active {
+  background: var(--green);
+  color: #0A2240;
+}
+.calc-tab.active:hover { color: #0A2240; }
+
+.calc-input-block {
+  margin-bottom: 24px;
+}
+
+.calc-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 12px;
+}
+
+.calc-input-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  border-bottom: 2px solid rgba(255,255,255,0.18);
+  padding-bottom: 10px;
+  transition: border-color 0.2s;
+}
+.calc-input-wrapper:focus-within { border-color: var(--green); }
+
+.calc-dollar {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.calc-input {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 58px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  outline: none;
+  width: 140px;
+  -webkit-appearance: none;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  padding: 0;
+}
+.calc-input::-webkit-outer-spin-button,
+.calc-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.calc-input[type=number] { -moz-appearance: textfield; }
+
+.calc-period {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: auto;
+  padding-bottom: 8px;
+}
+
+.calc-result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.calc-row-label {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.calc-client-price {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+}
+
+.calc-earn-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(255,255,255,0.12);
+  margin-top: 4px;
+}
+
+.calc-earn-label {
+  font-size: 14px;
+  color: var(--white);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.calc-earn-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 58px;
+  color: var(--green);
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.calc-hint {
+  margin-top: 18px;
+  padding: 11px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 500;
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+.calc-hint.show { display: flex; }
+.calc-hint.low,
+.calc-hint.high {
+  background: rgba(196,103,74,0.13);
+  color: #E8B29E;
+  border: 1px solid rgba(196,103,74,0.25);
+}
+
+.calc-footnote {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  font-weight: 300;
+  margin-top: 22px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ============================================
    PERKS
 ============================================ */
 .perks {
@@ -805,6 +1031,8 @@ footer {
   .steps-grid { grid-template-columns: 1fr; }
   .perks-grid { grid-template-columns: 1fr; }
 
+  .calc-inner { grid-template-columns: 1fr; gap: 36px; }
+
   .testimonial-photo-strip { grid-template-columns: 1fr; height: 240px; }
   .testimonial-photo-strip .t-photo:last-child { display: none; }
 
@@ -815,6 +1043,12 @@ footer {
 
   nav { padding: 16px 20px; }
   .nav-right .nav-link { display: none; }
+}
+
+@media (max-width: 520px) {
+  .calc-input { font-size: 46px; width: 110px; }
+  .calc-dollar { font-size: 34px; }
+  .calc-earn-amount { font-size: 46px; }
 }
 </style>
 </head>
@@ -855,7 +1089,7 @@ footer {
     </h1>
 
     <p class="hero-sub fade-up d3">
-      Set what you charge. Walk dogs in your own neighborhood. We add our fee on top so your pay is never touched.
+      Set what you charge. Walk dogs in your own neighborhood. Your pay is never touched.
     </p>
 
     <div class="hero-form fade-up d4">
@@ -863,15 +1097,9 @@ footer {
         <div class="form-title">JOIN THE WALKER WAITLIST</div>
         <div class="form-subtitle">We will reach out when your area opens up.</div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label class="form-label">First Name</label>
-            <input class="form-input" type="text" id="fname" placeholder="Alex" autocomplete="given-name">
-          </div>
-          <div class="form-field">
-            <label class="form-label">Last Name</label>
-            <input class="form-input" type="text" id="lname" placeholder="Rivera" autocomplete="family-name">
-          </div>
+        <div class="form-field">
+          <label class="form-label">First Name</label>
+          <input class="form-input" type="text" id="fname" placeholder="Alex" autocomplete="given-name">
         </div>
 
         <div class="form-field">
@@ -879,31 +1107,15 @@ footer {
           <input class="form-input" type="email" id="email" placeholder="alex@email.com" autocomplete="email">
         </div>
 
-        <div class="form-field">
-          <label class="form-label">Phone (optional)</label>
-          <input class="form-input" type="tel" id="phone" placeholder="(323) 555-0100" autocomplete="tel">
-        </div>
-
         <div class="form-row">
           <div class="form-field">
-            <label class="form-label">Neighborhood</label>
-            <input class="form-input" type="text" id="hood" placeholder="Silver Lake">
+            <label class="form-label">Phone</label>
+            <input class="form-input" type="tel" id="phone" placeholder="(323) 555-0100" autocomplete="tel">
           </div>
           <div class="form-field">
             <label class="form-label">ZIP Code</label>
-            <input class="form-input" type="text" id="zip" placeholder="90026" maxlength="5">
+            <input class="form-input" type="text" id="zip" placeholder="90026" maxlength="5" inputmode="numeric">
           </div>
-        </div>
-
-        <div class="form-field">
-          <label class="form-label">Services You Would Offer</label>
-          <select class="form-select" id="services">
-            <option value="" disabled selected>Select all that apply...</option>
-            <option value="walking">Walking only</option>
-            <option value="walking-sitting">Walking + Drop-in visits</option>
-            <option value="all">Walking, Sitting and Boarding</option>
-            <option value="boarding">Boarding only</option>
-          </select>
         </div>
 
         <button class="submit-btn" onclick="submitForm()">APPLY TO WALK</button>
@@ -928,16 +1140,6 @@ footer {
     <div class="contrast-grid">
 
       <div class="contrast-item">
-        <div class="contrast-label">How we handle your pay</div>
-        <div class="contrast-row">
-          <span class="contrast-them">They cut 20%</span>
-          <span class="vs">vs</span>
-          <span class="contrast-us">We don't touch it</span>
-        </div>
-        <div class="contrast-desc">Your rate goes straight to you. Our fee is charged on top to the pet parent — never deducted from yours.</div>
-      </div>
-
-      <div class="contrast-item">
         <div class="contrast-label">Who sets your rate</div>
         <div class="contrast-row">
           <span class="contrast-them">The platform</span>
@@ -960,6 +1162,63 @@ footer {
     </div>
   </div>
 </div>
+
+<!-- EARNINGS CALCULATOR -->
+<section class="calculator">
+  <div class="container">
+    <div class="calc-inner">
+
+      <div class="calc-left">
+        <div class="section-eyebrow">See Your Earnings</div>
+        <h2 class="section-title">YOUR RATE.<br>YOUR MONEY.</h2>
+        <p class="section-sub">Type what you would charge. See exactly what you take home. No deductions, no percentages, no surprises.</p>
+        <div class="market-line">
+          <span class="market-dot"></span>
+          <span id="market-text">Most 30-min walks in Northeast LA:</span><strong id="market-range">$22–$26</strong>
+        </div>
+      </div>
+
+      <div class="calc-right">
+        <div class="calc-card">
+
+          <div class="calc-service-toggle" role="tablist">
+            <button class="calc-tab active" data-service="walk" type="button">30-min Walk</button>
+            <button class="calc-tab" data-service="boarding" type="button">Overnight Boarding</button>
+          </div>
+
+          <div class="calc-input-block">
+            <label class="calc-label" id="calc-label" for="rate-input">Your rate per 30-min walk</label>
+            <div class="calc-input-wrapper">
+              <span class="calc-dollar">$</span>
+              <input type="number" id="rate-input" value="24" min="0" max="199" class="calc-input" inputmode="numeric">
+              <span class="calc-period" id="calc-period">per walk</span>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <div class="calc-row">
+              <span class="calc-row-label">Client pays</span>
+              <span class="calc-client-price" id="client-price">$31.20</span>
+            </div>
+
+            <div class="calc-earn-row">
+              <span class="calc-earn-label">You earn</span>
+              <span class="calc-earn-amount" id="walker-earn">$24.00</span>
+            </div>
+          </div>
+
+          <div class="calc-hint" id="calc-hint"></div>
+
+          <div class="calc-footnote">
+            Your full rate, paid weekly to your bank via Stripe.
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- TESTIMONIAL -->
 <section class="testimonial">
@@ -1011,7 +1270,7 @@ footer {
         <div class="step-num">02</div>
         <span class="step-icon">💰</span>
         <div class="step-title">SET YOUR RATES</div>
-        <p class="step-text">You name your price. We add a service fee on top for the client. Your full rate is yours every time, paid weekly to your bank via Stripe.</p>
+        <p class="step-text">You name your price. You get paid your price. Every time, straight to your bank via Stripe.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
@@ -1026,16 +1285,11 @@ footer {
 <!-- PERKS -->
 <section class="perks">
   <div class="container">
-    <div class="section-eyebrow">Why Hello Doggo</div>
+    <div class="section-eyebrow">What's Included</div>
     <h2 class="section-title">BUILT FOR<br>WALKERS.</h2>
-    <p class="section-sub">What would a dog walking platform look like if walkers actually built it?</p>
+    <p class="section-sub">Flexible schedule. A real path to grow. Every booking protected.</p>
 
     <div class="perks-grid">
-      <div class="perk">
-        <span class="perk-icon">💵</span>
-        <div class="perk-title">YOUR PAY, NEVER TOUCHED</div>
-        <p class="perk-text">We charge our service fee to the pet parent on top of your rate. Your earnings are 100% yours. We never take a cut from your pocket.</p>
-      </div>
       <div class="perk">
         <span class="perk-icon">🗓️</span>
         <div class="perk-title">YOUR SCHEDULE</div>
@@ -1043,23 +1297,13 @@ footer {
       </div>
       <div class="perk">
         <span class="perk-icon">⭐</span>
-        <div class="perk-title">EARN YOUR BADGE</div>
-        <p class="perk-text">Build your reputation and unlock Certified and Elite status. Better reviews mean lower client fees and more bookings coming your way.</p>
-      </div>
-      <div class="perk">
-        <span class="perk-icon">📱</span>
-        <div class="perk-title">TOOLS THAT WORK</div>
-        <p class="perk-text">GPS-tracked walks, photo updates, in-app messaging, and weekly Stripe payouts. Everything you need to run a professional service.</p>
+        <div class="perk-title">EARN YOUR WAY UP</div>
+        <p class="perk-text">Build your reputation and unlock Certified and Elite status. Top walkers get priority in search, first dibs on requests, and featured spots on our Instagram. Placement is earned, never bought.</p>
       </div>
       <div class="perk">
         <span class="perk-icon">🛡️</span>
         <div class="perk-title">BOOKING PROTECTION</div>
         <p class="perk-text">Every booking includes marketplace protection covering vet costs and property damage during active walks. You and your clients are covered.</p>
-      </div>
-      <div class="perk">
-        <span class="perk-icon">🐾</span>
-        <div class="perk-title">WALK WITH PURPOSE</div>
-        <p class="perk-text">$0.50 from every booking goes to a rotating LA rescue org. Your work feeds shelter dogs. That is a story worth telling your clients.</p>
       </div>
     </div>
   </div>
@@ -1103,6 +1347,8 @@ const SCRIPT_URL = 'https://script.google.com/a/macros/getyourfairoffer.com/s/AK
 function submitForm() {
   const fname = document.getElementById('fname').value.trim();
   const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const phoneDigits = phone.replace(/\D/g, '');
 
   document.querySelectorAll('.form-input').forEach(el => el.classList.remove('error'));
 
@@ -1114,6 +1360,11 @@ function submitForm() {
   if (!email || !email.includes('@')) {
     document.getElementById('email').classList.add('error');
     document.getElementById('email').focus();
+    return;
+  }
+  if (phoneDigits.length < 10) {
+    document.getElementById('phone').classList.add('error');
+    document.getElementById('phone').focus();
     return;
   }
 
@@ -1128,12 +1379,9 @@ function submitForm() {
     body: JSON.stringify({
       sheet: 'Walkers',
       firstName: fname,
-      lastName: document.getElementById('lname').value.trim(),
       email,
-      phone: document.getElementById('phone').value.trim(),
-      zip: document.getElementById('zip').value.trim(),
-      neighborhood: document.getElementById('hood').value.trim(),
-      services: document.getElementById('services').value.trim()
+      phone: phone,
+      zip: document.getElementById('zip').value.trim()
     })
   }).then(() => {
     document.getElementById('form-content').style.display = 'none';
@@ -1145,8 +1393,107 @@ function submitForm() {
 }
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' && e.target.tagName === 'INPUT') submitForm();
+  if (e.key === 'Enter' && e.target.tagName === 'INPUT' && e.target.id !== 'rate-input') {
+    submitForm();
+  }
 });
+
+// ============================================
+// EARNINGS CALCULATOR — 30% on top of walker rate
+// Walk + Boarding modes
+// ============================================
+(function initCalc() {
+  const SERVICE_FEE_MULTIPLIER = 1.30; // 30% on top, charged to client
+
+  const SERVICES = {
+    walk: {
+      label: 'Your rate per 30-min walk',
+      period: 'per walk',
+      default: 24,
+      marketText: 'Most 30-min walks in Northeast LA:',
+      marketRange: '$22–$26',
+      low: 18,
+      high: 32
+    },
+    boarding: {
+      label: 'Your rate per night',
+      period: 'per night',
+      default: 68,
+      marketText: 'Most overnight boarding in Northeast LA:',
+      marketRange: '$60–$80',
+      low: 55,
+      high: 90
+    }
+  };
+
+  let current = 'walk';
+
+  const rateInput = document.getElementById('rate-input');
+  const clientPrice = document.getElementById('client-price');
+  const walkerEarn = document.getElementById('walker-earn');
+  const calcHint = document.getElementById('calc-hint');
+  const calcLabel = document.getElementById('calc-label');
+  const calcPeriod = document.getElementById('calc-period');
+  const marketText = document.getElementById('market-text');
+  const marketRange = document.getElementById('market-range');
+  const tabs = document.querySelectorAll('.calc-tab');
+
+  if (!rateInput) return;
+
+  function formatMoney(n) {
+    return '$' + n.toFixed(2);
+  }
+
+  function updateCalc() {
+    const svc = SERVICES[current];
+    let rate = parseFloat(rateInput.value);
+    if (isNaN(rate) || rate < 0) rate = 0;
+
+    const client = rate * SERVICE_FEE_MULTIPLIER;
+    clientPrice.textContent = formatMoney(client);
+    walkerEarn.textContent = formatMoney(rate);
+
+    calcHint.classList.remove('show', 'low', 'high');
+
+    if (rate > 0 && rate < svc.low) {
+      calcHint.innerHTML = '↓ &nbsp;Below market — you may be leaving money on the table';
+      calcHint.classList.add('show', 'low');
+    } else if (rate > svc.high) {
+      calcHint.innerHTML = '↑ &nbsp;Above market — higher rates can mean fewer bookings';
+      calcHint.classList.add('show', 'high');
+    }
+  }
+
+  function switchService(service) {
+    if (!SERVICES[service] || service === current) return;
+    current = service;
+    const svc = SERVICES[service];
+
+    // Update UI
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.service === service));
+    calcLabel.textContent = svc.label;
+    calcPeriod.textContent = svc.period;
+    marketText.textContent = svc.marketText;
+    marketRange.textContent = svc.marketRange;
+    rateInput.value = svc.default;
+
+    updateCalc();
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => switchService(tab.dataset.service));
+  });
+
+  rateInput.addEventListener('input', updateCalc);
+  rateInput.addEventListener('blur', function() {
+    if (!rateInput.value) {
+      rateInput.value = SERVICES[current].default;
+      updateCalc();
+    }
+  });
+
+  updateCalc();
+})();
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1158,7 +1505,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08 });
 
-document.querySelectorAll('.step, .perk, .contrast-item').forEach(el => {
+document.querySelectorAll('.step, .perk, .contrast-item, .calc-card').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(18px)';
   el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
