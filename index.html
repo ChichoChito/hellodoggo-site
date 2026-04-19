@@ -292,6 +292,23 @@ body {
 .book-btn:hover { background: var(--blue-bright); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(31,95,166,0.25); }
 .stripe-note { text-align: center; margin-top: 12px; font-size: 12px; color: var(--muted-light); }
 
+/* NIDIA STORY */
+.nidia-story { padding: 100px 0; background: var(--sand); }
+.nidia-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.nidia-photo-wrap { aspect-ratio: 4/5; overflow: hidden; border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.1); position: relative; }
+.nidia-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; }
+.nidia-photo-badge { position: absolute; bottom: 20px; left: 20px; background: var(--white); padding: 10px 16px; border-radius: 100px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); font-size: 13px; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+.nidia-photo-badge::before { content: ''; width: 8px; height: 8px; background: var(--blue); border-radius: 50%; }
+.nidia-copy .eyebrow { color: var(--terra); margin-bottom: 16px; }
+.nidia-number { font-family: 'Bebas Neue', sans-serif; font-size: clamp(96px, 14vw, 180px); color: var(--blue); line-height: 0.9; letter-spacing: -0.01em; margin-bottom: 20px; }
+.nidia-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(22px, 2.5vw, 30px); color: var(--ink); line-height: 1.2; letter-spacing: 0.01em; margin-bottom: 20px; }
+.nidia-body { font-size: 16px; color: var(--muted); line-height: 1.7; font-weight: 300; margin-bottom: 24px; }
+.nidia-tag { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: var(--terra); line-height: 1.5; }
+@media (max-width: 960px) {
+  .nidia-inner { grid-template-columns: 1fr; gap: 36px; }
+  .nidia-photo-wrap { aspect-ratio: 4/3; max-width: 420px; margin: 0 auto; }
+}
+
 /* FAQ */
 .faq { padding: 100px 0; background: var(--sand); }
 .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; max-width: 960px; margin: 0 auto; }
@@ -416,7 +433,7 @@ body {
       <span class="hero-line-2">deserves</span>
       <span class="hero-line-3">the good life.</span>
     </h1>
-    <p class="hero-body">GPS tracked, background checked, and every booking feeds a rescue dog. Real neighbors walking dogs on the streets you both love.</p>
+    <p class="hero-body">We're dog people who happen to walk dogs. GPS tracked, background checked, and every booking feeds a rescue dog. That's it. That's the app.</p>
 
     <div class="hero-widget">
       <div class="widget-label">What do you need?</div>
@@ -454,7 +471,7 @@ body {
       <span class="trust-pill"><span class="pill-dot"></span>Background checked</span>
       <span class="trust-pill"><span class="pill-dot"></span>GPS tracked every walk</span>
       <span class="trust-pill"><span class="pill-dot"></span>Photo updates</span>
-      <span class="trust-pill"><span class="pill-dot"></span>Fully insured</span>
+      <span class="trust-pill"><span class="pill-dot"></span>Booking Protection</span>
     </div>
   </div>
 
@@ -640,8 +657,8 @@ body {
         <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(22px,3vw,34px);color:var(--white);line-height:1.3;">Walk a dog,<br>feed a dog. <span style="color:var(--white);opacity:0.85;">♥</span></div>
       </div>
       <div class="giving-copy-side">
-        <h2>EVERY BOOKING<br><span class="soft">feeds a rescue dog.</span></h2>
-        <p class="giving-body">When you book a walk, a sitting, or a boarding stay through Hello Doggo, a dog at an LA rescue shelter gets fed. No extra steps, no opt-ins. It just happens. Your dog gets the good life. Another dog gets a little closer to finding their own.</p>
+        <h2>WALK A DOG,<br><span class="soft">feed a dog.</span></h2>
+        <p class="giving-body">Every booking through Hello Doggo feeds a rescue dog at an LA shelter. No extra steps. No opt-ins. It just happens — because a business built around dogs should give back to dogs. Your dog gets the good life. Another dog gets a little closer to finding their own.</p>
       </div>
     </div>
   </div>
@@ -655,16 +672,35 @@ body {
         <img src="dog-husky-sit.jpg" alt="Happy dog sitting on a NELA sidewalk">
       </div>
       <div class="about-content fade-in" style="animation-delay:0.1s">
-        <div class="eyebrow">Who we are</div>
-        <h2>A neighbor who <span class="accent">loves your dog</span> like their own.</h2>
-        <p class="about-body">Hello Doggo started because we were tired of handing our dog to strangers from an app. So we became the person we wished existed. A real neighbor who knows your dog's name, their favorite sniffing spots, and what makes them do the full-body wiggle at the door.</p>
-        <p class="about-body">We walk the same streets your dog loves. We grab coffee at the same spots you do. Hello Doggo grew out of Northeast LA because the best care comes from someone who is already part of the community.</p>
+        <div class="eyebrow">Built around your dog</div>
+        <h2>Because every dog is <span class="accent">different.</span></h2>
+        <p class="about-body">The senior lab who needs his pills at 2pm. The husky puppy burning off zoomies. The rescue still learning that strangers are okay. You know your dog better than any algorithm ever will.</p>
+        <p class="about-body">So Hello Doggo works differently. Real walkers in your own neighborhood — not sent from across town. Someone your dog gets to know, and keeps seeing. Consistency over convenience. The same hands at the door every time.</p>
         <div class="trust-grid">
           <div class="trust-card"><h4>LOCALLY ROOTED</h4><p>Serving Northeast LA personally, not through a call center.</p></div>
           <div class="trust-card"><h4>REAL PHOTOS</h4><p>Photos from every single walk. Not stock images. Your dog.</p></div>
           <div class="trust-card"><h4>DIRECT PAYMENT</h4><p>Simple, secure Stripe payments. No hidden platform fees.</p></div>
           <div class="trust-card"><h4>EASY REBOOKING</h4><p>One tap to book the same walker again. They already know your dog.</p></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NIDIA STORY -->
+<section class="nidia-story">
+  <div class="container">
+    <div class="nidia-inner">
+      <div class="nidia-photo-wrap fade-in">
+        <img src="nidia-walking.jpg" alt="Nidia walking a dog through her neighborhood in Glassell Park">
+        <div class="nidia-photo-badge">Nidia · Glassell Park</div>
+      </div>
+      <div class="nidia-copy fade-in" style="animation-delay:0.1s">
+        <div class="eyebrow">A founding walker's first 10 days</div>
+        <div class="nidia-number">$898.</div>
+        <p class="nidia-headline">That's what Nidia earned walking dogs in her own neighborhood.</p>
+        <p class="nidia-body">She set her own rate. She kept every dollar. Her clients knew her by name, and so did their dogs. Every booking fed a rescue dog in Los Angeles.</p>
+        <p class="nidia-tag">This is what we're building — one real neighbor at a time.</p>
       </div>
     </div>
   </div>
@@ -725,7 +761,7 @@ body {
     <div class="faq-grid">
       <div class="faq-col">
         <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>Is Hello Doggo insured?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Yes. Every walk and boarding stay is covered by Hello Doggo Booking Protection, which includes vet costs and property damage during active bookings.</p></div></div>
-        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>How do I know my dog is safe?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Every walker is background checked and personally vetted. You get real-time GPS tracking and photo updates during every walk.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>How do I know my dog is safe?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Every walker is background checked through Checkr. You get real-time GPS tracking and photo updates during every walk, and every booking is covered by Hello Doggo Booking Protection.</p></div></div>
         <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>How does booking work?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Pick a service, choose a walker or let us match you, and confirm. Payments are handled securely through Stripe.</p></div></div>
         <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>What if I need to cancel?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Just let us know. We're flexible and we'll work it out. No hidden fees or penalties.</p></div></div>
       </div>
