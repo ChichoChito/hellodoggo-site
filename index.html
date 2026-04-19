@@ -341,29 +341,8 @@ body {
   /* Hide the "Accepting bookings" pill on mobile — the waitlist widget does that job */
   .live-badge { display: none; }
 
-  /* Nidia card becomes a slim horizontal bar at the bottom on mobile */
-  .walker-card {
-    left: 12px; right: 12px; bottom: 12px;
-    width: auto; max-width: none;
-    padding: 10px 14px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .walker-card-top { margin-bottom: 0; flex: 1; min-width: 0; gap: 10px; }
-  .walker-avatar { width: 36px; height: 36px; border-width: 1.5px; }
-  .walker-avatar > span { font-size: 16px !important; }
-  .walker-name { font-size: 13px; }
-  .walker-location { font-size: 10px; margin-top: 0; }
-  .walker-rating-row { gap: 4px; }
-  .walker-stars { font-size: 10px; }
-  .walker-rating-num { font-size: 10px; }
-  .walker-card-stat {
-    background: transparent; padding: 2px 0 2px 10px;
-    border-left: 1px solid rgba(0,0,0,0.08);
-    flex-direction: column; align-items: flex-end; gap: 1px;
-    flex-shrink: 0;
-  }
-  .walker-stat-label { font-size: 9px; letter-spacing: 0.04em; }
-  .walker-stat-val { font-size: 15px; letter-spacing: 0; }
+  /* Hide the Nidia overlay card on mobile — let the photo breathe. Her full profile appears in the Walkers section below. */
+  .walker-card { display: none; }
 
   .giving-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
