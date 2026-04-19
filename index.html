@@ -325,11 +325,76 @@ body {
 
 /* INSTAGRAM */
 .instagram { padding: 100px 0; background: var(--blue-wash); }
-.ig-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 36px; }
-.ig-cell { aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: transform 0.3s ease; min-width: 0; }
-.ig-cell:hover { transform: scale(1.03); }
-.ig-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ig-carousel-wrap { position: relative; margin-bottom: 32px; }
+.ig-carousel {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px;
+}
+.ig-carousel::-webkit-scrollbar { display: none; }
+.ig-slide {
+  flex: 0 0 calc(25% - 11px);
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  min-width: 0;
+}
+.ig-slide:hover { transform: scale(1.02); }
+.ig-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ig-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.ig-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(31,95,166,0.2);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, width 0.25s ease;
+}
+.ig-dot.active { background: var(--blue); width: 24px; border-radius: 100px; }
+.ig-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--blue);
+  z-index: 5;
+  transition: all 0.2s;
+}
+.ig-arrow:hover { background: var(--blue); color: var(--white); transform: translateY(-50%) scale(1.08); }
+.ig-arrow.prev { left: -12px; }
+.ig-arrow.next { right: -12px; }
 .ig-cta { text-align: center; }
+@media (max-width: 960px) {
+  .ig-slide { flex: 0 0 calc(50% - 7px); }
+  .ig-arrow { display: none; }
+}
+@media (max-width: 600px) {
+  .ig-slide { flex: 0 0 calc(80% - 7px); }
+}
 
 /* FOOTER */
 .footer { background: var(--ink); padding: 60px 0 0; }
@@ -369,7 +434,6 @@ body {
   .stat-item { padding: 28px 16px; }
   .services-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto 32px; }
   .walker-strip { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-  .ig-grid { grid-template-columns: repeat(2,1fr); }
   .faq-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .form-row { grid-template-columns: 1fr; }
@@ -547,7 +611,7 @@ body {
       <div class="service-card fade-in" style="animation-delay:0.1s">
         <div class="service-card-img">
           <span class="service-num">02</span>
-          <img src="dog-fluffy-two.jpg" alt="Two happy dogs meeting on a walk">
+          <img src="dogs-reservoir.jpg" alt="Two dogs on a NELA walk — a cream doodle and a scruffy schnauzer mix">
         </div>
         <div class="service-card-body">
           <h3>Drop-In Visit</h3>
@@ -782,11 +846,23 @@ body {
       <div class="eyebrow">Follow along</div>
       <h2>Life at <span class="accent">Hello Doggo.</span></h2>
     </div>
-    <div class="ig-grid">
-      <div class="ig-cell fade-in"><img src="nidia-walking.jpg" alt="Nidia walking a dog"></div>
-      <div class="ig-cell fade-in" style="animation-delay:0.05s"><img src="dog-husky-red.jpg" alt="Happy red husky"></div>
-      <div class="ig-cell fade-in" style="animation-delay:0.1s"><img src="dog-aussie.jpg" alt="Beautiful Australian shepherd"></div>
-      <div class="ig-cell fade-in" style="animation-delay:0.15s"><img src="dog-pom.jpg" alt="Pomeranian on a walk"></div>
+    <div class="ig-carousel-wrap fade-in">
+      <button class="ig-arrow prev" id="ig-prev" aria-label="Previous photo">←</button>
+      <div class="ig-carousel" id="ig-carousel">
+        <div class="ig-slide"><img src="nidia-walking.jpg" alt="Nidia walking a dog"></div>
+        <div class="ig-slide"><img src="dog-husky-red.jpg" alt="Happy red husky"></div>
+        <div class="ig-slide"><img src="dog-sunset.jpg" alt="Cane corso at sunset in the neighborhood"></div>
+        <div class="ig-slide"><img src="dog-aussie.jpg" alt="Beautiful Australian shepherd"></div>
+        <div class="ig-slide"><img src="dog-pom.jpg" alt="Pomeranian on a walk"></div>
+      </div>
+      <button class="ig-arrow next" id="ig-next" aria-label="Next photo">→</button>
+      <div class="ig-dots" id="ig-dots">
+        <button class="ig-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+        <button class="ig-dot" data-slide="1" aria-label="Go to slide 2"></button>
+        <button class="ig-dot" data-slide="2" aria-label="Go to slide 3"></button>
+        <button class="ig-dot" data-slide="3" aria-label="Go to slide 4"></button>
+        <button class="ig-dot" data-slide="4" aria-label="Go to slide 5"></button>
+      </div>
     </div>
     <div class="ig-cta fade-in">
       <a href="https://instagram.com/hellodoggo.co" target="_blank" class="btn btn-blue">Follow us on Instagram</a>
@@ -918,6 +994,71 @@ function submitWaitlist(btn) {
     btn.style.background = '#2D9B6F';
   });
 }
+
+// ============================================
+// INSTAGRAM CAROUSEL — manual swipe + arrows + dots
+// ============================================
+(function initCarousel() {
+  const carousel = document.getElementById('ig-carousel');
+  const prevBtn = document.getElementById('ig-prev');
+  const nextBtn = document.getElementById('ig-next');
+  const dots = document.querySelectorAll('.ig-dot');
+  if (!carousel || !dots.length) return;
+
+  const slides = carousel.querySelectorAll('.ig-slide');
+  if (!slides.length) return;
+
+  function scrollToSlide(index) {
+    const slide = slides[index];
+    if (!slide) return;
+    carousel.scrollTo({ left: slide.offsetLeft - carousel.offsetLeft, behavior: 'smooth' });
+  }
+
+  function getCurrentIndex() {
+    // Find the slide closest to the left edge of the viewport
+    const scrollLeft = carousel.scrollLeft;
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+    slides.forEach((slide, i) => {
+      const distance = Math.abs(slide.offsetLeft - carousel.offsetLeft - scrollLeft);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = i;
+      }
+    });
+    return closestIndex;
+  }
+
+  function updateDots() {
+    const current = getCurrentIndex();
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === current);
+    });
+  }
+
+  // Sync dots with scroll position
+  let scrollTimer;
+  carousel.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(updateDots, 80);
+  });
+
+  // Arrow navigation
+  prevBtn.addEventListener('click', () => {
+    const current = getCurrentIndex();
+    scrollToSlide(Math.max(0, current - 1));
+  });
+
+  nextBtn.addEventListener('click', () => {
+    const current = getCurrentIndex();
+    scrollToSlide(Math.min(slides.length - 1, current + 1));
+  });
+
+  // Dot navigation
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => scrollToSlide(i));
+  });
+})();
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
