@@ -8,6 +8,16 @@
 <!-- Favicon — paw on blue -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Open Graph — controls link previews on iMessage, WhatsApp, Twitter, etc. -->
+<meta property="og:title" content="Hello Doggo | Dog Walking & Boarding · Northeast LA">
+<meta property="og:description" content="We're two dog people in your neighborhood. Background checked, photo updates from every walk, and every booking feeds a rescue dog in LA.">
+<meta property="og:image" content="https://hellodoggo.co/hero.jpg">
+<meta property="og:url" content="https://hellodoggo.co">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hello Doggo | Dog Walking & Boarding · Northeast LA">
+<meta name="twitter:description" content="We're two dog people in your neighborhood. Background checked, photo updates from every walk, and every booking feeds a rescue dog in LA.">
+<meta name="twitter:image" content="https://hellodoggo.co/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
@@ -240,6 +250,9 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
 /* ANIMATIONS */
 .fade-in { opacity:0; transform:translateY(18px); transition:opacity 0.6s ease,transform 0.6s ease; }
 .fade-in.visible { opacity:1; transform:translateY(0); }
+/* Eyebrow line break — dot on desktop, line break on mobile */
+.eyebrow-break { display:inline; }
+.eyebrow-newline { display:none; }
 
 /* RESPONSIVE */
 @media(max-width:960px){
@@ -247,6 +260,9 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
   .hero-visual{height:56vw;max-height:460px;order:-1;}
   .hero-content{padding:44px 24px 52px;}
   .live-badge,.walker-card{display:none;}
+  .eyebrow-break{display:none;}
+  .eyebrow-newline{display:inline;}
+  .meet-photo-caption{display:none;}
   .services-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto 28px;}
   .meet-inner{grid-template-columns:1fr;gap:40px;}
   .meet-photo{aspect-ratio:4/3;max-width:460px;margin:0 auto;}
@@ -303,7 +319,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
 
 <section class="hero">
   <div class="hero-content fade-in">
-    <div class="eyebrow hero-eyebrow">Northeast Los Angeles · Walk a dog, feed a dog. ♥</div>
+    <div class="eyebrow hero-eyebrow">Northeast Los Angeles<span class="eyebrow-break"> · </span><span class="eyebrow-newline"><br></span>Walk a dog, feed a dog. ♥</div>
     <h1>
       <span class="hero-line-1">Your Doggo</span>
       <span class="hero-line-2">deserves</span>
@@ -345,10 +361,10 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
     <div class="walker-card">
       <div class="walker-card-top">
         <div class="walker-avatar">
-          <img src="IMG_8563.jpeg" alt="Alejandra">
+          <img src="IMG_8563.jpeg" alt="Nidia">
         </div>
         <div>
-          <div class="walker-name">Alejandra</div>
+          <div class="walker-name">Nidia</div>
           <div class="walker-location">Glassell Park, NELA</div>
           <div class="walker-stars">★★★★★ 5.0</div>
         </div>
@@ -363,7 +379,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
     <div class="stat-item"><span class="stat-num">5mi</span><span class="stat-label">Hyperlocal, Northeast LA</span></div>
     <div class="stat-item"><span class="stat-num">♥</span><span class="stat-label">Every booking feeds a rescue dog</span></div>
     <div class="stat-item"><span class="stat-num">✓</span><span class="stat-label">Background checked</span></div>
-    <div class="stat-item"><span class="stat-num">📸</span><span class="stat-label">Photos from every single walk</span></div>
+    <div class="stat-item"><span class="stat-num">∞</span><span class="stat-label">Photos from every single walk</span></div>
   </div>
 </div>
 
@@ -377,7 +393,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
       <div class="service-card fade-in">
         <div class="service-card-img">
           <span class="service-num">01</span>
-          <img src="IMG_8547.jpeg" alt="Alejandra walking a dog on a Northeast LA sidewalk" style="object-position:center 40%;">
+          <img src="IMG_8547.jpeg" alt="Nidia walking a dog on a Northeast LA sidewalk" style="object-position:center 40%;">
         </div>
         <div class="service-card-body">
           <h3>Dog Walking</h3>
@@ -421,16 +437,16 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
   <div class="container">
     <div class="meet-inner">
       <div class="meet-photo fade-in">
-        <img src="IMG_8563.jpeg" alt="Alejandra with a dog against a bougainvillea wall in Northeast LA">
+        <img src="IMG_8563.jpeg" alt="Nidia with a dog against a bougainvillea wall in Northeast LA">
         <div class="meet-photo-caption">
-          <div class="caption-name">Alejandra · Glassell Park</div>
-          <div class="caption-sub">Walking dogs in NELA since day one</div>
+          <div class="caption-name">Nidia · Glassell Park</div>
+          <div class="caption-sub">Hello Doggo</div>
         </div>
       </div>
       <div class="meet-copy fade-in" style="animation-delay:0.1s">
         <div class="eyebrow">Two neighbors, one mission</div>
         <h2>Not an app.<br><span class="accent">An actual person.</span></h2>
-        <p>Hello Doggo is Luis and Alejandra, two people who live in Northeast LA, love dogs, and got tired of watching pet parents hand their dog's leash to a stranger dispatched from across town.</p>
+        <p>Hello Doggo is Luis and Nidia, two people who live in Northeast LA, love dogs, and got tired of watching pet parents hand their dog's leash to a stranger dispatched from across town.</p>
         <p>We walk dogs on the same streets we walk every day. We know the corner that makes every dog lose their mind. We know which yards have the good smells. Your dog isn't a job to us. They're the whole point.</p>
         <div class="meet-quote">
           <p>"We're dog people who happen to walk dogs. That's it. That's the whole thing."</p>
@@ -444,7 +460,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
   </div>
 </section>
 
-<section class="neighborhoods">
+<section class="neighborhoods" id="neighborhoods">
   <div class="container">
     <div class="neighborhoods-inner">
       <div class="neighborhoods-label">WHERE WE WALK</div>
@@ -485,7 +501,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
       <div class="booking-header fade-in">
         <div class="eyebrow">Ready when you are</div>
         <h2>Let's get your Doggo <span class="accent">the good life.</span></h2>
-        <p>Pick a service and book directly. Two minutes, no app, no account. We'll reach out same day to confirm.</p>
+        <p>Pick a service and book directly. Quick and easy, no app, no account. We'll reach out same day to confirm.</p>
       </div>
       <div class="fade-in">
         <div class="booking-services">
@@ -540,12 +556,12 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
   <div class="container">
     <div class="section-header fade-in">
       <div class="eyebrow">Follow along</div>
-      <h2>Dogs of <span class="accent">Northeast LA.</span></h2>
+      <h2>Hello Doggo's <span class="accent">Feed.</span></h2>
     </div>
     <div class="ig-carousel-wrap fade-in">
       <button class="ig-arrow prev" id="ig-prev">←</button>
       <div class="ig-carousel" id="ig-carousel">
-        <div class="ig-slide"><img src="nidia-walking.jpg" alt="Alejandra walking a dog in NELA"></div>
+        <div class="ig-slide"><img src="nidia-walking.jpg" alt="Nidia walking a dog in NELA"></div>
         <div class="ig-slide"><img src="dog-husky-red.jpg" alt="Happy dog on a walk"></div>
         <div class="ig-slide"><img src="IMG_8560.jpeg" alt="Golden dog against bougainvillea wall in Northeast LA"></div>
         <div class="ig-slide"><img src="dog-husky-sit.jpg" alt="Dog on a NELA sidewalk"></div>
@@ -585,6 +601,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
           <li><a href="#booking">Dog Walking</a></li>
           <li><a href="#booking">Drop-In Visits</a></li>
           <li><a href="#booking">Overnight Boarding</a></li>
+          <li><a href="#booking">Sitting</a></li>
           <li><a href="#booking">Book Now</a></li>
         </ul>
       </div>
@@ -601,14 +618,14 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
       <div class="footer-col">
         <h4>WHERE WE WALK</h4>
         <ul>
-          <li><a href="#booking">Glassell Park</a></li>
-          <li><a href="#booking">Silver Lake</a></li>
-          <li><a href="#booking">Echo Park</a></li>
-          <li><a href="#booking">Highland Park</a></li>
-          <li><a href="#booking">Eagle Rock</a></li>
-          <li><a href="#booking">Atwater Village</a></li>
-          <li><a href="#booking">Glendale</a></li>
-          <li><a href="#booking">Pasadena</a></li>
+          <li><a href="#neighborhoods">Glassell Park</a></li>
+          <li><a href="#neighborhoods">Silver Lake</a></li>
+          <li><a href="#neighborhoods">Echo Park</a></li>
+          <li><a href="#neighborhoods">Highland Park</a></li>
+          <li><a href="#neighborhoods">Eagle Rock</a></li>
+          <li><a href="#neighborhoods">Atwater Village</a></li>
+          <li><a href="#neighborhoods">Glendale</a></li>
+          <li><a href="#neighborhoods">Pasadena</a></li>
         </ul>
       </div>
     </div>
