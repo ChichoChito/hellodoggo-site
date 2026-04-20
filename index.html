@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello Doggo | Dog Walking & Boarding · Northeast Los Angeles</title>
+<meta name="description" content="Dog walking, boarding, and drop-in visits in Northeast LA. Background checked, photo updates every walk, and every booking feeds a rescue dog. hellodoggo.co">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #1F5FA6;
+  --blue-bright: #2E74C0;
+  --blue-light: #5B9BD5;
+  --blue-wash: #EEF5FC;
+  --terra: #C4674A;
+  --terra-pale: #F5E6DF;
+  --cream: #F8F4EC;
+  --sand: #F2EDE4;
+  --ink: #1A1A2E;
+  --muted: #7A7A8E;
+  --muted-light: #B0B0C0;
+  --white: #FFFFFF;
+  --border: rgba(0,0,0,0.06);
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
+body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--cream); font-weight:400; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+.container { max-width:1200px; margin:0 auto; padding:0 24px; }
+.eyebrow { font-family:'DM Sans',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--terra); }
+
+/* NAV */
+.nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(248,244,236,0.95); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); height:68px; display:flex; align-items:center; }
+.nav-inner { display:flex; align-items:center; justify-content:space-between; width:100%; max-width:1200px; margin:0 auto; padding:0 24px; }
+.nav-logo { display:flex; align-items:baseline; gap:2px; text-decoration:none; }
+.nav-logo .hello { font-family:'Playfair Display',serif; font-style:italic; font-size:24px; color:var(--blue); }
+.nav-logo .doggo { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--blue); letter-spacing:0.02em; }
+.nav-links { display:flex; align-items:center; gap:28px; list-style:none; }
+.nav-links a { text-decoration:none; font-size:14px; font-weight:500; color:var(--muted); transition:color 0.2s; }
+.nav-links a:hover { color:var(--ink); }
+.nav-cta { background:var(--blue); color:var(--white) !important; padding:10px 22px; border-radius:8px; font-weight:600 !important; transition:all 0.2s; }
+.nav-cta:hover { background:var(--blue-bright) !important; transform:translateY(-1px); }
+.nav-cta-mobile { display:none; }
+
+/* MARQUEE */
+.marquee { margin-top:68px; background:var(--blue); overflow:hidden; white-space:nowrap; padding:11px 0; }
+.marquee-track { display:inline-flex; animation:marquee-scroll 32s linear infinite; }
+.marquee-track span { font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:0.2em; color:rgba(255,255,255,0.9); padding:0 22px; }
+.marquee-track .dot { color:var(--terra); }
+@keyframes marquee-scroll { 0%{transform:translateX(0);}100%{transform:translateX(-50%);} }
+
+/* HERO */
+.hero { display:grid; grid-template-columns:1fr 1.15fr; min-height:calc(100vh - 68px - 36px); background:var(--cream); overflow:hidden; }
+.hero-content { display:flex; flex-direction:column; justify-content:center; padding:72px 48px; position:relative; z-index:2; }
+.hero-eyebrow { margin-bottom:20px; }
+.hero h1 { margin-bottom:24px; }
+.hero-line-1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(48px,5.5vw,76px); color:var(--ink); display:block; line-height:0.95; }
+.hero-line-2 { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(36px,4vw,58px); color:var(--blue); display:block; line-height:1.1; }
+.hero-line-3 { font-family:'Bebas Neue',sans-serif; font-size:clamp(48px,5.5vw,76px); color:var(--terra); display:block; line-height:0.95; }
+.hero-body { font-size:16px; color:var(--muted); margin-bottom:32px; line-height:1.75; font-weight:300; max-width:440px; }
+
+.hero-widget { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:22px 24px; max-width:440px; margin-bottom:24px; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+.widget-label { font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted-light); margin-bottom:10px; }
+.widget-services { display:flex; gap:8px; margin-bottom:16px; }
+.widget-service { flex:1; padding:10px 8px; border:1.5px solid var(--border); border-radius:8px; background:var(--cream); text-align:center; cursor:pointer; transition:all 0.18s; user-select:none; }
+.widget-service:hover { border-color:var(--blue); }
+.widget-service.active { border-color:var(--blue); background:var(--blue); }
+.widget-service-icon { font-size:18px; display:block; margin-bottom:3px; }
+.widget-service-name { font-size:11px; font-weight:600; color:var(--ink); display:block; white-space:nowrap; }
+.widget-service.active .widget-service-name { color:var(--white); }
+.widget-book-btn { display:block; width:100%; padding:14px; background:var(--blue); color:var(--white); border:none; border-radius:8px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:15px; cursor:pointer; text-decoration:none; text-align:center; transition:all 0.2s; }
+.widget-book-btn:hover { background:var(--blue-bright); transform:translateY(-1px); box-shadow:0 6px 20px rgba(31,95,166,0.25); }
+.widget-sub { text-align:center; margin-top:9px; font-size:12px; color:var(--muted-light); }
+
+.trust-pills { display:flex; gap:8px; flex-wrap:wrap; }
+.trust-pill { display:inline-flex; align-items:center; gap:6px; padding:6px 13px; background:var(--white); border:1px solid var(--border); border-radius:100px; font-size:12px; font-weight:500; color:var(--muted); }
+.trust-pill .pill-dot { width:6px; height:6px; border-radius:50%; background:var(--blue); flex-shrink:0; }
+
+.hero-visual { position:relative; overflow:hidden; }
+.hero-visual::before { content:''; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(to right,rgba(248,244,236,0.25) 0%,transparent 18%),linear-gradient(to bottom,rgba(248,244,236,0.1) 0%,transparent 12%,transparent 78%,rgba(248,244,236,0.2) 100%); }
+.hero-photo { width:100%; height:100%; object-fit:cover; object-position:center 30%; display:block; }
+.live-badge { position:absolute; top:24px; right:24px; z-index:5; background:var(--white); padding:8px 14px; border-radius:100px; display:flex; align-items:center; gap:7px; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+.live-dot { width:7px; height:7px; border-radius:50%; background:#22C55E; animation:pulse-dot 2s infinite; }
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.4);}}
+.live-badge span { font-size:12px; font-weight:600; color:var(--ink); }
+
+.walker-card { position:absolute; bottom:28px; right:24px; z-index:5; background:var(--white); border-radius:var(--radius-lg); padding:14px 18px; width:224px; box-shadow:0 8px 32px rgba(0,0,0,0.12); border:1px solid var(--border); }
+.walker-card-top { display:flex; align-items:center; gap:11px; margin-bottom:10px; }
+.walker-avatar { width:46px; height:46px; border-radius:50%; overflow:hidden; flex-shrink:0; border:2px solid var(--blue); }
+.walker-avatar img { width:100%; height:100%; object-fit:cover; object-position:center 15%; }
+.walker-name { font-weight:700; font-size:14px; color:var(--ink); line-height:1.2; }
+.walker-location { font-size:11px; color:var(--muted); margin-top:1px; }
+.walker-stars { font-size:11px; color:#F59E0B; margin-top:2px; }
+.walker-card-note { font-size:12px; color:var(--muted); font-weight:300; line-height:1.45; padding-top:10px; border-top:1px solid var(--border); font-style:italic; }
+
+/* STATS BAR */
+.stats-bar { background:var(--ink); }
+.stats-inner { display:grid; grid-template-columns:repeat(4,1fr); }
+.stat-item { padding:32px 24px; border-right:1px solid rgba(255,255,255,0.08); text-align:center; }
+.stat-item:last-child { border-right:none; }
+.stat-num { font-family:'Bebas Neue',sans-serif; font-size:40px; color:var(--white); line-height:1; margin-bottom:4px; display:block; }
+.stat-label { font-size:12px; font-weight:500; color:rgba(255,255,255,0.4); letter-spacing:0.08em; text-transform:uppercase; }
+
+/* SERVICES */
+.services { padding:96px 0; background:var(--white); }
+.section-header { text-align:center; margin-bottom:52px; }
+.section-header h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(36px,4vw,52px); color:var(--ink); margin-top:12px; line-height:1; }
+.section-header h2 .accent { font-family:'Playfair Display',serif; font-style:italic; color:var(--blue); }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:28px; }
+.service-card { background:var(--cream); border-radius:var(--radius-lg); overflow:hidden; transition:transform 0.3s,box-shadow 0.3s; }
+.service-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.08); }
+.service-card-img { aspect-ratio:4/3; position:relative; overflow:hidden; }
+.service-card-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s; }
+.service-card:hover .service-card-img img { transform:scale(1.04); }
+.service-num { position:absolute; top:14px; left:14px; font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:0.1em; color:var(--white); background:rgba(0,0,0,0.28); padding:3px 10px; border-radius:6px; z-index:2; backdrop-filter:blur(4px); }
+.service-card-body { padding:22px 20px; }
+.service-card-body h3 { font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:0.02em; color:var(--ink); margin-bottom:6px; }
+.service-card-body p { font-size:14px; color:var(--muted); line-height:1.6; font-weight:300; margin-bottom:14px; }
+.service-cta { font-size:13px; font-weight:600; color:var(--blue); text-decoration:none; }
+.service-cta:hover { color:var(--blue-bright); }
+.addons-bar { background:var(--blue); border-radius:var(--radius); padding:18px 28px; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap; }
+.addon-item { font-size:13px; font-weight:500; color:rgba(255,255,255,0.9); display:flex; align-items:center; gap:8px; }
+.addon-dot { width:5px; height:5px; border-radius:50%; background:var(--terra); flex-shrink:0; }
+
+/* MEET US */
+.meet-us { padding:96px 0; background:var(--sand); }
+.meet-inner { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+.meet-photo { border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/5; box-shadow:0 20px 50px rgba(0,0,0,0.1); position:relative; }
+.meet-photo img { width:100%; height:100%; object-fit:cover; object-position:center 15%; display:block; }
+.meet-photo-caption { position:absolute; bottom:20px; left:20px; right:20px; background:var(--white); border-radius:10px; padding:12px 16px; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+.caption-name { font-weight:700; font-size:14px; color:var(--ink); }
+.caption-sub { font-size:12px; color:var(--muted); margin-top:1px; }
+.meet-copy .eyebrow { margin-bottom:16px; }
+.meet-copy h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(32px,3.5vw,48px); color:var(--ink); line-height:1; margin-bottom:20px; }
+.meet-copy h2 .accent { font-family:'Playfair Display',serif; font-style:italic; color:var(--blue); }
+.meet-copy p { font-size:15px; color:var(--muted); line-height:1.75; font-weight:300; margin-bottom:18px; }
+.meet-quote { border-left:3px solid var(--terra); padding:14px 20px; background:var(--terra-pale); border-radius:0 8px 8px 0; margin-bottom:28px; }
+.meet-quote p { font-family:'Playfair Display',serif; font-style:italic; font-size:16px; color:var(--ink); line-height:1.6; margin:0; }
+.meet-cta-row { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+.meet-book-btn { display:inline-flex; align-items:center; padding:14px 28px; background:var(--blue); color:var(--white); border-radius:8px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:15px; text-decoration:none; transition:all 0.2s; }
+.meet-book-btn:hover { background:var(--blue-bright); transform:translateY(-1px); box-shadow:0 8px 24px rgba(31,95,166,0.25); }
+.meet-ig-link { font-size:14px; font-weight:500; color:var(--muted); text-decoration:none; }
+.meet-ig-link:hover { color:var(--blue); }
+
+/* NEIGHBORHOODS */
+.neighborhoods { padding:64px 0; background:var(--blue); }
+.neighborhoods-inner { display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+.neighborhoods-label { font-family:'Bebas Neue',sans-serif; font-size:clamp(20px,2.2vw,28px); color:rgba(255,255,255,0.45); letter-spacing:0.04em; white-space:nowrap; }
+.neighborhoods-list { display:flex; gap:10px; flex-wrap:wrap; }
+.hood-pill { padding:9px 18px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); border-radius:100px; font-size:14px; font-weight:500; color:var(--white); white-space:nowrap; transition:all 0.2s; }
+.hood-pill:hover { background:rgba(255,255,255,0.18); }
+.hood-pill.active { background:var(--white); color:var(--blue); font-weight:600; }
+.neighborhoods-cta a { display:inline-block; padding:12px 24px; background:var(--terra); color:var(--white); border-radius:8px; font-weight:600; font-size:14px; text-decoration:none; transition:all 0.2s; white-space:nowrap; }
+.neighborhoods-cta a:hover { background:#b55a3f; transform:translateY(-1px); }
+
+/* GIVING */
+.giving { padding:80px 0; background:var(--terra); position:relative; overflow:hidden; }
+.giving::before { content:''; position:absolute; top:-80px; right:-80px; width:360px; height:360px; background:radial-gradient(circle,rgba(255,255,255,0.07) 0%,transparent 70%); pointer-events:none; }
+.giving-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; position:relative; z-index:2; }
+.giving-chico { text-align:center; }
+.giving-chico img { width:160px; display:block; margin:0 auto 20px; mix-blend-mode:multiply; filter:drop-shadow(0 4px 20px rgba(0,0,0,0.15)); }
+.giving-chico-line { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(22px,3vw,32px); color:var(--white); line-height:1.35; }
+.giving-copy h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(30px,3.5vw,46px); color:var(--white); line-height:1; margin-bottom:16px; }
+.giving-copy h2 .soft { font-family:'Playfair Display',serif; font-style:italic; font-size:0.88em; }
+.giving-copy p { font-size:15px; color:rgba(255,255,255,0.82); line-height:1.75; font-weight:300; }
+
+/* BOOKING */
+.booking { padding:96px 0; background:var(--cream); }
+.booking-wrapper { max-width:600px; margin:0 auto; }
+.booking-header { text-align:center; margin-bottom:36px; }
+.booking-header h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(32px,4vw,52px); color:var(--ink); margin-top:12px; line-height:1; }
+.booking-header h2 .accent { font-family:'Playfair Display',serif; font-style:italic; color:var(--blue); }
+.booking-header p { font-size:15px; color:var(--muted); margin-top:10px; font-weight:300; line-height:1.6; }
+.booking-services { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:18px; }
+.booking-service { padding:18px 10px; border:2px solid var(--border); border-radius:var(--radius); background:var(--white); text-align:center; cursor:pointer; transition:all 0.2s; }
+.booking-service:hover { border-color:var(--blue); }
+.booking-service.active { border-color:var(--blue); background:var(--blue); }
+.booking-service-icon { font-size:26px; display:block; margin-bottom:6px; }
+.booking-service-name { font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:0.04em; color:var(--ink); display:block; }
+.booking-service.active .booking-service-name { color:var(--white); }
+.booking-card { background:var(--white); border-radius:var(--radius-lg); padding:32px; border:1px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,0.04); }
+.booking-desc { font-size:14px; color:var(--muted); font-weight:300; line-height:1.65; margin-bottom:22px; }
+.book-now-btn { display:block; width:100%; padding:17px; background:var(--blue); color:var(--white); border:none; border-radius:10px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:16px; cursor:pointer; text-decoration:none; text-align:center; transition:all 0.25s; }
+.book-now-btn:hover { background:var(--blue-bright); transform:translateY(-2px); box-shadow:0 10px 28px rgba(31,95,166,0.28); }
+.book-sub { margin-top:11px; font-size:12px; color:var(--muted-light); text-align:center; }
+.book-rescue { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:18px; padding:11px 16px; background:var(--terra-pale); border-radius:8px; font-size:13px; font-weight:500; color:var(--terra); }
+
+/* FAQ */
+.faq { padding:96px 0; background:var(--sand); }
+.faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 48px; max-width:960px; margin:0 auto; }
+.faq-item { border-bottom:1px solid var(--border); cursor:pointer; }
+.faq-col .faq-item:first-child { border-top:1px solid var(--border); }
+.faq-item:hover { background:rgba(31,95,166,0.02); }
+.faq-question { display:flex; justify-content:space-between; align-items:center; padding:20px 4px; gap:16px; }
+.faq-question span:first-child { font-size:15px; font-weight:500; color:var(--ink); line-height:1.4; }
+.faq-icon { font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--blue); flex-shrink:0; transition:transform 0.3s; width:24px; text-align:center; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+.faq-answer { max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
+.faq-item.open .faq-answer { max-height:220px; }
+.faq-answer p { padding:0 4px 20px; font-size:14px; color:var(--muted); line-height:1.7; font-weight:300; }
+
+/* INSTAGRAM */
+.instagram { padding:96px 0; background:var(--blue-wash); }
+.ig-carousel-wrap { position:relative; margin-bottom:28px; }
+.ig-carousel { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; padding:4px; }
+.ig-carousel::-webkit-scrollbar { display:none; }
+.ig-slide { flex:0 0 calc(25% - 9px); aspect-ratio:1; border-radius:var(--radius); overflow:hidden; scroll-snap-align:start; cursor:pointer; transition:transform 0.3s; }
+.ig-slide:hover { transform:scale(1.02); }
+.ig-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.ig-dots { display:flex; justify-content:center; gap:8px; margin-top:18px; }
+.ig-dot { width:8px; height:8px; border-radius:50%; background:rgba(31,95,166,0.2); border:none; padding:0; cursor:pointer; transition:all 0.25s; }
+.ig-dot.active { background:var(--blue); width:24px; border-radius:100px; }
+.ig-arrow { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; background:var(--white); border:1px solid var(--border); box-shadow:0 4px 16px rgba(0,0,0,0.08); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--blue); z-index:5; transition:all 0.2s; }
+.ig-arrow:hover { background:var(--blue); color:var(--white); transform:translateY(-50%) scale(1.08); }
+.ig-arrow.prev { left:-12px; }
+.ig-arrow.next { right:-12px; }
+.ig-cta { text-align:center; }
+
+/* FOOTER */
+.footer { background:var(--ink); padding:60px 0 0; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.08); }
+.footer-brand .nav-logo .hello, .footer-brand .nav-logo .doggo { color:var(--white); }
+.footer-tagline { font-size:14px; color:rgba(255,255,255,0.45); margin-top:12px; font-weight:300; line-height:1.65; }
+.footer-mission { margin-top:14px; font-size:14px; color:var(--terra); font-weight:500; }
+.footer-col h4 { font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:0.1em; color:rgba(255,255,255,0.35); margin-bottom:16px; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:10px; }
+.footer-col ul a { text-decoration:none; font-size:14px; color:rgba(255,255,255,0.6); transition:color 0.2s; font-weight:300; }
+.footer-col ul a:hover { color:var(--white); }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; padding:24px 0; }
+.footer-copy { font-size:13px; color:rgba(255,255,255,0.3); font-weight:300; }
+.footer-handle { font-size:13px; color:var(--blue-light); text-decoration:none; font-weight:500; }
+
+/* ANIMATIONS */
+.fade-in { opacity:0; transform:translateY(18px); transition:opacity 0.6s ease,transform 0.6s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-visual{height:56vw;max-height:460px;order:-1;}
+  .hero-content{padding:44px 24px 52px;}
+  .live-badge,.walker-card{display:none;}
+  .services-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto 28px;}
+  .meet-inner{grid-template-columns:1fr;gap:40px;}
+  .meet-photo{aspect-ratio:4/3;max-width:460px;margin:0 auto;}
+  .giving-inner{grid-template-columns:1fr;gap:40px;text-align:center;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .stat-item:nth-child(2){border-right:none;}
+  .stat-item{padding:24px 16px;}
+  .neighborhoods-inner{flex-direction:column;gap:24px;text-align:center;}
+  .neighborhoods-label{display:none;}
+  .neighborhoods-list{justify-content:center;}
+  .faq-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  .booking-services{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .nav-links{display:none;}
+  .nav-cta-mobile{display:block;background:var(--blue);color:var(--white);padding:10px 18px;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;text-decoration:none;}
+  .stat-num{font-size:34px;}
+  .addons-bar{gap:14px;padding:14px 18px;}
+  .addon-item{font-size:12px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center;}
+  .ig-slide{flex:0 0 calc(80% - 9px);}
+  .ig-arrow{display:none;}
+  .meet-cta-row{flex-direction:column;align-items:flex-start;}
+}
+@media(min-width:601px) and (max-width:960px){
+  .ig-slide{flex:0 0 calc(50% - 6px);}
+  .ig-arrow{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><span class="hello">Hello</span><span class="doggo">DOGGO</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#meet-us">Meet Us</a></li>
+      <li><a href="#giving">Giving Back</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#booking" class="nav-cta">Book a Walk</a></li>
+    </ul>
+    <a href="#booking" class="nav-cta-mobile">Book Now</a>
+  </div>
+</nav>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>DOG WALKING</span><span class="dot">✦</span><span>BOARDING</span><span class="dot">✦</span><span>DROP-IN VISITS</span><span class="dot">✦</span><span>WALK A DOG, FEED A DOG</span><span class="dot">✦</span><span>GLASSELL PARK</span><span class="dot">✦</span><span>SILVER LAKE</span><span class="dot">✦</span><span>ECHO PARK</span><span class="dot">✦</span><span>HIGHLAND PARK</span><span class="dot">✦</span><span>EAGLE ROCK</span><span class="dot">✦</span><span>ATWATER VILLAGE</span><span class="dot">✦</span><span>GLENDALE</span><span class="dot">✦</span><span>PASADENA</span><span class="dot">✦</span><span>DOG WALKING</span><span class="dot">✦</span><span>BOARDING</span><span class="dot">✦</span><span>DROP-IN VISITS</span><span class="dot">✦</span><span>WALK A DOG, FEED A DOG</span><span class="dot">✦</span><span>GLASSELL PARK</span><span class="dot">✦</span><span>SILVER LAKE</span><span class="dot">✦</span><span>ECHO PARK</span><span class="dot">✦</span><span>HIGHLAND PARK</span><span class="dot">✦</span><span>EAGLE ROCK</span><span class="dot">✦</span><span>ATWATER VILLAGE</span><span class="dot">✦</span><span>GLENDALE</span><span class="dot">✦</span><span>PASADENA</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-content fade-in">
+    <div class="eyebrow hero-eyebrow">Northeast Los Angeles · Walk a dog, feed a dog. ♥</div>
+    <h1>
+      <span class="hero-line-1">Your Doggo</span>
+      <span class="hero-line-2">deserves</span>
+      <span class="hero-line-3">the good life.</span>
+    </h1>
+    <p class="hero-body">We're two dog people in your neighborhood. Background checked, photo updates from every walk, and every booking feeds a rescue dog in LA.</p>
+
+    <div class="hero-widget">
+      <div class="widget-label">What do you need?</div>
+      <div class="widget-services">
+        <div class="widget-service active" onclick="selectService(this,'walking','Book a Walk →')">
+          <span class="widget-service-icon">🦮</span><span class="widget-service-name">Walking</span>
+        </div>
+        <div class="widget-service" onclick="selectService(this,'dropin','Book a Drop-In →')">
+          <span class="widget-service-icon">🏠</span><span class="widget-service-name">Drop-In</span>
+        </div>
+        <div class="widget-service" onclick="selectService(this,'boarding','Book Boarding →')">
+          <span class="widget-service-icon">🌙</span><span class="widget-service-name">Boarding</span>
+        </div>
+        <div class="widget-service" onclick="selectService(this,'sitting','Book Sitting →')">
+          <span class="widget-service-icon">🛋️</span><span class="widget-service-name">Sitting</span>
+        </div>
+      </div>
+      <a class="widget-book-btn" id="hero-btn" href="https://calendly.com/hellodoggo" target="_blank">Book a Walk →</a>
+      <div class="widget-sub">Free meet &amp; greet · No app · No account needed</div>
+    </div>
+
+    <div class="trust-pills">
+      <span class="trust-pill"><span class="pill-dot"></span>Background checked</span>
+      <span class="trust-pill"><span class="pill-dot"></span>Photo updates every walk</span>
+      <span class="trust-pill"><span class="pill-dot"></span>Local to NELA</span>
+      <span class="trust-pill"><span class="pill-dot"></span>Every booking feeds a rescue dog</span>
+    </div>
+  </div>
+
+  <div class="hero-visual fade-in" style="animation-delay:0.15s">
+    <img class="hero-photo" src="hero.jpg" alt="Dog walker with dog in Northeast LA">
+    <div class="live-badge"><span class="live-dot"></span><span>Taking bookings now</span></div>
+    <div class="walker-card">
+      <div class="walker-card-top">
+        <div class="walker-avatar">
+          <img src="IMG_8563.jpeg" alt="Alejandra">
+        </div>
+        <div>
+          <div class="walker-name">Alejandra</div>
+          <div class="walker-location">Glassell Park, NELA</div>
+          <div class="walker-stars">★★★★★ 5.0</div>
+        </div>
+      </div>
+      <div class="walker-card-note">"Knows every good sniffing spot in the neighborhood."</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-num">5mi</span><span class="stat-label">Hyperlocal, Northeast LA</span></div>
+    <div class="stat-item"><span class="stat-num">♥</span><span class="stat-label">Every booking feeds a rescue dog</span></div>
+    <div class="stat-item"><span class="stat-num">✓</span><span class="stat-label">Background checked</span></div>
+    <div class="stat-item"><span class="stat-num">📸</span><span class="stat-label">Photos from every single walk</span></div>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">What we offer</div>
+      <h2>Everything your Doggo <span class="accent">deserves.</span></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-card-img">
+          <span class="service-num">01</span>
+          <img src="IMG_8547.jpeg" alt="Alejandra walking a dog on a Northeast LA sidewalk" style="object-position:center 40%;">
+        </div>
+        <div class="service-card-body">
+          <h3>Dog Walking</h3>
+          <p>30 or 60-minute walks on the streets your dog already knows. Photo update mid-walk, full report when we're done.</p>
+          <a href="#booking" class="service-cta">Book a walk →</a>
+        </div>
+      </div>
+      <div class="service-card fade-in" style="animation-delay:0.1s">
+        <div class="service-card-img">
+          <span class="service-num">02</span>
+          <img src="dog-fluffy-two.jpg" alt="Dog at home during a drop-in visit">
+        </div>
+        <div class="service-card-body">
+          <h3>Drop-In Visit</h3>
+          <p>20 or 30-minute check-in at your place. Feeding, potty break, playtime, and a photo so you know they're good.</p>
+          <a href="#booking" class="service-cta">Book a drop-in →</a>
+        </div>
+      </div>
+      <div class="service-card fade-in" style="animation-delay:0.2s">
+        <div class="service-card-img">
+          <span class="service-num">03</span>
+          <img src="dog-husky-red.jpg" alt="Dog at home for overnight boarding">
+        </div>
+        <div class="service-card-body">
+          <h3>Overnight Boarding</h3>
+          <p>Your dog sleeps in a real home in your neighborhood. Evening walk, morning walk, full attention. No kennels, ever.</p>
+          <a href="#booking" class="service-cta">Book boarding →</a>
+        </div>
+      </div>
+    </div>
+    <div class="addons-bar">
+      <span class="addon-item"><span class="addon-dot"></span>Pick-up &amp; drop-off available</span>
+      <span class="addon-item"><span class="addon-dot"></span>Free meet &amp; greet before first booking</span>
+      <span class="addon-item"><span class="addon-dot"></span>Recurring weekly bookings welcome</span>
+      <span class="addon-item"><span class="addon-dot"></span>Secure home entry</span>
+    </div>
+  </div>
+</section>
+
+<section class="meet-us" id="meet-us">
+  <div class="container">
+    <div class="meet-inner">
+      <div class="meet-photo fade-in">
+        <img src="IMG_8563.jpeg" alt="Alejandra with a dog against a bougainvillea wall in Northeast LA">
+        <div class="meet-photo-caption">
+          <div class="caption-name">Alejandra · Glassell Park</div>
+          <div class="caption-sub">Walking dogs in NELA since day one</div>
+        </div>
+      </div>
+      <div class="meet-copy fade-in" style="animation-delay:0.1s">
+        <div class="eyebrow">Two neighbors, one mission</div>
+        <h2>Not an app.<br><span class="accent">An actual person.</span></h2>
+        <p>Hello Doggo is Luis and Alejandra, two people who live in Northeast LA, love dogs, and got tired of watching pet parents hand their dog's leash to a stranger dispatched from across town.</p>
+        <p>We walk dogs on the same streets we walk every day. We know the corner that makes every dog lose their mind. We know which yards have the good smells. Your dog isn't a job to us. They're the whole point.</p>
+        <div class="meet-quote">
+          <p>"We're dog people who happen to walk dogs. That's it. That's the whole thing."</p>
+        </div>
+        <div class="meet-cta-row">
+          <a class="meet-book-btn" href="#booking">Book your first walk →</a>
+          <a class="meet-ig-link" href="https://instagram.com/hellodoggo.co" target="_blank">See us on Instagram ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="neighborhoods">
+  <div class="container">
+    <div class="neighborhoods-inner">
+      <div class="neighborhoods-label">WHERE WE WALK</div>
+      <div class="neighborhoods-list">
+        <span class="hood-pill active">Glassell Park</span>
+        <span class="hood-pill">Silver Lake</span>
+        <span class="hood-pill">Echo Park</span>
+        <span class="hood-pill">Highland Park</span>
+        <span class="hood-pill">Eagle Rock</span>
+        <span class="hood-pill">Atwater Village</span>
+        <span class="hood-pill">Mount Washington</span>
+        <span class="hood-pill">Glendale</span>
+        <span class="hood-pill">Pasadena</span>
+      </div>
+      <div class="neighborhoods-cta"><a href="#booking">Book in your hood →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="giving" id="giving">
+  <div class="container">
+    <div class="giving-inner fade-in">
+      <div class="giving-chico">
+        <img src="chico.png" alt="Chico, Hello Doggo mascot">
+        <div class="giving-chico-line">Walk a dog,<br>feed a dog. ♥</div>
+      </div>
+      <div class="giving-copy">
+        <h2>EVERY BOOKING<br><span class="soft">feeds a rescue dog.</span></h2>
+        <p>When you book a walk, a drop-in, or a boarding stay through Hello Doggo, a dog at an LA rescue shelter gets fed. No extra steps. No opt-in. It just happens, because a business built around dogs should give back to dogs. Your dog gets the good life. Another dog gets a little closer to finding their own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-wrapper">
+      <div class="booking-header fade-in">
+        <div class="eyebrow">Ready when you are</div>
+        <h2>Let's get your Doggo <span class="accent">the good life.</span></h2>
+        <p>Pick a service and book directly. Two minutes, no app, no account. We'll reach out same day to confirm.</p>
+      </div>
+      <div class="fade-in">
+        <div class="booking-services">
+          <div class="booking-service active" onclick="selectBooking(this,'walking',`30 or 60-minute walks in your neighborhood. Photo update mid-walk, full report when we're done.`,'Book a Walk →')">
+            <span class="booking-service-icon">🦮</span><span class="booking-service-name">Walking</span>
+          </div>
+          <div class="booking-service" onclick="selectBooking(this,'dropin',`20 or 30-minute in-home check-in. Feeding, potty break, playtime, and a photo so you know they're happy.`,'Book a Drop-In →')">
+            <span class="booking-service-icon">🏠</span><span class="booking-service-name">Drop-In</span>
+          </div>
+          <div class="booking-service" onclick="selectBooking(this,'boarding',`Your dog sleeps in a real NELA home. Evening walk, morning walk, constant attention. No kennels, ever.`,'Book Boarding →')">
+            <span class="booking-service-icon">🌙</span><span class="booking-service-name">Boarding</span>
+          </div>
+          <div class="booking-service" onclick="selectBooking(this,'sitting',`We come to your home and stay with your dog. No unfamiliar spaces, no stress, no strangers.`,'Book Sitting →')">
+            <span class="booking-service-icon">🛋️</span><span class="booking-service-name">Sitting</span>
+          </div>
+        </div>
+        <div class="booking-card">
+          <p class="booking-desc" id="booking-desc">30 or 60-minute walks in your neighborhood. Photo update mid-walk, full report when we're done.</p>
+          <a class="book-now-btn" id="booking-btn" href="https://calendly.com/hellodoggo" target="_blank">Book a Walk →</a>
+          <div class="book-sub">We'll confirm same day · Free meet &amp; greet available · No commitment</div>
+          <div class="book-rescue">♥ Every booking feeds a rescue dog in LA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Questions</div>
+      <h2>Good questions, <span class="accent">real answers.</span></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-col">
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>What is Hello Doggo Booking Protection?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Every booking through Hello Doggo includes Booking Protection, marketplace coverage for vet costs if your dog is injured during an active booking. It's built into every walk, drop-in, and boarding stay automatically.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>How do I know my dog is safe?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>We're background checked and we're your actual neighbors, not strangers dispatched from another zip code. You get photo updates during every walk and a full report when we're done.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>Can we meet first?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Yes, and we love doing it. Free meet and greet before your first booking. No strings attached. Especially recommended before a boarding stay.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>What if I need to cancel?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>We ask for at least 24 hours notice so we can open the slot for someone else. Cancel with enough notice and there's no charge. Last-minute cancellations may be billed at the full rate.</p></div></div>
+      </div>
+      <div class="faq-col">
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>Can I book the same person every time?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>That's the whole point. Consistency matters. Your dog should know who's coming to the door. Just let us know and we'll make it the same person every time.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>How does the rescue dog donation work?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Every completed booking triggers a $0.50 donation to an LA rescue org. We rotate partners monthly and post updates on Instagram so you see exactly where it goes.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>Do you do recurring bookings?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Absolutely. Most of our clients are on a regular schedule. Same walker, same time, same route. Tell us what works and we'll lock it in.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>What neighborhoods do you cover?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>We're based in Glassell Park and cover surrounding NELA: Silver Lake, Echo Park, Highland Park, Eagle Rock, Atwater Village, Mount Washington, Glendale, and Pasadena. Not sure if you're in range? Just message us.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="instagram" id="instagram">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Follow along</div>
+      <h2>Dogs of <span class="accent">Northeast LA.</span></h2>
+    </div>
+    <div class="ig-carousel-wrap fade-in">
+      <button class="ig-arrow prev" id="ig-prev">←</button>
+      <div class="ig-carousel" id="ig-carousel">
+        <div class="ig-slide"><img src="nidia-walking.jpg" alt="Alejandra walking a dog in NELA"></div>
+        <div class="ig-slide"><img src="dog-husky-red.jpg" alt="Happy dog on a walk"></div>
+        <div class="ig-slide"><img src="IMG_8560.jpeg" alt="Golden dog against bougainvillea wall in Northeast LA"></div>
+        <div class="ig-slide"><img src="dog-husky-sit.jpg" alt="Dog on a NELA sidewalk"></div>
+        <div class="ig-slide"><img src="walk-glassell.jpg" alt="Dog walk in Glassell Park"></div>
+        <div class="ig-slide"><img src="dog-aussie.jpg" alt="Australian shepherd on a walk"></div>
+        <div class="ig-slide"><img src="dog-pom.jpg" alt="Pomeranian on a walk"></div>
+      </div>
+      <button class="ig-arrow next" id="ig-next">→</button>
+      <div class="ig-dots" id="ig-dots">
+        <button class="ig-dot active" data-slide="0"></button>
+        <button class="ig-dot" data-slide="1"></button>
+        <button class="ig-dot" data-slide="2"></button>
+        <button class="ig-dot" data-slide="3"></button>
+        <button class="ig-dot" data-slide="4"></button>
+        <button class="ig-dot" data-slide="5"></button>
+        <button class="ig-dot" data-slide="6"></button>
+      </div>
+    </div>
+    <div class="ig-cta fade-in">
+      <a href="https://instagram.com/hellodoggo.co" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;text-decoration:none;background:var(--blue);color:var(--white);transition:all 0.25s;">Follow @hellodoggo.co</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo"><span class="hello">Hello</span><span class="doggo">DOGGO</span></a>
+        <img src="chico.png" alt="Chico" style="width:72px;height:auto;display:block;margin:16px 0 4px;mix-blend-mode:multiply;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.15));">
+        <p class="footer-tagline">Dog walking, boarding, and drop-in visits in Northeast Los Angeles. Two neighbors who actually love your dog.</p>
+        <p class="footer-mission">Walk a dog, feed a dog. ♥</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICES</h4>
+        <ul>
+          <li><a href="#booking">Dog Walking</a></li>
+          <li><a href="#booking">Drop-In Visits</a></li>
+          <li><a href="#booking">Overnight Boarding</a></li>
+          <li><a href="#booking">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONNECT</h4>
+        <ul>
+          <li><a href="https://instagram.com/hellodoggo.co" target="_blank">Instagram</a></li>
+          <li><a href="mailto:hi@hellodoggo.co">hi@hellodoggo.co</a></li>
+          <li><a href="/walk">Walk with us</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>WHERE WE WALK</h4>
+        <ul>
+          <li><a href="#booking">Glassell Park</a></li>
+          <li><a href="#booking">Silver Lake</a></li>
+          <li><a href="#booking">Echo Park</a></li>
+          <li><a href="#booking">Highland Park</a></li>
+          <li><a href="#booking">Eagle Rock</a></li>
+          <li><a href="#booking">Atwater Village</a></li>
+          <li><a href="#booking">Glendale</a></li>
+          <li><a href="#booking">Pasadena</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Hello Doggo · Northeast Los Angeles</span>
+      <a href="https://hellodoggo.co" class="footer-handle">hellodoggo.co</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const CALENDLY = 'https://calendly.com/hellodoggo'; // ← swap your real Calendly link here
+
+function selectService(el, service, label) {
+  document.querySelectorAll('.widget-service').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  const btn = document.getElementById('hero-btn');
+  btn.textContent = label;
+  btn.href = CALENDLY + '?service=' + service;
+}
+
+const bookingDescs = {
+  walking: "30 or 60-minute walks in your neighborhood. Photo update mid-walk, full report when we're done.",
+  dropin: "20 or 30-minute in-home check-in. Feeding, potty break, playtime, and a photo so you know they're happy.",
+  boarding: "Your dog sleeps in a real NELA home. Evening walk, morning walk, constant attention. No kennels, ever.",
+  sitting: "We come to your home and stay with your dog. No unfamiliar spaces, no stress, no strangers."
+};
+
+function selectBooking(el, service, desc, label) {
+  document.querySelectorAll('.booking-service').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('booking-desc').textContent = desc;
+  const btn = document.getElementById('booking-btn');
+  btn.textContent = label;
+  btn.href = CALENDLY + '?service=' + service;
+}
+
+function toggleFaq(el) {
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+
+(function() {
+  const carousel = document.getElementById('ig-carousel');
+  const prev = document.getElementById('ig-prev');
+  const next = document.getElementById('ig-next');
+  const dots = document.querySelectorAll('.ig-dot');
+  if (!carousel) return;
+  const slides = carousel.querySelectorAll('.ig-slide');
+
+  function getIndex() {
+    let closest = 0, minDist = Infinity;
+    slides.forEach((s, i) => {
+      const d = Math.abs(s.offsetLeft - carousel.offsetLeft - carousel.scrollLeft);
+      if (d < minDist) { minDist = d; closest = i; }
+    });
+    return closest;
+  }
+
+  function goTo(i) {
+    const s = slides[i];
+    if (s) carousel.scrollTo({ left: s.offsetLeft - carousel.offsetLeft, behavior: 'smooth' });
+  }
+
+  function syncDots() {
+    const i = getIndex();
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+  }
+
+  let t;
+  carousel.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(syncDots, 80); });
+  prev.addEventListener('click', () => goTo(Math.max(0, getIndex() - 1)));
+  next.addEventListener('click', () => goTo(Math.min(slides.length - 1, getIndex() + 1)));
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+})();
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
