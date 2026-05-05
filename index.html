@@ -180,6 +180,28 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
 .giving-copy h2 .soft { font-family:'Playfair Display',serif; font-style:italic; font-size:0.88em; }
 .giving-copy p { font-size:15px; color:rgba(255,255,255,0.82); line-height:1.75; font-weight:300; }
 
+/* PRICING */
+.pricing { padding:96px 0; background:var(--white); }
+.pricing-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px; }
+.pricing-card { background:var(--cream); border-radius:var(--radius-lg); padding:28px 20px; border:1px solid var(--border); transition:all 0.2s; }
+.pricing-card:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,0.07); }
+.pricing-card.featured { background:var(--blue); border-color:var(--blue); }
+.pricing-icon { font-size:28px; margin-bottom:12px; display:block; }
+.pricing-service { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:0.02em; color:var(--ink); margin-bottom:16px; display:block; }
+.pricing-card.featured .pricing-service { color:var(--white); }
+.pricing-rows { display:flex; flex-direction:column; gap:8px; }
+.pricing-row { display:flex; justify-content:space-between; align-items:center; }
+.pricing-label { font-size:13px; color:var(--muted); font-weight:400; }
+.pricing-card.featured .pricing-label { color:rgba(255,255,255,0.7); }
+.pricing-amount { font-family:'Bebas Neue',sans-serif; font-size:18px; color:var(--ink); letter-spacing:0.02em; }
+.pricing-card.featured .pricing-amount { color:var(--white); }
+.pricing-addon { margin-top:14px; padding-top:14px; border-top:1px solid var(--border); font-size:12px; color:var(--muted); font-weight:400; }
+.pricing-card.featured .pricing-addon { border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.6); }
+.pricing-note { text-align:center; font-size:13px; color:var(--muted-light); font-weight:300; }
+.pricing-note span { color:var(--terra); }
+@media(max-width:960px){ .pricing-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:500px){ .pricing-grid{grid-template-columns:1fr;} }
+
 /* BOOKING */
 .booking { padding:96px 0; background:var(--cream); }
 .booking-wrapper { max-width:600px; margin:0 auto; }
@@ -390,25 +412,26 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
 
 /* Navigation */
 .modal-nav {
-  padding:16px 48px 24px; display:flex; align-items:center;
+  padding:14px 28px 20px; display:flex; align-items:center;
   justify-content:space-between; flex-shrink:0; border-top:1px solid var(--border);
+  gap:12px;
 }
+.modal-rescue-note { font-size:11px; color:var(--terra); font-weight:500; text-align:center; flex:1; }
 .modal-back {
   background:none; border:none; font-family:'DM Sans',sans-serif;
   font-size:14px; font-weight:500; color:var(--muted); cursor:pointer;
-  padding:10px 0; transition:color 0.2s;
+  padding:10px 0; transition:color 0.2s; white-space:nowrap;
 }
 .modal-back:hover { color:var(--ink); }
 .modal-back:disabled { opacity:0; pointer-events:none; }
 .modal-next {
-  padding:12px 32px; background:var(--blue); color:var(--white);
+  padding:12px 24px; background:var(--blue); color:var(--white);
   border:none; border-radius:8px; font-family:'DM Sans',sans-serif;
-  font-weight:700; font-size:15px; cursor:pointer; transition:all 0.2s;
-  display:flex; align-items:center; gap:8px;
+  font-weight:700; font-size:14px; cursor:pointer; transition:all 0.2s;
+  display:flex; align-items:center; gap:6px; white-space:nowrap;
 }
 .modal-next:hover { background:var(--blue-bright); transform:translateY(-1px); box-shadow:0 6px 20px rgba(31,95,166,0.25); }
 .modal-next:disabled { opacity:0.5; transform:none; cursor:not-allowed; box-shadow:none; }
-.modal-rescue-note { font-size:12px; color:var(--terra); font-weight:500; }
 
 /* Success screen */
 .modal-success {
@@ -490,6 +513,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
     <a href="#" class="nav-logo"><span class="hello">Hello</span><span class="doggo">DOGGO</span></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#meet-us">Meet Us</a></li>
       <li><a href="#giving">Giving Back</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -618,6 +642,57 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
       <span class="addon-item"><span class="addon-dot"></span>Recurring weekly bookings welcome</span>
       <span class="addon-item"><span class="addon-dot"></span>Secure home entry</span>
     </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="eyebrow">Transparent pricing</div>
+      <h2>Simple rates. <span class="accent">No surprises.</span></h2>
+    </div>
+    <div class="pricing-grid fade-in">
+      <!-- Walking -->
+      <div class="pricing-card">
+        <span class="pricing-icon">🦮</span>
+        <span class="pricing-service">Dog Walking</span>
+        <div class="pricing-rows">
+          <div class="pricing-row"><span class="pricing-label">20 minutes</span><span class="pricing-amount">$20</span></div>
+          <div class="pricing-row"><span class="pricing-label">30 minutes</span><span class="pricing-amount">$30</span></div>
+          <div class="pricing-row"><span class="pricing-label">60 minutes</span><span class="pricing-amount">$45</span></div>
+        </div>
+        <div class="pricing-addon">+$10 per additional dog</div>
+      </div>
+      <!-- Drop-In -->
+      <div class="pricing-card">
+        <span class="pricing-icon">🏠</span>
+        <span class="pricing-service">Drop-In Visit</span>
+        <div class="pricing-rows">
+          <div class="pricing-row"><span class="pricing-label">20 minutes</span><span class="pricing-amount">$20</span></div>
+          <div class="pricing-row"><span class="pricing-label">30 minutes</span><span class="pricing-amount">$30</span></div>
+        </div>
+        <div class="pricing-addon">We come to you</div>
+      </div>
+      <!-- Boarding -->
+      <div class="pricing-card featured">
+        <span class="pricing-icon">🌙</span>
+        <span class="pricing-service">Overnight Boarding</span>
+        <div class="pricing-rows">
+          <div class="pricing-row"><span class="pricing-label">Per night</span><span class="pricing-amount">$65</span></div>
+        </div>
+        <div class="pricing-addon">+$45/night per additional dog</div>
+      </div>
+      <!-- Sitting -->
+      <div class="pricing-card">
+        <span class="pricing-icon">🛋️</span>
+        <span class="pricing-service">Sitting</span>
+        <div class="pricing-rows">
+          <div class="pricing-row"><span class="pricing-label">Per night</span><span class="pricing-amount">$150</span></div>
+        </div>
+        <div class="pricing-addon">+$45/night per additional dog</div>
+      </div>
+    </div>
+    <p class="pricing-note fade-in">Holiday surcharge of 25% applies on select dates. <span>Free meet &amp; greet before your first booking.</span></p>
   </div>
 </section>
 
@@ -853,28 +928,28 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
             <span class="step-service-icon">🦮</span>
             <div class="step-service-text">
               <span class="step-service-name">Walking</span>
-              <span class="step-service-desc">Out on the neighborhood streets</span>
+              <span class="step-service-desc">From $20 · 20, 30, or 60 min</span>
             </div>
           </div>
           <div class="step-service" onclick="selectStepService(this,'Drop-In')">
             <span class="step-service-icon">🏠</span>
             <div class="step-service-text">
               <span class="step-service-name">Drop-In Visit</span>
-              <span class="step-service-desc">We stop by your place</span>
+              <span class="step-service-desc">From $20 · 20 or 30 min</span>
             </div>
           </div>
           <div class="step-service" onclick="selectStepService(this,'Boarding')">
             <span class="step-service-icon">🌙</span>
             <div class="step-service-text">
               <span class="step-service-name">Overnight Boarding</span>
-              <span class="step-service-desc">Dog stays with us at our home</span>
+              <span class="step-service-desc">$65/night · Dog stays with us</span>
             </div>
           </div>
           <div class="step-service" onclick="selectStepService(this,'Sitting')">
             <span class="step-service-icon">🛋️</span>
             <div class="step-service-text">
               <span class="step-service-name">Sitting</span>
-              <span class="step-service-desc">We stay overnight at your place</span>
+              <span class="step-service-desc">$150/night · We stay with you</span>
             </div>
           </div>
         </div>
@@ -901,7 +976,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
         <img src="chico-transparent.png" alt="Chico" style="width:120px; height:auto; margin:0 auto 24px; display:block;">
         <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(28px,4vw,40px); color:var(--blue); line-height:1; margin-bottom:12px;">YOU'RE ALL SET!</div>
         <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(18px,2.5vw,24px); color:var(--terra); margin-bottom:20px;">Walk a dog, feed a dog. ♥</div>
-        <p style="font-size:15px; color:var(--muted); font-weight:300; line-height:1.7; max-width:340px; margin:0 auto 28px;">We'll review your request and confirm within a few hours. Keep an eye on your email.</p>
+        <p style="font-size:15px; color:var(--muted); font-weight:300; line-height:1.7; max-width:340px; margin:0 auto 28px;">We'll reach out by text or email within a few hours to confirm.</p>
         <button onclick="closeModal()" style="padding:13px 32px; background:var(--blue); color:var(--white); border:none; border-radius:8px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:15px; cursor:pointer; transition:all 0.2s;">Back to Hello Doggo →</button>
       </div>
 
@@ -1041,12 +1116,16 @@ function selectStepService(el, service) {
 function populateDurations() {
   const container = document.getElementById('duration-options');
   const q = document.getElementById('duration-question');
+  const prices = { Walking: {'20':'$20','30':'$30','60':'$45'}, 'Drop-In': {'20':'$20','30':'$30'} };
   const options = selectedService === 'Walking'
     ? [['20','20 min'],['30','30 min'],['60','60 min']]
     : [['20','20 min'],['30','30 min']];
   q.textContent = selectedService === 'Walking' ? 'How long of a walk?' : 'How long of a drop-in?';
   container.innerHTML = options.map(([val, label]) =>
-    `<div class="step-duration ${selectedDuration===val?'active':''}" onclick="selectDuration(this,'${val}')">${label}</div>`
+    `<div class="step-duration ${selectedDuration===val?'active':''}" onclick="selectDuration(this,'${val}')" style="text-align:center;line-height:1.3;">
+      <span style="display:block;">${label}</span>
+      <span style="font-size:14px;opacity:0.75;">${prices[selectedService][val]}</span>
+    </div>`
   ).join('');
 }
 
