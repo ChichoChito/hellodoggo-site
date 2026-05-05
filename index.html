@@ -923,12 +923,28 @@ function getStepIndex() { return getSteps().indexOf(currentStep); }
 // ── Open / Close
 function openModal(e, service) {
   if (e) e.preventDefault();
-  currentStep = 1;
   selectedService = service || '';
   selectedDuration = '';
   document.querySelectorAll('.step-service').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.step-duration').forEach(s => s.classList.remove('active'));
-  document.getElementById('cal-iframe').src = '';
+
+  const container = document.getElementById('cal-inline-container');
+  if (container) container.innerHTML = '';
+
+  // Pre-select service tile if service passed in
+  if (selectedService) {
+    document.querySelectorAll('.step-service').forEach(tile => {
+      if (tile.getAttribute('onclick') && tile.getAttribute('onclick').includes(`'${selectedService}'`)) {
+        tile.classList.add('active');
+      }
+    });
+    // Skip step 1 — go straight to duration or calendar
+    const steps = getSteps();
+    currentStep = steps.length > 1 ? steps[1] : steps[0];
+  } else {
+    currentStep = 1;
+  }
+
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
   updateModal();
@@ -1104,6 +1120,7 @@ function selectService(el, service, label) {
   document.querySelectorAll('.widget-service').forEach(s => s.classList.remove('active'));
   el.classList.add('active');
   document.getElementById('hero-btn').textContent = label;
+  document.getElementById('hero-btn').onclick = (e) => openModal(e, service.charAt(0).toUpperCase() + service.slice(1));
 }
 
 // ── Booking section service selection
@@ -1122,6 +1139,8 @@ function selectBooking(el, service, desc) {
   el.classList.add('active');
   document.getElementById('booking-desc').textContent = desc;
   document.getElementById('booking-btn').textContent = bookingBtnLabels[service] || 'Request a Booking →';
+  const serviceMap = {walking:'Walking', dropin:'Drop-In', boarding:'Boarding', sitting:'Sitting'};
+  document.getElementById('booking-btn').onclick = (e) => openModal(e, serviceMap[service]);
 }
 
 // ── FAQ
