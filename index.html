@@ -10,13 +10,13 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <!-- Open Graph — controls link previews on iMessage, WhatsApp, Twitter, etc. -->
 <meta property="og:title" content="Hello Doggo | Dog Walking & Boarding · Northeast LA">
-<meta property="og:description" content="We're two dog people in your neighborhood. Background checked, photo updates from every walk, and every booking feeds a rescue dog in LA.">
+<meta property="og:description" content="We're two dog people in your neighborhood. Background checked, photo updates from every walk, and every booking feeds a rescue dog.">
 <meta property="og:image" content="https://hellodoggo.co/hero.jpg">
 <meta property="og:url" content="https://hellodoggo.co">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Hello Doggo | Dog Walking & Boarding · Northeast LA">
-<meta name="twitter:description" content="We're two dog people in your neighborhood. Background checked, photo updates from every walk, and every booking feeds a rescue dog in LA.">
+<meta name="twitter:description" content="We're two dog people in your neighborhood. Background checked, photo updates from every walk, and every booking feeds a rescue dog.">
 <meta name="twitter:image" content="https://hellodoggo.co/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -247,6 +247,173 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
 .footer-copy { font-size:13px; color:rgba(255,255,255,0.3); font-weight:300; }
 .footer-handle { font-size:13px; color:var(--blue-light); text-decoration:none; font-weight:500; }
 
+/* ========================
+   BOOKING MODAL — TYPEFORM STYLE
+======================== */
+.modal-overlay {
+  display:none; position:fixed; inset:0; z-index:1000;
+  background:rgba(26,26,46,0.75); backdrop-filter:blur(8px);
+  align-items:center; justify-content:center; padding:16px;
+}
+.modal-overlay.open { display:flex; }
+
+.modal {
+  background:var(--white); border-radius:var(--radius-lg);
+  width:100%; max-width:680px; height:90vh; max-height:720px;
+  position:relative; box-shadow:0 32px 100px rgba(0,0,0,0.25);
+  animation:modal-in 0.28s ease; display:flex; flex-direction:column;
+  overflow:hidden;
+}
+@keyframes modal-in { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+
+/* Progress bar */
+.modal-progress-bar {
+  height:3px; background:var(--border); position:relative; flex-shrink:0;
+}
+.modal-progress-fill {
+  height:100%; background:var(--blue);
+  transition:width 0.4s ease; border-radius:0 2px 2px 0;
+}
+
+/* Header */
+.modal-header {
+  padding:20px 28px 16px; border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  flex-shrink:0;
+}
+.modal-step-label { font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-light); }
+.modal-close {
+  width:32px; height:32px; border-radius:50%; border:1px solid var(--border);
+  background:transparent; cursor:pointer; display:flex; align-items:center;
+  justify-content:center; font-size:18px; color:var(--muted);
+  transition:all 0.2s; line-height:1; flex-shrink:0;
+}
+.modal-close:hover { background:var(--ink); color:var(--white); border-color:var(--ink); }
+
+/* Steps container */
+.modal-steps { flex:1; overflow:hidden; position:relative; }
+.modal-step {
+  position:absolute; inset:0; padding:40px 48px;
+  display:flex; flex-direction:column; justify-content:center;
+  opacity:0; transform:translateX(40px);
+  transition:all 0.35s ease; pointer-events:none;
+}
+.modal-step.active {
+  opacity:1; transform:translateX(0); pointer-events:all;
+}
+.modal-step.exit {
+  opacity:0; transform:translateX(-40px);
+}
+
+/* Step content */
+.step-question {
+  font-family:'Bebas Neue',sans-serif; font-size:clamp(22px,3vw,30px);
+  color:var(--ink); line-height:1.15; margin-bottom:8px; letter-spacing:0.01em;
+}
+.step-sub {
+  font-size:14px; color:var(--muted); font-weight:300; margin-bottom:32px; line-height:1.5;
+}
+
+/* Service tiles — step 1 */
+.step-services { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; }
+.step-service {
+  padding:20px 16px; border:2px solid var(--border); border-radius:var(--radius);
+  background:var(--cream); cursor:pointer; transition:all 0.2s; text-align:left;
+  display:flex; align-items:center; gap:14px;
+}
+.step-service:hover { border-color:var(--blue); background:var(--blue-wash); }
+.step-service.active { border-color:var(--blue); background:var(--blue); }
+.step-service-icon { font-size:24px; flex-shrink:0; }
+.step-service-text { flex:1; min-width:0; }
+.step-service-name { font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:0.02em; color:var(--ink); display:block; line-height:1; }
+.step-service-desc { font-size:12px; color:var(--muted); font-weight:300; margin-top:2px; display:block; }
+.step-service.active .step-service-name,
+.step-service.active .step-service-desc { color:var(--white); }
+
+/* Duration tiles — step 2 */
+.step-durations { display:flex; gap:10px; margin-bottom:32px; flex-wrap:wrap; }
+.step-duration {
+  padding:14px 24px; border:2px solid var(--border); border-radius:8px;
+  background:var(--cream); cursor:pointer; transition:all 0.2s;
+  font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:0.02em; color:var(--ink);
+}
+.step-duration:hover { border-color:var(--blue); }
+.step-duration.active { border-color:var(--blue); background:var(--blue); color:var(--white); }
+
+/* Cal.com embed — step 3 */
+.cal-embed-wrap {
+  flex:1; border-radius:var(--radius); overflow:hidden;
+  border:1px solid var(--border); background:var(--cream);
+  min-height:380px; margin-bottom:24px;
+}
+.cal-embed-wrap iframe {
+  width:100%; height:100%; border:none; display:block;
+}
+.cal-embed-note { font-size:12px; color:var(--muted-light); text-align:center; }
+
+/* Text inputs */
+.step-input, .step-select, .step-textarea {
+  width:100%; padding:16px 18px; border:2px solid var(--border);
+  border-radius:10px; font-family:'DM Sans',sans-serif; font-size:16px;
+  background:var(--cream); color:var(--ink); outline:none;
+  transition:border-color 0.2s; margin-bottom:8px;
+}
+.step-input:focus, .step-select:focus, .step-textarea:focus { border-color:var(--blue); background:var(--white); }
+.step-input.error, .step-select.error { border-color:var(--terra); }
+.step-textarea { resize:vertical; min-height:100px; }
+.step-select {
+  appearance:none; cursor:pointer; padding-right:40px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7A8E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 16px center;
+}
+.step-row2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+
+/* Navigation */
+.modal-nav {
+  padding:16px 48px 24px; display:flex; align-items:center;
+  justify-content:space-between; flex-shrink:0; border-top:1px solid var(--border);
+}
+.modal-back {
+  background:none; border:none; font-family:'DM Sans',sans-serif;
+  font-size:14px; font-weight:500; color:var(--muted); cursor:pointer;
+  padding:10px 0; transition:color 0.2s;
+}
+.modal-back:hover { color:var(--ink); }
+.modal-back:disabled { opacity:0; pointer-events:none; }
+.modal-next {
+  padding:12px 32px; background:var(--blue); color:var(--white);
+  border:none; border-radius:8px; font-family:'DM Sans',sans-serif;
+  font-weight:700; font-size:15px; cursor:pointer; transition:all 0.2s;
+  display:flex; align-items:center; gap:8px;
+}
+.modal-next:hover { background:var(--blue-bright); transform:translateY(-1px); box-shadow:0 6px 20px rgba(31,95,166,0.25); }
+.modal-next:disabled { opacity:0.5; transform:none; cursor:not-allowed; box-shadow:none; }
+.modal-rescue-note { font-size:12px; color:var(--terra); font-weight:500; }
+
+/* Success screen */
+.modal-success {
+  flex:1; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; padding:48px 40px; text-align:center;
+}
+.modal-success-icon { font-size:56px; margin-bottom:20px; }
+.modal-success h3 { font-family:'Bebas Neue',sans-serif; font-size:36px; color:var(--blue); margin-bottom:12px; }
+.modal-success p { font-size:15px; color:var(--muted); font-weight:300; line-height:1.7; max-width:360px; }
+.modal-success-mission { margin-top:20px; font-size:14px; color:var(--terra); font-weight:500; }
+
+.modal-step[data-step="success"] {
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+  .modal-step { padding:28px 24px; }
+  .modal-nav { padding:14px 24px 20px; }
+  .step-services { grid-template-columns:1fr; }
+  .step-row2 { grid-template-columns:1fr; }
+  .modal-overlay { padding:0; align-items:flex-end; }
+}
+
+
 /* ANIMATIONS */
 .fade-in { opacity:0; transform:translateY(18px); transition:opacity 0.6s ease,transform 0.6s ease; }
 .fade-in.visible { opacity:1; transform:translateY(0); }
@@ -305,9 +472,10 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
       <li><a href="#meet-us">Meet Us</a></li>
       <li><a href="#giving">Giving Back</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#booking" class="nav-cta">Book a Walk</a></li>
+<!-- NAV CTA — trigger modal -->
+      <li><a href="#" class="nav-cta" onclick="openModal(event)">Book a Walk</a></li>
     </ul>
-    <a href="#booking" class="nav-cta-mobile">Book Now</a>
+    <a href="#" class="nav-cta-mobile" onclick="openModal(event)">Book Now</a>
   </div>
 </nav>
 
@@ -325,7 +493,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
       <span class="hero-line-2">deserves</span>
       <span class="hero-line-3">the good life.</span>
     </h1>
-    <p class="hero-body">We're two dog people in your neighborhood. Background checked, photo updates from every walk, and every booking feeds a rescue dog in LA.</p>
+    <p class="hero-body">We're two dog people in your neighborhood. Background checked, photo updates from every walk, and every booking feeds a rescue dog.</p>
 
     <div class="hero-widget">
       <div class="widget-label">What do you need?</div>
@@ -343,14 +511,13 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
           <span class="widget-service-icon">🛋️</span><span class="widget-service-name">Sitting</span>
         </div>
       </div>
-      <a class="widget-book-btn" id="hero-btn" href="https://calendly.com/hellodoggo" target="_blank">Book a Walk →</a>
-      <div class="widget-sub">Free meet &amp; greet · No app · No account needed</div>
+      <a class="widget-book-btn" id="hero-btn" href="#" onclick="openModal(event)">Book a Walk →</a>
+      <div class="widget-sub">Free meet &amp; greet · Quick and easy · Book in minutes</div>
     </div>
 
     <div class="trust-pills">
       <span class="trust-pill"><span class="pill-dot"></span>Background checked</span>
       <span class="trust-pill"><span class="pill-dot"></span>Photo updates every walk</span>
-      <span class="trust-pill"><span class="pill-dot"></span>Local to NELA</span>
       <span class="trust-pill"><span class="pill-dot"></span>Every booking feeds a rescue dog</span>
     </div>
   </div>
@@ -445,14 +612,14 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
       </div>
       <div class="meet-copy fade-in" style="animation-delay:0.1s">
         <div class="eyebrow">Two neighbors, one mission</div>
-        <h2>Not an app.<br><span class="accent">An actual person.</span></h2>
+        <h2>Two neighbors.<br><span class="accent">One mission.</span></h2>
         <p>Hello Doggo is Luis and Nidia, two people who live in Northeast LA, love dogs, and got tired of watching pet parents hand their dog's leash to a stranger dispatched from across town.</p>
         <p>We walk dogs on the same streets we walk every day. We know the corner that makes every dog lose their mind. We know which yards have the good smells. Your dog isn't a job to us. They're the whole point.</p>
         <div class="meet-quote">
           <p>"We're dog people who happen to walk dogs. That's it. That's the whole thing."</p>
         </div>
         <div class="meet-cta-row">
-          <a class="meet-book-btn" href="#booking">Book your first walk →</a>
+          <a class="meet-book-btn" href="#" onclick="openModal(event)">Book your first walk →</a>
           <a class="meet-ig-link" href="https://instagram.com/hellodoggo.co" target="_blank">See us on Instagram ↗</a>
         </div>
       </div>
@@ -489,7 +656,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
       </div>
       <div class="giving-copy">
         <h2>EVERY BOOKING<br><span class="soft">feeds a rescue dog.</span></h2>
-        <p>When you book a walk, a drop-in, or a boarding stay through Hello Doggo, a dog at an LA rescue shelter gets fed. No extra steps. No opt-in. It just happens, because a business built around dogs should give back to dogs. Your dog gets the good life. Another dog gets a little closer to finding their own.</p>
+        <p>When you book a walk, a drop-in, or a boarding stay through Hello Doggo, a rescue dog gets fed. No extra steps. No opt-in. It just happens, because a business built around dogs should give back to dogs. Your dog gets the good life. Another dog gets a little closer to finding their own.</p>
       </div>
     </div>
   </div>
@@ -501,28 +668,28 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
       <div class="booking-header fade-in">
         <div class="eyebrow">Ready when you are</div>
         <h2>Let's get your Doggo <span class="accent">the good life.</span></h2>
-        <p>Pick a service and book directly. Quick and easy, no app, no account. We'll reach out same day to confirm.</p>
+        <p>Pick a service and send us a request. Quick and easy, book in minutes. We'll reach out same day to confirm.</p>
       </div>
       <div class="fade-in">
         <div class="booking-services">
-          <div class="booking-service active" onclick="selectBooking(this,'walking',`30 or 60-minute walks in your neighborhood. Photo update mid-walk, full report when we're done.`,'Book a Walk →')">
+          <div class="booking-service active" onclick="selectBooking(this,'walking',`30 or 60-minute walks in your neighborhood. Photo update mid-walk, full report when we're done.`)">
             <span class="booking-service-icon">🦮</span><span class="booking-service-name">Walking</span>
           </div>
-          <div class="booking-service" onclick="selectBooking(this,'dropin',`20 or 30-minute in-home check-in. Feeding, potty break, playtime, and a photo so you know they're happy.`,'Book a Drop-In →')">
+          <div class="booking-service" onclick="selectBooking(this,'dropin',`20 or 30-minute in-home check-in. Feeding, potty break, playtime, and a photo so you know they're happy.`)">
             <span class="booking-service-icon">🏠</span><span class="booking-service-name">Drop-In</span>
           </div>
-          <div class="booking-service" onclick="selectBooking(this,'boarding',`Your dog sleeps in a real NELA home. Evening walk, morning walk, constant attention. No kennels, ever.`,'Book Boarding →')">
+          <div class="booking-service" onclick="selectBooking(this,'boarding',`Your dog sleeps in a real home in your neighborhood. Evening walk, morning walk, constant attention. No kennels, ever.`)">
             <span class="booking-service-icon">🌙</span><span class="booking-service-name">Boarding</span>
           </div>
-          <div class="booking-service" onclick="selectBooking(this,'sitting',`We come to your home and stay with your dog. No unfamiliar spaces, no stress, no strangers.`,'Book Sitting →')">
+          <div class="booking-service" onclick="selectBooking(this,'sitting',`We come to your home and stay with your dog. No unfamiliar spaces, no stress, no strangers.`)">
             <span class="booking-service-icon">🛋️</span><span class="booking-service-name">Sitting</span>
           </div>
         </div>
         <div class="booking-card">
           <p class="booking-desc" id="booking-desc">30 or 60-minute walks in your neighborhood. Photo update mid-walk, full report when we're done.</p>
-          <a class="book-now-btn" id="booking-btn" href="https://calendly.com/hellodoggo" target="_blank">Book a Walk →</a>
+          <button class="book-now-btn" id="booking-btn" onclick="openModal(event)">Request a Walk →</button>
           <div class="book-sub">We'll confirm same day · Free meet &amp; greet available · No commitment</div>
-          <div class="book-rescue">♥ Every booking feeds a rescue dog in LA</div>
+          <div class="book-rescue">♥ Every booking feeds a rescue dog</div>
         </div>
       </div>
     </div>
@@ -544,7 +711,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
       </div>
       <div class="faq-col">
         <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>Can I book the same person every time?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>That's the whole point. Consistency matters. Your dog should know who's coming to the door. Just let us know and we'll make it the same person every time.</p></div></div>
-        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>How does the rescue dog donation work?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Every completed booking triggers a $0.50 donation to an LA rescue org. We rotate partners monthly and post updates on Instagram so you see exactly where it goes.</p></div></div>
+        <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>How does the rescue dog donation work?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Every completed booking triggers a $0.50 donation to a rescue org. We rotate partners monthly and post updates on Instagram so you see exactly where it goes.</p></div></div>
         <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>Do you do recurring bookings?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>Absolutely. Most of our clients are on a regular schedule. Same walker, same time, same route. Tell us what works and we'll lock it in.</p></div></div>
         <div class="faq-item fade-in" onclick="toggleFaq(this)"><div class="faq-question"><span>What neighborhoods do you cover?</span><span class="faq-icon">+</span></div><div class="faq-answer"><p>We're based in Glassell Park and cover surrounding NELA: Silver Lake, Echo Park, Highland Park, Eagle Rock, Atwater Village, Mount Washington, Glendale, and Pasadena. Not sure if you're in range? Just message us.</p></div></div>
       </div>
@@ -636,39 +803,315 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
   </div>
 </footer>
 
-<script>
-const CALENDLY = 'https://calendly.com/hellodoggo'; // ← swap your real Calendly link here
+<!-- ========================
+     BOOKING MODAL — SERVICE PICKER → CAL.COM
+======================== -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
 
+    <!-- Progress bar -->
+    <div class="modal-progress-bar">
+      <div class="modal-progress-fill" id="modal-progress" style="width:50%"></div>
+    </div>
+
+    <!-- Header -->
+    <div class="modal-header">
+      <span class="modal-step-label" id="modal-step-label">Choose your service</span>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+    </div>
+
+    <!-- Steps -->
+    <div class="modal-steps" id="modal-steps">
+
+      <!-- STEP 1: Service -->
+      <div class="modal-step active" data-step="1">
+        <div class="step-question">What does your dog need?</div>
+        <div class="step-sub">Pick a service and we'll show you available times.</div>
+        <div class="step-services">
+          <div class="step-service" onclick="selectStepService(this,'Walking')">
+            <span class="step-service-icon">🦮</span>
+            <div class="step-service-text">
+              <span class="step-service-name">Walking</span>
+              <span class="step-service-desc">Out on the neighborhood streets</span>
+            </div>
+          </div>
+          <div class="step-service" onclick="selectStepService(this,'Drop-In')">
+            <span class="step-service-icon">🏠</span>
+            <div class="step-service-text">
+              <span class="step-service-name">Drop-In Visit</span>
+              <span class="step-service-desc">We stop by your place</span>
+            </div>
+          </div>
+          <div class="step-service" onclick="selectStepService(this,'Boarding')">
+            <span class="step-service-icon">🌙</span>
+            <div class="step-service-text">
+              <span class="step-service-name">Overnight Boarding</span>
+              <span class="step-service-desc">Dog stays with us at our home</span>
+            </div>
+          </div>
+          <div class="step-service" onclick="selectStepService(this,'Sitting')">
+            <span class="step-service-icon">🛋️</span>
+            <div class="step-service-text">
+              <span class="step-service-name">Sitting</span>
+              <span class="step-service-desc">We stay overnight at your place</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Duration (Walking + Drop-In only) -->
+      <div class="modal-step" data-step="2">
+        <div class="step-question" id="duration-question">How long of a walk?</div>
+        <div class="step-sub">Pick the duration that works best.</div>
+        <div class="step-durations" id="duration-options"></div>
+      </div>
+
+      <!-- STEP 3: Cal.com embed -->
+      <div class="modal-step" data-step="3" style="padding:20px 24px 12px; justify-content:flex-start;">
+        <div class="step-question" style="margin-bottom:4px; font-size:clamp(18px,2.5vw,24px);">Pick a date and time.</div>
+        <div class="step-sub" style="margin-bottom:12px;">All times are Los Angeles time. We'll confirm within a few hours.</div>
+        <div class="cal-embed-wrap" id="cal-embed-wrap">
+          <iframe id="cal-iframe" src="" title="Book a time with Hello Doggo" loading="lazy" allow="camera; microphone; fullscreen"></iframe>
+        </div>
+      </div>
+
+      <!-- SUCCESS SCREEN -->
+      <div class="modal-step" data-step="success" style="justify-content:center; align-items:center; text-align:center; padding:40px 40px;">
+        <img src="chico-transparent.png" alt="Chico" style="width:120px; height:auto; margin:0 auto 24px; display:block;">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(28px,4vw,40px); color:var(--blue); line-height:1; margin-bottom:12px;">YOU'RE ALL SET!</div>
+        <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(18px,2.5vw,24px); color:var(--terra); margin-bottom:20px;">Walk a dog, feed a dog. ♥</div>
+        <p style="font-size:15px; color:var(--muted); font-weight:300; line-height:1.7; max-width:340px; margin:0 auto 28px;">We'll review your request and confirm within a few hours. Keep an eye on your email.</p>
+        <button onclick="closeModal()" style="padding:13px 32px; background:var(--blue); color:var(--white); border:none; border-radius:8px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:15px; cursor:pointer; transition:all 0.2s;">Back to Hello Doggo →</button>
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="modal-nav" id="modal-nav">
+      <button class="modal-back" id="modal-back" onclick="prevStep()" disabled>← Back</button>
+      <span class="modal-rescue-note">♥ Every booking feeds a rescue dog</span>
+      <button class="modal-next" id="modal-next" onclick="nextStep()">Next →</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── Cal.com links
+const CAL_LINKS = {
+  'Walking-20':  'https://cal.com/hellodoggo.co/dog-walking-20-min',
+  'Walking-30':  'https://cal.com/hellodoggo.co/dog-walking-30-min',
+  'Walking-60':  'https://cal.com/hellodoggo.co/dog-walking-60-min',
+  'Drop-In-20':  'https://cal.com/hellodoggo.co/drop-in-visit-20-min',
+  'Drop-In-30':  'https://cal.com/hellodoggo.co/drop-in-visit-30-min',
+  'Boarding':    'https://cal.com/hellodoggo.co/dog-boarding-overnight',
+  'Sitting':     'https://cal.com/hellodoggo.co/dog-sitting-overnight',
+};
+
+const NEEDS_DURATION = ['Walking', 'Drop-In'];
+
+let currentStep = 1;
+let selectedService = '';
+let selectedDuration = '';
+
+// ── Step sequence
+function getSteps() {
+  return NEEDS_DURATION.includes(selectedService) ? [1,2,3] : [1,3];
+}
+function getStepIndex() { return getSteps().indexOf(currentStep); }
+
+// ── Open / Close
+function openModal(e, service) {
+  if (e) e.preventDefault();
+  currentStep = 1;
+  selectedService = service || '';
+  selectedDuration = '';
+  document.querySelectorAll('.step-service').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.step-duration').forEach(s => s.classList.remove('active'));
+  document.getElementById('cal-iframe').src = '';
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  updateModal();
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Enter') { const n = document.getElementById('modal-next'); if (n && !n.disabled) nextStep(); }
+});
+
+// ── Update UI
+function updateModal() {
+  const steps = getSteps();
+  const idx = steps.indexOf(currentStep);
+  const total = steps.length;
+  const progress = ((idx + 1) / total) * 100;
+
+  document.getElementById('modal-progress').style.width = progress + '%';
+
+  const labels = { 1: 'Choose your service', 2: 'Choose duration', 3: 'Pick a time' };
+  document.getElementById('modal-step-label').textContent = labels[currentStep];
+
+  // Show correct step
+  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active','exit'));
+  const active = document.querySelector(`.modal-step[data-step="${currentStep}"]`);
+  if (active) active.classList.add('active');
+
+  // Back button
+  document.getElementById('modal-back').disabled = idx === 0;
+
+  // Next button — hide on cal step, it's handled inside Cal.com
+  const nextBtn = document.getElementById('modal-next');
+  if (currentStep === 3) {
+    nextBtn.style.display = 'none';
+  } else {
+    nextBtn.style.display = 'inline-flex';
+    nextBtn.textContent = 'Next →';
+  }
+
+  // Populate duration step
+  if (currentStep === 2) populateDurations();
+
+  // Load Cal.com embed
+  if (currentStep === 3) loadCalEmbed();
+}
+
+// ── Service selection
+function selectStepService(el, service) {
+  document.querySelectorAll('.step-service').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  selectedService = service;
+  selectedDuration = '';
+}
+
+// ── Duration
+function populateDurations() {
+  const container = document.getElementById('duration-options');
+  const q = document.getElementById('duration-question');
+  const options = selectedService === 'Walking'
+    ? [['20','20 min'],['30','30 min'],['60','60 min']]
+    : [['20','20 min'],['30','30 min']];
+  q.textContent = selectedService === 'Walking' ? 'How long of a walk?' : 'How long of a drop-in?';
+  container.innerHTML = options.map(([val, label]) =>
+    `<div class="step-duration ${selectedDuration===val?'active':''}" onclick="selectDuration(this,'${val}')">${label}</div>`
+  ).join('');
+}
+
+function selectDuration(el, duration) {
+  document.querySelectorAll('.step-duration').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  selectedDuration = duration;
+}
+
+// ── Cal.com embed
+function loadCalEmbed() {
+  let key = selectedService;
+  if (NEEDS_DURATION.includes(selectedService) && selectedDuration) {
+    key = `${selectedService}-${selectedDuration}`;
+  }
+  const url = CAL_LINKS[key];
+  if (!url) return;
+  const iframe = document.getElementById('cal-iframe');
+  const embedUrl = `${url}?embed=true&layout=month_view`;
+  if (iframe.src !== embedUrl) iframe.src = embedUrl;
+}
+
+// ── Navigation
+function validateStep() {
+  if (currentStep === 1 && !selectedService) return false;
+  if (currentStep === 2 && !selectedDuration) return false;
+  return true;
+}
+
+function nextStep() {
+  if (!validateStep()) return;
+  const steps = getSteps();
+  const idx = steps.indexOf(currentStep);
+  if (idx >= steps.length - 1) return;
+  const cur = document.querySelector(`.modal-step[data-step="${currentStep}"]`);
+  if (cur) { cur.classList.add('exit'); }
+  setTimeout(() => { currentStep = steps[idx + 1]; updateModal(); }, 200);
+}
+
+function prevStep() {
+  const steps = getSteps();
+  const idx = steps.indexOf(currentStep);
+  if (idx === 0) return;
+  currentStep = steps[idx - 1];
+  updateModal();
+}
+
+// ── Cal.com booking complete listener
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.type === 'cal:booking-successful') {
+    showSuccess();
+  }
+  // Also catch the older event name Cal.com sometimes fires
+  if (e.data && typeof e.data === 'string') {
+    try {
+      const parsed = JSON.parse(e.data);
+      if (parsed.type === 'cal:booking-successful') showSuccess();
+    } catch(err) {}
+  }
+});
+
+function showSuccess() {
+  // Hide all regular steps and nav
+  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('modal-nav').style.display = 'none';
+  document.getElementById('modal-progress').style.width = '100%';
+  document.getElementById('modal-step-label').textContent = 'Booking requested';
+
+  // Show success step
+  const success = document.querySelector('.modal-step[data-step="success"]');
+  if (success) {
+    success.classList.add('active');
+    // Scroll modal to top
+    document.getElementById('modal').scrollTop = 0;
+  }
+}
+
+// ── Hero widget service selection
 function selectService(el, service, label) {
   document.querySelectorAll('.widget-service').forEach(s => s.classList.remove('active'));
   el.classList.add('active');
-  const btn = document.getElementById('hero-btn');
-  btn.textContent = label;
-  btn.href = CALENDLY + '?service=' + service;
+  document.getElementById('hero-btn').textContent = label;
 }
 
+// ── Booking section service selection
 const bookingDescs = {
   walking: "30 or 60-minute walks in your neighborhood. Photo update mid-walk, full report when we're done.",
   dropin: "20 or 30-minute in-home check-in. Feeding, potty break, playtime, and a photo so you know they're happy.",
-  boarding: "Your dog sleeps in a real NELA home. Evening walk, morning walk, constant attention. No kennels, ever.",
-  sitting: "We come to your home and stay with your dog. No unfamiliar spaces, no stress, no strangers."
+  boarding: "Your dog sleeps in a real home in your neighborhood. Evening walk, morning walk, constant attention. No kennels, ever.",
+  sitting: "We come to your home and stay overnight with your dog. No unfamiliar spaces, no stress, no strangers."
 };
-
-function selectBooking(el, service, desc, label) {
+const bookingBtnLabels = {
+  walking:'Request a Walk →', dropin:'Request a Drop-In →',
+  boarding:'Request Boarding →', sitting:'Request Sitting →'
+};
+function selectBooking(el, service, desc) {
   document.querySelectorAll('.booking-service').forEach(s => s.classList.remove('active'));
   el.classList.add('active');
   document.getElementById('booking-desc').textContent = desc;
-  const btn = document.getElementById('booking-btn');
-  btn.textContent = label;
-  btn.href = CALENDLY + '?service=' + service;
+  document.getElementById('booking-btn').textContent = bookingBtnLabels[service] || 'Request a Booking →';
 }
 
+// ── FAQ
 function toggleFaq(el) {
   const wasOpen = el.classList.contains('open');
   document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
   if (!wasOpen) el.classList.add('open');
 }
 
+// ── Instagram carousel
 (function() {
   const carousel = document.getElementById('ig-carousel');
   const prev = document.getElementById('ig-prev');
@@ -676,7 +1119,6 @@ function toggleFaq(el) {
   const dots = document.querySelectorAll('.ig-dot');
   if (!carousel) return;
   const slides = carousel.querySelectorAll('.ig-slide');
-
   function getIndex() {
     let closest = 0, minDist = Infinity;
     slides.forEach((s, i) => {
@@ -685,17 +1127,14 @@ function toggleFaq(el) {
     });
     return closest;
   }
-
   function goTo(i) {
     const s = slides[i];
     if (s) carousel.scrollTo({ left: s.offsetLeft - carousel.offsetLeft, behavior: 'smooth' });
   }
-
   function syncDots() {
     const i = getIndex();
     dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
   }
-
   let t;
   carousel.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(syncDots, 80); });
   prev.addEventListener('click', () => goTo(Math.max(0, getIndex() - 1)));
@@ -703,6 +1142,7 @@ function toggleFaq(el) {
   dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
 })();
 
+// ── Scroll animations
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
