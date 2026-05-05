@@ -424,6 +424,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
   justify-content:center;
   align-items:center;
   text-align:center;
+  display:none;
 }
 
   .modal-step { padding:28px 24px; }
@@ -947,6 +948,9 @@ function openModal(e, service) {
   selectedDuration = '';
   document.querySelectorAll('.step-service').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.step-duration').forEach(s => s.classList.remove('active'));
+  // Reset all steps to visible
+  document.querySelectorAll('.modal-step').forEach(s => { s.style.display = ''; s.classList.remove('active','exit'); });
+  document.getElementById('modal-nav').style.display = 'flex';
 
   const container = document.getElementById('cal-inline-container');
   if (container) container.innerHTML = '';
@@ -1125,18 +1129,27 @@ window.addEventListener('message', function(e) {
 });
 
 function showSuccess() {
-  // Hide all regular steps and nav
-  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+  // Hide all steps and nav
+  document.querySelectorAll('.modal-step').forEach(s => {
+    s.classList.remove('active');
+    s.style.display = 'none';
+  });
   document.getElementById('modal-nav').style.display = 'none';
   document.getElementById('modal-progress').style.width = '100%';
   document.getElementById('modal-step-label').textContent = 'Booking requested';
 
+  // Remove cal-active scrolling mode
+  document.getElementById('modal').classList.remove('cal-active');
+
+  // Clear the cal embed so it doesn't show through
+  const container = document.getElementById('cal-inline-container');
+  if (container) container.innerHTML = '';
+
   // Show success step
   const success = document.querySelector('.modal-step[data-step="success"]');
   if (success) {
+    success.style.display = 'flex';
     success.classList.add('active');
-    // Scroll modal to top
-    document.getElementById('modal').scrollTop = 0;
   }
 }
 
