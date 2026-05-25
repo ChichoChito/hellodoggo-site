@@ -962,12 +962,42 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
         <div class="step-durations" id="duration-options"></div>
       </div>
 
-      <!-- STEP 3: Cal.com embed -->
-      <div class="modal-step" data-step="3" style="padding:20px 24px 12px; justify-content:flex-start;">
-        <div class="step-question" style="margin-bottom:4px; font-size:clamp(18px,2.5vw,24px);">Pick a date and time.</div>
-        <div class="step-sub" style="margin-bottom:12px;">All times are Los Angeles time. We'll confirm within a few hours.</div>
-        <div class="cal-embed-wrap" id="cal-embed-wrap">
-          <div id="cal-inline-container" style="width:100%;height:100%;min-height:500px;"></div>
+      <!-- STEP 3: SMS handoff -->
+      <div class="modal-step" data-step="3" style="padding:40px 32px; justify-content:center; align-items:center; text-align:center;">
+        <div class="step-question" style="margin-bottom:8px;" id="sms-headline">Ready to book your walk?</div>
+        <div class="step-sub" style="margin-bottom:32px;" id="sms-sub">Tap the button to open a pre-filled text message. We'll confirm within a few hours.</div>
+
+        <!-- SMS button — shown on mobile, hidden on desktop -->
+        <a id="sms-link" href="#" style="display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:var(--blue);color:var(--white);border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:16px;transition:all 0.2s;" onclick="handleSMSClick()">
+          💬 Text Us to Book
+        </a>
+
+        <!-- Desktop fallback — shown on non-mobile -->
+        <div id="desktop-fallback" style="display:none; flex-direction:column; align-items:center; gap:12px; margin-bottom:16px;">
+          <div style="font-size:15px;color:var(--muted);font-weight:300;">Text us to book your appointment:</div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <a href="sms:+16617133959" style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.05em;color:var(--blue);text-decoration:none;">(661) 713-3959</a>
+            <button onclick="copyPhone()" id="copy-btn" style="padding:8px 16px;background:var(--cream);border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all 0.2s;">Copy</button>
+          </div>
+          <div style="font-size:13px;color:var(--muted-light);">Open your messages app and text us the details below</div>
+          <div style="background:var(--cream);border-radius:10px;padding:16px 20px;text-align:left;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.8;max-width:340px;border:1px solid var(--border);" id="desktop-message-preview"></div>
+        </div>
+
+        <!-- Phone number fallback -->
+        <div style="margin-top:8px;">
+          <div style="font-size:13px;color:var(--muted-light);margin-bottom:6px;">Or text us directly at</div>
+          <a href="sms:+16617133959" style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--blue);text-decoration:none;">(661) 713-3959</a>
+        </div>
+
+        <!-- What happens next -->
+        <div style="margin-top:32px;padding:20px;background:var(--cream);border-radius:12px;text-align:left;max-width:360px;margin-left:auto;margin-right:auto;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted-light);margin-bottom:12px;">What happens next</div>
+          <div style="font-size:14px;color:var(--muted);font-weight:300;line-height:1.7;">
+            1. Your text opens pre-filled with your booking details<br>
+            2. Hit send — takes 10 seconds<br>
+            3. We confirm within a few hours<br>
+            4. Your doggo gets the good life 🐾
+          </div>
         </div>
       </div>
 
@@ -993,16 +1023,97 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
 </div>
 
 <script>
-// ── Cal.com links
-const CAL_LINKS = {
-  'Walking-20':  'https://cal.com/hellodoggo.co/dog-walking-20-min',
-  'Walking-30':  'https://cal.com/hellodoggo.co/dog-walking-30-min',
-  'Walking-60':  'https://cal.com/hellodoggo.co/dog-walking-60-min',
-  'Drop-In-20':  'https://cal.com/hellodoggo.co/drop-in-visit-20-min',
-  'Drop-In-30':  'https://cal.com/hellodoggo.co/drop-in-visit-30-min',
-  'Boarding':    'https://cal.com/hellodoggo.co/dog-boarding-overnight',
-  'Sitting':     'https://cal.com/hellodoggo.co/dog-sitting-overnight',
+// ── SMS number
+const HELLO_DOGGO_PHONE = '+16617133959';
+
+// ── Service labels for SMS
+const SERVICE_LABELS = {
+  'Walking-20':  'Dog Walking (20 min) — $20',
+  'Walking-30':  'Dog Walking (30 min) — $30',
+  'Walking-60':  'Dog Walking (60 min) — $45',
+  'Drop-In-20':  'Drop-In Visit (20 min) — $20',
+  'Drop-In-30':  'Drop-In Visit (30 min) — $30',
+  'Boarding':    'Overnight Boarding — $65/night',
+  'Sitting':     'Sitting (overnight) — $150/night',
 };
+
+// ── Build pre-filled SMS message
+function buildSMSMessage() {
+  let key = selectedService;
+  if (NEEDS_DURATION.includes(selectedService) && selectedDuration) {
+    key = `${selectedService}-${selectedDuration}`;
+  }
+  const serviceLabel = SERVICE_LABELS[key] || selectedService;
+  const isOvernight = selectedService === 'Boarding' || selectedService === 'Sitting';
+
+  let body;
+  if (isOvernight) {
+    body = `Hi Hello Doggo! I'd like to book:\n\nService: ${serviceLabel}\n\nName:\nDog's name:\nAddress:\nCheck-in date:\nCheck-out date:`;
+  } else {
+    body = `Hi Hello Doggo! I'd like to book:\n\nService: ${serviceLabel}\n\nName:\nDog's name:\nAddress:\nPreferred date & time:`;
+  }
+
+  return encodeURIComponent(body);
+}
+
+// ── Update step 3 UI and SMS link
+function updateSMSStep() {
+  let key = selectedService;
+  if (NEEDS_DURATION.includes(selectedService) && selectedDuration) {
+    key = `${selectedService}-${selectedDuration}`;
+  }
+  const isOvernight = selectedService === 'Boarding' || selectedService === 'Sitting';
+  const mobile = isMobile();
+
+  // Update headline
+  const headlines = { 'Walking':'Ready to book a walk?', 'Drop-In':'Ready to book a drop-in?', 'Boarding':'Ready to book boarding?', 'Sitting':'Ready to book sitting?' };
+  const el = document.getElementById('sms-headline');
+  if (el) el.textContent = headlines[selectedService] || 'Ready to book?';
+
+  // Update sub
+  const sub = document.getElementById('sms-sub');
+  if (sub) sub.textContent = mobile
+    ? 'Tap the button to open a pre-filled text. We\'ll confirm within a few hours.'
+    : 'Text us the details below. We\'ll confirm within a few hours.';
+
+  // Build message
+  const msg = buildSMSMessage();
+
+  if (mobile) {
+    // Show SMS button, hide desktop fallback
+    const smsLink = document.getElementById('sms-link');
+    const desktop = document.getElementById('desktop-fallback');
+    if (smsLink) { smsLink.style.display = 'inline-flex'; smsLink.href = `sms:${HELLO_DOGGO_PHONE}&body=${msg}`; }
+    if (desktop) desktop.style.display = 'none';
+  } else {
+    // Hide SMS button, show desktop fallback
+    const smsLink = document.getElementById('sms-link');
+    const desktop = document.getElementById('desktop-fallback');
+    if (smsLink) smsLink.style.display = 'none';
+    if (desktop) desktop.style.display = 'flex';
+
+    // Show decoded message preview
+    const preview = document.getElementById('desktop-message-preview');
+    if (preview) preview.innerHTML = decodeURIComponent(msg).replace(/\n/g, '<br>');
+  }
+}
+
+// ── Detect mobile
+function isMobile() {
+  return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+}
+
+// ── Copy phone number
+function copyPhone() {
+  navigator.clipboard.writeText('6617133959').then(() => {
+    const btn = document.getElementById('copy-btn');
+    if (btn) { btn.textContent = 'Copied!'; btn.style.color = 'var(--blue)'; setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = 'var(--muted)'; }, 2000); }
+  });
+}
+
+function handleSMSClick() {
+  setTimeout(() => showSuccess(), 800);
+}
 
 const NEEDS_DURATION = ['Walking', 'Drop-In'];
 
@@ -1027,8 +1138,8 @@ function openModal(e, service) {
   document.querySelectorAll('.modal-step').forEach(s => { s.style.display = ''; s.classList.remove('active','exit'); });
   document.getElementById('modal-nav').style.display = 'flex';
 
-  const container = document.getElementById('cal-inline-container');
-  if (container) container.innerHTML = '';
+  
+  
 
   // Pre-select service tile if service passed in
   if (selectedService) {
@@ -1083,7 +1194,7 @@ function updateModal() {
   // Back button
   document.getElementById('modal-back').disabled = idx === 0;
 
-  // Next button — hide on cal step, it's handled inside Cal.com
+  // Next button — on SMS step show "Text Us to Book"
   const nextBtn = document.getElementById('modal-next');
   if (currentStep === 3) {
     nextBtn.style.display = 'none';
@@ -1095,10 +1206,10 @@ function updateModal() {
   // Populate duration step
   if (currentStep === 2) populateDurations();
 
-  // Load Cal.com embed
+  // Update SMS step when on step 3
   if (currentStep === 3) {
-    loadCalEmbed();
-    document.getElementById('modal').classList.add('cal-active');
+    updateSMSStep();
+    document.getElementById('modal').classList.remove('cal-active');
   } else {
     document.getElementById('modal').classList.remove('cal-active');
   }
@@ -1136,41 +1247,8 @@ function selectDuration(el, duration) {
 }
 
 // ── Cal.com embed
-function loadCalEmbed() {
-  let key = selectedService;
-  if (NEEDS_DURATION.includes(selectedService) && selectedDuration) {
-    key = `${selectedService}-${selectedDuration}`;
-  }
-  const url = CAL_LINKS[key];
-  if (!url) return;
 
-  // Extract the cal link path (everything after cal.com/)
-  const calPath = url.replace('https://cal.com/', '');
 
-  // Clear previous embed
-  const container = document.getElementById('cal-inline-container');
-  container.innerHTML = '';
-
-  // Use Cal.com SDK
-  if (window.Cal) {
-    Cal('inline', {
-      elementOrSelector: '#cal-inline-container',
-      calLink: calPath,
-      layout: 'month_view',
-    });
-    Cal('on', {
-      action: 'bookingSuccessful',
-      callback: () => showSuccess(),
-    });
-  } else {
-    // Fallback — direct iframe if SDK not loaded yet
-    const iframe = document.createElement('iframe');
-    iframe.src = url;
-    iframe.style.cssText = 'width:100%;height:100%;min-height:500px;border:none;';
-    iframe.title = 'Book a time with Hello Doggo';
-    container.appendChild(iframe);
-  }
-}
 
 // ── Navigation
 function validateStep() {
@@ -1221,8 +1299,8 @@ function showSuccess() {
   document.getElementById('modal').classList.remove('cal-active');
 
   // Clear the cal embed so it doesn't show through
-  const container = document.getElementById('cal-inline-container');
-  if (container) container.innerHTML = '';
+  
+  
 
   // Show success step
   const success = document.querySelector('.modal-step[data-step="success"]');
@@ -1304,10 +1382,6 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 </script>
-<!-- Cal.com Embed SDK -->
-<script>
-(function(C,A,L){let p=function(a,ar){a.q.push(ar);};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){const api=function(){p(api,arguments);};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}else p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");
-Cal("init", {origin:"https://cal.com"});
-</script>
+<!-- End -->
 </body>
 </html>
