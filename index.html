@@ -976,7 +976,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
         <div id="desktop-fallback" style="display:none; flex-direction:column; align-items:center; gap:12px; margin-bottom:16px;">
           <div style="font-size:15px;color:var(--muted);font-weight:300;">Text us to book your appointment:</div>
           <div style="display:flex;align-items:center;gap:12px;">
-            <a href="sms:+16617133959" style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.05em;color:var(--blue);text-decoration:none;">(661) 713-3959</a>
+            <a href="sms:+12138665946" style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.05em;color:var(--blue);text-decoration:none;">(213) 866-5946</a>
             <button onclick="copyPhone()" id="copy-btn" style="padding:8px 16px;background:var(--cream);border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all 0.2s;">Copy</button>
           </div>
           <div style="font-size:13px;color:var(--muted-light);">Open your messages app and text us the details below</div>
@@ -986,7 +986,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
         <!-- Phone number fallback -->
         <div style="margin-top:8px;">
           <div style="font-size:13px;color:var(--muted-light);margin-bottom:6px;">Or text us directly at</div>
-          <a href="sms:+16617133959" style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--blue);text-decoration:none;">(661) 713-3959</a>
+          <a href="sms:+12138665946" style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--blue);text-decoration:none;">(213) 866-5946</a>
         </div>
 
         <!-- What happens next -->
@@ -1024,7 +1024,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--ink); background:var(--crea
 
 <script>
 // ── SMS number
-const HELLO_DOGGO_PHONE = '+16617133959';
+const HELLO_DOGGO_PHONE = '+12138665946';
 
 // ── Service labels for SMS
 const SERVICE_LABELS = {
@@ -1048,7 +1048,7 @@ function buildSMSMessage() {
 
   let body;
   if (isOvernight) {
-    body = `Hi Hello Doggo! I'd like to book:\n\nService: ${serviceLabel}\n\nName:\nDog's name:\nAddress:\nCheck-in date:\nCheck-out date:`;
+    body = `Hi Hello Doggo! I'd like to book:\n\nService: ${serviceLabel}\n\nName:\nDog's name:\nAddress:\nCheck-in date:\nCheck-in time:\nCheck-out date:`;
   } else {
     body = `Hi Hello Doggo! I'd like to book:\n\nService: ${serviceLabel}\n\nName:\nDog's name:\nAddress:\nPreferred date & time:`;
   }
@@ -1105,7 +1105,7 @@ function isMobile() {
 
 // ── Copy phone number
 function copyPhone() {
-  navigator.clipboard.writeText('6617133959').then(() => {
+  navigator.clipboard.writeText('2138665946').then(() => {
     const btn = document.getElementById('copy-btn');
     if (btn) { btn.textContent = 'Copied!'; btn.style.color = 'var(--blue)'; setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = 'var(--muted)'; }, 2000); }
   });
